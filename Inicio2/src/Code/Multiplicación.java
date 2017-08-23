@@ -9,7 +9,7 @@ public class Multiplicación extends Operaciones {
         super(Num1, Num2);
     }
 
-    public int multiplicacion() {
+    public int Multiplicar() {
         return getNum1() * getNum2();
     }
 }

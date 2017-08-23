@@ -9,7 +9,7 @@ public class Resta extends Operaciones {
         super(Num1, Num2);
     }
     
-    public int resta() {
+    public int Restar() {
         return getNum1() - getNum2();
     }
 }

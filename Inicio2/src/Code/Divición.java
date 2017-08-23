@@ -9,7 +9,7 @@ public class Divición extends Operaciones {
         super(Num1, Num2);
     }
 
-    public int divición() {
+    public int Dividir() {
         return getNum1() / getNum2();
     }
 }

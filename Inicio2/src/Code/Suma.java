@@ -9,7 +9,7 @@ public class Suma extends Operaciones {
         super(Num1, Num2);
     }
     
-    public int suma() {
+    public int Sumar() {
         return getNum1() + getNum2();
     }
 }

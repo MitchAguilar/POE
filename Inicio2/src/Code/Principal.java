@@ -5,7 +5,7 @@ import java.util.*;
 public class Principal {
 
     static Scanner a = new Scanner(System.in);
-    static int b, c;
+    private static int b, c;
 
     public static void main(String[] arg) {
         while (true) {
@@ -21,19 +21,19 @@ public class Principal {
                 switch (val) {
                     case 1:
                         Suma sum= new Suma(b,c);
-                        System.out.println("El resultado es: " +sum.suma());
+                        System.out.println("El resultado es: " +sum.Sumar());
                         break;
                     case 2:
                         Resta res = new Resta(b,c);
-                        System.out.println("El resultado es: " + res.resta());
+                        System.out.println("El resultado es: " + res.Restar());
                         break;
                     case 3:
                         Multiplicación mul = new Multiplicación(b,c);
-                        System.out.println("El resultado es: " + mul.multiplicacion());
+                        System.out.println("El resultado es: " + mul.Multiplicar());
                         break;
                     case 4:
                         Divición div = new Divición(b,c);
-                        System.out.println("El resultado es: " + div.divición());
+                        System.out.println("El resultado es: " + div.Dividir());
                         break;
                     default:
                         System.err.println("Error digite una opción valida.");
@@ -46,7 +46,7 @@ public class Principal {
 
     }
 
-    public static void PedirDatos() {
+    private static void PedirDatos() {
         while (true) {
             try {
                 System.out.println("Digite su primer numero");
