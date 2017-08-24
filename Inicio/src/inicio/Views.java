@@ -10,10 +10,12 @@ import java.awt.List;
 import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class Views {
+public class Views implements ActionListener{
     
     Frame a;//es el lienzo por decirlo así, es donde vamos a pintar los componentes
     Button b;//es un componente de tipo boton
@@ -36,6 +38,7 @@ public class Views {
         
         b= new Button("Quit");//creando nuevo componente
         b.setBounds(280, 250, 50, 20);//asignando la posicion (pos en x,pos en y,ancho,largo) parecido la plano caesiano
+        b.addActionListener(this);
         
         i= new Checkbox("Check");//creando nuevo componente
         i.setBounds(340, 250, 70, 20);//asignando la posicion (pos en x,pos en y,ancho,largo) parecido la plano caesiano
@@ -56,6 +59,8 @@ public class Views {
         g= new Canvas();//creando nuevo componente
         g.setBounds(220, 70, 160, 160);//asignando la posicion (pos en x,pos en y,ancho,largo) parecido la plano caesiano
         g.setBackground(Color.LIGHT_GRAY);//dandole un color de fondo
+        
+        
     }
     
     public void VFrame() {//metodo para crear el frame o lienzo
@@ -85,5 +90,14 @@ public class Views {
     public Views() {//constructor
         Componets();//primero se crean los componentes
         VFrame();//luego el lienzo, respetar el orden de ésto
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource().equals(b)){
+//            a.dispose();
+            MyCanvas aaaa =new MyCanvas();
+            
+        }
     }
 }
