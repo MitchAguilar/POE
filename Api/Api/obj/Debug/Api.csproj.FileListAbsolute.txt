@@ -1,4 +1,3 @@
-F:\cuarto semestre\POE\Api\Api\obj\Debug\Api.csprojResolveAssemblyReference.cache
 F:\cuarto semestre\POE\Api\Api\bin\ApplicationInsights.config
 F:\cuarto semestre\POE\Api\Api\bin\roslyn\csc.exe
 F:\cuarto semestre\POE\Api\Api\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -60,3 +59,8 @@ F:\cuarto semestre\POE\Api\Api\bin\es\System.Web.Http.resources.dll
 F:\cuarto semestre\POE\Api\Api\bin\es\System.Web.Http.WebHost.resources.dll
 F:\cuarto semestre\POE\Api\Api\obj\Debug\Api.dll
 F:\cuarto semestre\POE\Api\Api\obj\Debug\Api.pdb
+F:\cuarto semestre\POE\Api\Api\bin\Microsoft.Azure.AppService.ApiApps.Service.dll
+F:\cuarto semestre\POE\Api\Api\bin\Swashbuckle.Core.dll
+F:\cuarto semestre\POE\Api\Api\bin\System.IdentityModel.Tokens.Jwt.dll
+F:\cuarto semestre\POE\Api\Api\bin\WebActivatorEx.dll
+F:\cuarto semestre\POE\Api\Api\bin\System.IdentityModel.Tokens.Jwt.xml
