@@ -6,12 +6,13 @@ using System.Web.Mvc;
 
 namespace Api.Controllers
 {
-    public class RestarController : Controller
+  public class RestarController : Controller
+  {
+    // GET: Restar
+    [System.Web.Http.HttpGet]
+    public ActionResult Index(int N1, int N2)
     {
-        // GET: Restar
-        public ActionResult Index()
-        {
-            return View();
-        }
+      return Json(N1 - N2);
     }
+  }
 }

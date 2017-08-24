@@ -194,6 +194,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DividirController.cs" />
+    <Compile Include="Controllers\MultiplicarController.cs" />
     <Compile Include="Controllers\RestarController.cs" />
     <Compile Include="Controllers\SumarController.cs" />
     <Compile Include="Global.asax.cs">
@@ -224,6 +226,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Dividir\" />
+    <Folder Include="Views\Multiplicar\" />
     <Folder Include="Views\Restar\" />
     <Folder Include="Views\Sumar\" />
   </ItemGroup>
