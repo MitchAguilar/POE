@@ -6,8 +6,8 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPKMXOW5VoUCQM8CApL98zgAAAAACAAAAAAAQZgAAAAEAACAAAABhkaUv6Vy5xawv3uuxqKO6MAjIv3GcPwkypPjq+nqNtwAAAAAOgAAAAAIAACAAAAAKyLUtirUgydTPmu4BYcav/B2ZcVnPTpj/TXgod2AU/TAAAACb8YYwcko5hZ+AouVWpSdc/uUZTL+jq3caJyV49jMvOe0T4xYQA2f6UE1cYW4oFWRAAAAAOkrYNuJmPExo3Rb1fhF7GUJXZFkYLqnyNL816YPA4nCekuQ9IbzCpOxusFsH2kt4xeVwMZXoeLXW8m6V5LboFA==</EncryptedPassword>
-    <_PublishTargetUrl>ftp://191.102.85.226/Mitch</_PublishTargetUrl>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPKMXOW5VoUCQM8CApL98zgAAAAACAAAAAAAQZgAAAAEAACAAAAD6AwcYTNSAP2rK63WV4K+T01GbepIaAe3v/09h9Ey4cAAAAAAOgAAAAAIAACAAAADQHX1Xl+zBQjp6rJCsPqyByiiSjvE5hxtPuA6uKcEBXSAAAACZKg8oecGSxnuMFvQXSW/Ky83ejUb/na/GLUrA2KPrpkAAAAA1IhjlXGCwAJeFPdQ0rudO9S4pPDajGc4bC8VT9w3i9gEak48jhUV0w1AIWiGuMFfPqrZuYmIGPy3Bhfw7kKHB</EncryptedPassword>
+    <_PublishTargetUrl>ftp://185.27.134.11/home/vol3_6/byethost14.com/b14_20586921</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="apiapp.json">
@@ -20,7 +20,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/22/2013 08:43:40</publishTime>
     </File>
     <File Include="bin/Api.dll">
-      <publishTime>08/25/2017 10:54:36</publishTime>
+      <publishTime>08/24/2017 19:29:13</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
       <publishTime>08/24/2017 12:17:27</publishTime>
@@ -224,7 +224,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>08/24/2017 12:18:37</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/25/2017 10:54:37</publishTime>
+      <publishTime>08/24/2017 19:21:06</publishTime>
     </File>
   </ItemGroup>
 </Project>

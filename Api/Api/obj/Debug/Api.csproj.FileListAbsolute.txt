@@ -64,3 +64,4 @@ F:\cuarto semestre\POE\Api\Api\bin\Swashbuckle.Core.dll
 F:\cuarto semestre\POE\Api\Api\bin\System.IdentityModel.Tokens.Jwt.dll
 F:\cuarto semestre\POE\Api\Api\bin\WebActivatorEx.dll
 F:\cuarto semestre\POE\Api\Api\bin\System.IdentityModel.Tokens.Jwt.xml
+F:\cuarto semestre\POE\Api\Api\obj\Debug\Api.csprojResolveAssemblyReference.cache

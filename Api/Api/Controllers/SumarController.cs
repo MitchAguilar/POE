@@ -11,7 +11,7 @@ namespace Api.Controllers
     {
         // GET: Sumar
         [System.Web.Http.HttpGet]
-        public IHttpActionResult Index(int N1,int N2)
+        public IHttpActionResult Index(double N1, double N2)
 
         {
             return Json(N1+N2);
