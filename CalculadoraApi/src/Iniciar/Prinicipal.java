@@ -7,7 +7,7 @@ public class Prinicipal {
 
     public static void main(String[] args) {
         CalNormal A = new CalNormal();
-        CalApi B = new CalApi();
+//        CalApi B = new CalApi();
 
     }
 
