@@ -40,12 +40,12 @@ public class CalNormal extends MouseAdapter implements ActionListener {
 
         d = new Label("DÍGITO 1:");
         d.setBackground(Color.white);
-        d.setBounds(10, 50, 100, 30);
+        d.setBounds(10, 50, 80, 30);
         b.add(d);
 
         f = new Label("DÍGITO 2:");
         f.setBackground(Color.white);
-        f.setBounds(10, 100, 100, 30);
+        f.setBounds(10, 100, 80, 30);
         b.add(f);
 
         g = new Label("Escoja La Operación A Realizar");
@@ -115,11 +115,11 @@ public class CalNormal extends MouseAdapter implements ActionListener {
     }
 
     public void mouseReleased(java.awt.event.MouseEvent e) {
-        if (e.getButton() == 3) {
-            JOptionPane.showMessageDialog(null, "clic derecho");
-        } else if (e.getButton() == 1) {
-            JOptionPane.showMessageDialog(null, "clic izquierdo");
-        }
+//        if (e.getButton() == 3) {
+//            JOptionPane.showMessageDialog(null, "clic derecho");
+//        } else if (e.getButton() == 1) {
+//            JOptionPane.showMessageDialog(null, "clic izquierdo");
+//        }
     }
     int bandera = 0;
 
@@ -130,19 +130,19 @@ public class CalNormal extends MouseAdapter implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Faltan uno o más números.");
             } else {
                 try {
-                    Operaciones Aa = new Operaciones(Integer.parseInt(j.getText()), Integer.parseInt(k.getText()));
+                    Operaciones Aa = new Operaciones();
                     switch (i.getSelectedItem()) {
                         case "Sumar":
-                            l.setText("Suma Es   Igual: " + Aa.Sumar());
+                            l.setText("Suma Es   Igual: " + Aa.Sumar(Integer.parseInt(j.getText()), Integer.parseInt(k.getText())));
                             break;
                         case "Restar":
-                            l.setText("Resta Es Igual: " + Aa.Restar());
+                            l.setText("Resta Es Igual: " + Aa.Restar(Integer.parseInt(j.getText()), Integer.parseInt(k.getText())));
                             break;
                         case "Multiplicar":
-                            l.setText("Multiplicación Es Igual: " + Aa.Multiplicar());
+                            l.setText("Multiplicación Es Igual: " + Aa.Multiplicar(Integer.parseInt(j.getText()), Integer.parseInt(k.getText())));
                             break;
                         case "Dividir":
-                            l.setText("Dividir Es Igual: " + Aa.Dividir());
+                            l.setText("Dividir Es Igual: " + Aa.Dividir(Integer.parseInt(j.getText()), Integer.parseInt(k.getText())));
                             break;
                         default:
                             JOptionPane.showMessageDialog(null, "Por favor seleccione una operación");
