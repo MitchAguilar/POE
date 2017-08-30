@@ -1,6 +1,7 @@
 package Frame;
 
 import Motor.B;
+import Motor.D;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -43,6 +44,7 @@ public class Fvisual extends MouseAdapter implements ActionListener {//debemos h
             super.paintComponent(grafico);
         }
     }
+
     public class Imagen2 extends javax.swing.JPanel {
 
         public Imagen2() {
@@ -62,6 +64,7 @@ public class Fvisual extends MouseAdapter implements ActionListener {//debemos h
             super.paintComponent(grafico);
         }
     }
+
     public class Imagen3 extends javax.swing.JPanel {
 
         public Imagen3() {
@@ -81,10 +84,30 @@ public class Fvisual extends MouseAdapter implements ActionListener {//debemos h
             super.paintComponent(grafico);
         }
     }
+
+    public class Imagen4 extends javax.swing.JPanel {
+
+        public Imagen4() {
+            this.setSize(d.getWidth(), d.getHeight()); //se selecciona el tamaño del panel
+        }
+
+        //Se crea un método cuyo parámetro debe ser un objeto Graphics
+        public void paint(Graphics grafico) {
+            Dimension height = getSize();
+            //Se selecciona la imagen que tenemos en el paquete de la //ruta del programa
+            ImageIcon Img = new ImageIcon(getClass().getResource("/Complements/bg4.jpg"));
+
+            //se dibuja la imagen que tenemos en el paquete Images //dentro de un panel
+            grafico.drawImage(Img.getImage(), 0, 0, d.getWidth(), d.getHeight(), null);
+
+            setOpaque(false);
+            super.paintComponent(grafico);
+        }
+    }
     Frame a;
     Panel b, c, d;
-    Label  i, j;//no colocar e como variable, los escuchadores la suelen tomar
-    JLabel f,h,g;
+    Label i, j;//no colocar e como variable, los escuchadores la suelen tomar
+    JLabel f, h, g;
     TextField k, l;
     ButtonGroup m;
     JCheckBox n, o, p, q;//cuatro sistemas numericos
@@ -184,7 +207,7 @@ public class Fvisual extends MouseAdapter implements ActionListener {//debemos h
         //S Componets panel
         g = new JLabel("Digite el sistema númerico:");
         g.setBounds(5, 20, 170, 30);
-        
+
         b.add(g);
         //system number
         o = new JCheckBox("Deceimal");
@@ -230,10 +253,10 @@ public class Fvisual extends MouseAdapter implements ActionListener {//debemos h
         k.setEnabled(false);
         k.addMouseListener(this);
         b.add(k);
-        Imagen2 aa= new Imagen2();
+        Imagen2 aa = new Imagen2();
         b.add(aa);
         b.repaint();
-        
+
     }
 
     public void PanelC() {
@@ -253,9 +276,15 @@ public class Fvisual extends MouseAdapter implements ActionListener {//debemos h
         r.setBounds((250 - 100) / 2, 70, 100, 70);
         r.addMouseListener(this);
         c.add(r);// de ser list, miren; ACABO DE CAMBIAR DE OPINION, ME VOY POR LA LIST
-        Imagen3 aa= new Imagen3();
+        Imagen3 aa = new Imagen3();
         c.add(aa);
         c.repaint();
+    }
+
+    public void PaneD() {
+        Imagen4 aa = new Imagen4();
+        d.add(aa);
+        d.repaint();
     }
 
     public void Complements() {
@@ -268,7 +297,7 @@ public class Fvisual extends MouseAdapter implements ActionListener {//debemos h
 
         c = new Panel();
         c.setBounds(330, 50, 250, 200);
-        c.setBackground(new Color(255,223,223));
+        c.setBackground(new Color(255, 223, 223));
         c.setLayout(null);
         PanelC();
 
@@ -276,6 +305,7 @@ public class Fvisual extends MouseAdapter implements ActionListener {//debemos h
         d.setBounds((600 - 300) / 2, 300, 300, 170);//centra lo que sea
         d.setBackground(Color.ORANGE);
         d.setLayout(null);
+        PaneD();
 
         c.setEnabled(false);
     }
@@ -308,38 +338,85 @@ public class Fvisual extends MouseAdapter implements ActionListener {//debemos h
         Frame();
     }
 
-    public void Option() {
+    public void bin() {
         B Bin = new B();
         try {
             switch (r.getSelectedItem()) {
                 case "Binario":
-                    System.out.println(Bin.Res(k.getText(), 1));
+                    JOptionPane.showMessageDialog(null, Bin.Res(k.getText(), 1));
                     break;
                 case "Decimal":
-                    System.out.println(Bin.Res(k.getText(), 2));
+                    JOptionPane.showMessageDialog(null, Bin.Res(k.getText(), 2));
                     break;
                 case "Octal":
-                    System.out.println(Bin.Res(k.getText(), 3));
+                    JOptionPane.showMessageDialog(null, Bin.Res(k.getText(), 3));
                     break;
                 case "Hexadecimal":
-                    System.out.println(Bin.Res(k.getText(), 4));
+                    JOptionPane.showMessageDialog(null, Bin.Res(k.getText(), 4));
                     break;
                 default:
                     System.out.println("Error");
                     break;
             }//el error se produce por la textf nula, ya arreglaé eso
         } catch (Exception io) {
-            System.err.println("Error");
+            System.err.println("Error binarios");
+        }
+    }
+
+    public void dec() {
+        D dec = new D();
+        try {
+            switch (r.getSelectedItem()) {
+                case "Binario":
+                    JOptionPane.showMessageDialog(null, dec.Res(k.getText(), 1));
+                    break;
+                case "Decimal":
+                    JOptionPane.showMessageDialog(null, dec.Res(k.getText(), 2));
+                    break;
+                case "Octal":
+                    JOptionPane.showMessageDialog(null, dec.Res(k.getText(), 3));
+                    break;
+                case "Hexadecimal":
+                    JOptionPane.showMessageDialog(null, dec.Res(k.getText(), 4));
+                    break;
+                default:
+                    System.out.println("Error");
+                    break;
+            }//el error se produce por la textf nula, ya arreglaé eso
+        } catch (Exception io) {
+            System.err.println("Error decimales");
+        }
+    }
+
+    public void Option(int a) {
+        switch (a) {
+            case 1:
+                bin();
+                break;
+            case 2:
+                dec();
+                break;
         }
     }
 //    int ban=1;
 //    boolean numBan=true;
 
     public void mouseReleased(java.awt.event.MouseEvent e) {//ojo evento...debemo agregarlo al componente, vamos a ver si funciona
-        if (e.getButton() == 3) {//voy  a probar algo a ver si funciona
-            Option();
-        } else if (e.getButton() == 1) {
-            Option();
+//        if (e.getButton() == 3) {//voy  a probar algo a ver si funciona
+//            Option();
+//        } else 
+        if (e.getButton() == 1) {
+            if (o.isSelected()) {
+                Option(2);
+            } else if (n.isSelected()) {
+                Option(1);
+            } else if (p.isSelected()) {
+
+            } else if (q.isSelected()) {
+
+            }
+            System.out.println("seleccioné o");
+
         }
     }
 
