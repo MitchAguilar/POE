@@ -100,7 +100,7 @@ public class D {
                     dev = "Binario: " + bina;
                     break;
                 case 2:
-                    dev = "Decimal" + g;
+                    dev = "Decimal: " + g;
                     break;
                 case 3:
                     dev = "Octal: " + oct(Integer.parseInt(g));
