@@ -3,6 +3,7 @@ package Frame;
 import Motor.B;
 import Motor.D;
 import Motor.H;
+import Motor.O;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -412,7 +413,30 @@ public class Fvisual extends MouseAdapter implements ActionListener {//debemos h
             System.err.println("Error hexadecimales");
         }
     }
-
+        public void oct() {
+        O oct= new O();
+        try {
+            switch (r.getSelectedItem()) {
+                case "Binario":
+                    JOptionPane.showMessageDialog(null, oct.Res(k.getText(), 1));
+                    break;
+                case "Decimal":
+                    JOptionPane.showMessageDialog(null, oct.Res(k.getText(), 2));
+                    break;
+                case "Octal":
+                    JOptionPane.showMessageDialog(null, oct.Res(k.getText(), 3));
+                    break;
+                case "Hexadecimal":
+                    JOptionPane.showMessageDialog(null, oct.Res(k.getText(), 4));
+                    break;
+                default:
+                    System.out.println("Error");
+                    break;
+            }//el error se produce por la textf nula, ya arreglaé eso
+        } catch (Exception io) {
+            System.err.println("Error octales");
+        }
+    }
     public void Option(int a) {
         switch (a) {
             case 1:
@@ -423,6 +447,9 @@ public class Fvisual extends MouseAdapter implements ActionListener {//debemos h
                 break;
             case 3:
                 hex();
+                break;
+            case 4:
+                oct();
                 break;
         }
     }
@@ -441,10 +468,8 @@ public class Fvisual extends MouseAdapter implements ActionListener {//debemos h
             } else if (p.isSelected()) {
                 Option(3);
             } else if (q.isSelected()) {
-
+                Option(4);
             }
-            System.out.println("seleccioné o");
-
         }
     }
 
