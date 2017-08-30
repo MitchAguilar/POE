@@ -7,7 +7,6 @@ public class ConverNum {
 
     public static void main(String[] args) {
         Fvisual a = new Fvisual();
-
     }
 }
 //VAMOS A HACER UNA PRUEBA
