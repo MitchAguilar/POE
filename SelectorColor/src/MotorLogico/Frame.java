@@ -39,6 +39,7 @@ public class Frame implements ChangeListener,ItemListener {
         s.setPaintTicks(true);
         s.setPaintLabels(true);
         s.addChangeListener(this);
+        s.setOpaque(false);
 
         t = new JSlider(JSlider.HORIZONTAL, 0, 255, 0);
         t.setBounds(100, 200, 400, 90);
@@ -49,6 +50,7 @@ public class Frame implements ChangeListener,ItemListener {
         t.setPaintTicks(true);
         t.setPaintLabels(true);
         t.addChangeListener(this);
+        t.setOpaque(false);
 
         u = new JSlider(JSlider.HORIZONTAL, 0, 255, 0);
         u.setBounds(100, 330, 400, 90);
@@ -59,6 +61,7 @@ public class Frame implements ChangeListener,ItemListener {
         u.setPaintTicks(true);
         u.setPaintLabels(true);
         u.addChangeListener(this);
+        u.setOpaque(false);
 
         //Create the label table
         h = new Hashtable();
@@ -105,7 +108,7 @@ public class Frame implements ChangeListener,ItemListener {
         }
         jc.setBounds(60, 470, 120, 30);
         jc.addItemListener(this);
-        
+        jc.setOpaque(false);
         
         jc2 = new JComboBox();
         for (int i = 1; i <= 225; i++) {
@@ -113,6 +116,7 @@ public class Frame implements ChangeListener,ItemListener {
         }
         jc2.setBounds(200, 470, 120, 30);
         jc2.addItemListener(this);
+        jc2.setOpaque(false);
         
         jc3 = new JComboBox();
         for (int i = 1; i <= 225; i++) {
@@ -120,6 +124,7 @@ public class Frame implements ChangeListener,ItemListener {
         }
         jc3.setBounds(340, 470, 120, 30);
         jc3.addItemListener(this);
+        jc3.setOpaque(false);
         
         b4= new JLabel("R");
         Font cursiva4 = new Font( "MathJax_Math",Font.ITALIC,40);
