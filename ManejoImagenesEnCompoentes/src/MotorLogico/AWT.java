@@ -64,7 +64,7 @@ public class AWT {
         a.setSize(800, 600);
         a.setLayout(null);
         
-        a.setUndecorated(true);//quitar la barra de menú
+//        a.setUndecorated(true);//quitar la barra de menú
         
         a.add(b);
         a.add(d);
@@ -74,7 +74,8 @@ public class AWT {
         Imagen img = new Imagen("/Complements/Img6.jpg", a.getWidth(), a.getHeight());
         a.add(img);
         a.repaint();
-
+        
+        //pintar el icono
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/Img5.png"));
         a.setIconImage(icon);
 

@@ -105,7 +105,7 @@ public class Frame implements ChangeListener, ItemListener {
         b3.setBorder(new SoftBevelBorder(BevelBorder.LOWERED));
 
         jc = new JComboBox();
-        for (int i = 1; i <= 225; i++) {
+        for (int i = 0; i <= 225; i++) {
             jc.addItem(i);
         }
         jc.setBounds(60, 470, 120, 30);
@@ -113,7 +113,7 @@ public class Frame implements ChangeListener, ItemListener {
         jc.setOpaque(false);
 
         jc2 = new JComboBox();
-        for (int i = 1; i <= 225; i++) {
+        for (int i = 0; i <= 225; i++) {
             jc2.addItem(i);
         }
         jc2.setBounds(200, 470, 120, 30);
@@ -121,7 +121,7 @@ public class Frame implements ChangeListener, ItemListener {
         jc2.setOpaque(false);
 
         jc3 = new JComboBox();
-        for (int i = 1; i <= 225; i++) {
+        for (int i = 0; i <= 225; i++) {
             jc3.addItem(i);
         }
         jc3.setBounds(340, 470, 120, 30);

@@ -1,16 +1,10 @@
 package MotorLogico;
 
 import MotorVisual.Imagen;
-import java.applet.Applet;
-import java.awt.Button;
 import java.awt.Color;
-import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Panel;
 import java.awt.Toolkit;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JApplet;
@@ -43,7 +37,7 @@ public class Swing {
         b.setFocusable(true);
         Imagen img = new Imagen("/Complements/Img1.jpg", b.getWidth(), b.getHeight());
         b.add(img);
-        b.repaint();
+//        b.repaint();
 
         g = new JLabel("hola");
         g.setBounds(450, 50, 300, 200);
@@ -51,7 +45,7 @@ public class Swing {
 //        g.setFocusable(true);
         URL url = this.getClass().getResource("/Complements/Img10.gif");
         g.setIcon(new ImageIcon(url));
-        g.repaint();
+//        g.repaint();
 
         f = new JButton();
         f.setBounds(250, 350, 150, 150);
@@ -60,7 +54,7 @@ public class Swing {
         f.setBorder(new LineBorder(Color.BLACK));
         URL url3 = this.getClass().getResource("/Complements/Img12.png");
         f.setIcon(new ImageIcon(url3));
-        f.repaint();
+//        f.repaint();
 
         c = new JButton();
         c.setBounds(50, 350, 150, 150);
@@ -74,7 +68,7 @@ public class Swing {
         h.setBounds(250, 350, 150, 150);
         img2App=new ImageIcon("/Complements/Img5.png");
         h.setBackground(Color.yellow);
-        h.paint(gg);
+//        h.paint(gg);
         
     }
     
@@ -85,7 +79,7 @@ public class Swing {
         a.setSize(800, 600);
         a.setLayout(null);
 
-        a.setUndecorated(true);//quitar la barra de menú
+//        a.setUndecorated(true);//quitar la barra de menú
 
         a.add(b);
         a.add(f);
