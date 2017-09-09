@@ -1,6 +1,5 @@
 # POE
 !["POE"](http://bitybyte.github.io/images/jseventloop.png)
 
-># Inicio
-[link](url){:target="_blank"}
+>## Inicio  <=> [Link](https://mitchaguilar.github.io/POE/Inicio/dist/javadoc/index.html)
 
