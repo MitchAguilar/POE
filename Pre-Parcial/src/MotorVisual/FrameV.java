@@ -64,14 +64,14 @@ public class FrameV implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ee) {
         if(ee.getSource()==e){
-//            FrameP aa= new FrameP();
-            if(b.getText() .equals("POE2017")){
-                FrameP aa= new FrameP();
-                a.dispose();
-            }else{
-                JOptionPane.showMessageDialog(null, "Error validación");
-                b.setText(null);
-            }
+            FrameP aa= new FrameP();
+//            if(b.getText() .equals("POE2017")){
+//                FrameP aa= new FrameP();
+//                a.dispose();
+//            }else{
+//                JOptionPane.showMessageDialog(null, "Error validación");
+//                b.setText(null);
+//            }
 //           
         } 
     }

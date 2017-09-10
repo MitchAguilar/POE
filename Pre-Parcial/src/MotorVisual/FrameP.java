@@ -18,12 +18,16 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import java.awt.event.MouseAdapter;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 /**
  *
  * @author estudiante
  */
-public class FrameP extends MouseAdapter implements ActionListener{
+public class FrameP extends MouseAdapter implements ActionListener {
 
     JFrame a;
     JPanel b, d, h;
@@ -53,11 +57,16 @@ public class FrameP extends MouseAdapter implements ActionListener{
         b.addMouseListener(this);
 
         c = new JTextArea();
-        c.setBounds(10, 10, 180, 180);
+        c.setBounds(10, 10, 100, 180);
+        c.setBorder(new TitledBorder(new EtchedBorder(), "T.mult"));
         Tablas();
-        c.setEditable(false);
-
+//        c.setLineWrap(true);
+//        c.setWrapStyleWord(true);
+//        c.setEditable(true);
+        JScrollPane textScroll = new JScrollPane(c, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        b.add(textScroll);
         b.add(c);
+//        c.setEditable(false);
 
         //panel 2
         d = new JPanel();
@@ -169,9 +178,10 @@ public class FrameP extends MouseAdapter implements ActionListener{
         a.add(b);
         a.add(d);
         a.add(h);
-        Imagen FON= new Imagen("/Complement/FONDO.jpg", 480, 600);
+        Imagen FON = new Imagen("/Complement/FONDO.jpg", 480, 600);
         a.add(FON);
-        
+
+//        a.pack();
         a.repaint();
         b.setEnabled(false);
         d.setEnabled(false);
@@ -248,20 +258,21 @@ public class FrameP extends MouseAdapter implements ActionListener{
         }
         a.repaint();
     }
-    public  void mouseEntered(java.awt.event.MouseEvent evento){
-        if(evento.getSource()==b){
-            d.setEnabled(false);
-            h.setEnabled(false);
-            System.out.println("a");
-        }else if(evento.getSource()==d){
-            b.setEnabled(false);
-            h.setEnabled(false);
-//            b.setVisible(false);
-            System.out.println("b");
-        }else if(evento.getSource()==h){
-            b.setEnabled(false);
-            d.setEnabled(false);
-            System.out.println("c");
-        }
+
+    public void mouseEntered(java.awt.event.MouseEvent evento) {
+//        if (evento.getSource() == b) {
+//            d.setEnabled(false);
+//            h.setEnabled(false);
+//            System.out.println("a");
+//        } else if (evento.getSource() == d) {
+//            b.setEnabled(false);
+//            h.setEnabled(false);
+////            b.setVisible(false);
+//            System.out.println("b");
+//        } else if (evento.getSource() == h) {
+//            b.setEnabled(false);
+//            d.setEnabled(false);
+//            System.out.println("c");
+//        }
     }
 }
