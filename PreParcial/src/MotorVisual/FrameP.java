@@ -260,19 +260,19 @@ public class FrameP extends MouseAdapter implements ActionListener {
     }
 
     public void mouseEntered(java.awt.event.MouseEvent evento) {
-//        if (evento.getSource() == b) {
-//            d.setEnabled(false);
-//            h.setEnabled(false);
-//            System.out.println("a");
-//        } else if (evento.getSource() == d) {
-//            b.setEnabled(false);
-//            h.setEnabled(false);
-////            b.setVisible(false);
-//            System.out.println("b");
-//        } else if (evento.getSource() == h) {
-//            b.setEnabled(false);
-//            d.setEnabled(false);
-//            System.out.println("c");
-//        }
+        if (evento.getSource() == b) {
+            d.setEnabled(false);
+            h.setEnabled(false);
+            System.out.println("a");
+        } else if (evento.getSource() == d) {
+            b.setEnabled(false);
+            h.setEnabled(false);
+//            b.setVisible(false);
+            System.out.println("b");
+        } else if (evento.getSource() == h) {
+            b.setEnabled(false);
+            d.setEnabled(false);
+            System.out.println("c");
+        }
     }
 }
