@@ -6,6 +6,7 @@
 package MotorVisual;
 
 import java.awt.Color;
+import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
@@ -32,7 +33,7 @@ public class FrameP extends MouseAdapter implements ActionListener {
     JFrame a;
     JPanel b, d, h;
     JLabel Pi;
-    JTextArea c;
+    TextArea c;
     JLabel f, FM, FM1, FM2, FM3;
     JRadioButton g1, g2, g3, g4;
     ButtonGroup gN;
@@ -56,13 +57,13 @@ public class FrameP extends MouseAdapter implements ActionListener {
         b.setLayout(null);
         b.addMouseListener(this);
 
-        c = new JTextArea();
+        c = new TextArea();
         c.setBounds(10, 10, 100, 180);
-        c.setBorder(new TitledBorder(new EtchedBorder(), "T.mult"));
+//        c.setBorder(new TitledBorder(new EtchedBorder(), "T.mult"));
         Tablas();
 //        c.setLineWrap(true);
 //        c.setWrapStyleWord(true);
-//        c.setEditable(true);
+        c.setEditable(true);
         JScrollPane textScroll = new JScrollPane(c, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         b.add(textScroll);
         b.add(c);
@@ -261,18 +262,23 @@ public class FrameP extends MouseAdapter implements ActionListener {
 
     public void mouseEntered(java.awt.event.MouseEvent evento) {
         if (evento.getSource() == b) {
-            d.setEnabled(false);
-            h.setEnabled(false);
+            b.setOpaque(true);
+            d.setOpaque(false);
+            h.setOpaque(false);
             System.out.println("a");
+            a.repaint();
         } else if (evento.getSource() == d) {
-            b.setEnabled(false);
-            h.setEnabled(false);
-//            b.setVisible(false);
+            d.setOpaque(true);
+            b.setOpaque(false);
+            h.setOpaque(false);
             System.out.println("b");
+            a.repaint();
         } else if (evento.getSource() == h) {
-            b.setEnabled(false);
-            d.setEnabled(false);
+            h.setOpaque(true);
+            b.setOpaque(false);
+            d.setOpaque(false);
             System.out.println("c");
+            a.repaint();
         }
     }
 }
