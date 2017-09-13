@@ -17,12 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
 import java.awt.event.MouseAdapter;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
 
 /**
  *
@@ -37,7 +32,7 @@ public class FrameP extends MouseAdapter implements ActionListener {
     JLabel f, FM, FM1, FM2, FM3;
     JRadioButton g1, g2, g3, g4;
     ButtonGroup gN;
-    JButton Im1, Im2, Im3, Im4;
+    JButton Im1, Im2, Im3, Im4,Nval;
 
     public void Tablas() {
         String pintar = "";
@@ -59,15 +54,15 @@ public class FrameP extends MouseAdapter implements ActionListener {
 
         c = new TextArea();
         c.setBounds(10, 10, 100, 180);
-//        c.setBorder(new TitledBorder(new EtchedBorder(), "T.mult"));
         Tablas();
-//        c.setLineWrap(true);
-//        c.setWrapStyleWord(true);
-        c.setEditable(true);
-        JScrollPane textScroll = new JScrollPane(c, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        b.add(textScroll);
+        c.setEditable(false);
         b.add(c);
-//        c.setEditable(false);
+        
+        Nval= new JButton("New");
+        Nval.setBounds(130, 80, 70, 30);
+        Nval.setOpaque(false);
+        Nval.addActionListener(this);
+        b.add(Nval);
 
         //panel 2
         d = new JPanel();
@@ -215,7 +210,9 @@ public class FrameP extends MouseAdapter implements ActionListener {
             FM.setForeground(Color.CYAN);
         }
         FM.repaint();
-
+        if(e.getSource().equals(Nval)){
+            Tablas();
+        }
         if (e.getSource().equals(Im1)) {
 
             if (A1) {
