@@ -19,7 +19,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -33,6 +32,8 @@ public class Frame implements ActionListener, ItemListener {
     JTextField M1, M2, M4;
     JTextField M5, M6, M7, M8;
     JComboBox M3;
+    //arreglo de estudiantes
+    Estudiante est[];
 
     private void Num(KeyEvent e) {
         char c = e.getKeyChar();
@@ -206,12 +207,12 @@ public class Frame implements ActionListener, ItemListener {
         Compoents();
         FrameV();
     }
-    String[][] est = new String[10][4];
     int cou = 0;
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(f)) {
+            est[0]= new Estudiante();
             if (!(M1.getText().isEmpty() || M2.getText().isEmpty())) {
                 est[cou][0] = M1.getText();
                 est[cou][1] = M2.getText();
