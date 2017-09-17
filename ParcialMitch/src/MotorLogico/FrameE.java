@@ -12,12 +12,12 @@ import java.awt.TextArea;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
 /**
  *
@@ -29,8 +29,10 @@ public class FrameE implements ActionListener {
     JPanel b, c, d;
     TextArea f, g;
     JLabel h, i, j;
-    String[][] est;
     JButton retur;
+
+    //comletar
+    ArrayList<Estudiante> est;
 
     public void Compoents() {
         //panel incentivos
@@ -98,7 +100,7 @@ public class FrameE implements ActionListener {
         FrameV();
     }
 
-    public FrameE(String[][] est) {
+    public FrameE(ArrayList<Estudiante> est) {
         this.est = est;
         Compoents();
         FrameV();
@@ -107,29 +109,26 @@ public class FrameE implements ActionListener {
 
     public void datos() {
         int cou = 0;
-        String estu="";
-        for (int k = 0; k < est.length; k++) {
+        String estu = "";
+        for (int k = 0; k < est.size(); k++) {
 
             try {
-                double pro = Double.parseDouble(est[k][3]);
-                System.out.println(pro + "--------");
+                double pro = est.get(k).getNotadefinitiva();
                 if (pro >= 3 && pro <= 4.3) {
-                    f.setText(f.getText() + est[k][1]);
-                    System.out.println("---");
-                } else if (pro >= 4.3) {
-                    g.setText(g.getText() + est[k][1]);
-                    f.setText(f.getText() + est[k][1]);
-                    System.out.println("++++");
+                    f.setText(f.getText() + est.get(k).getNombre());
+                } else if (pro >= 4.3 && pro <= 5.0) {
+                    g.setText(g.getText() + est.get(k).getNombre());
+                    f.setText(f.getText() + est.get(k).getNombre());
                 } else {
                     cou++;
-                    estu+="\n"+est[k][1];
+                    estu += "\n" + est.get(k).getNombre();
                 }
             } catch (Exception e) {
                 System.err.println("todo por usar una matrix :(");
             }
 
         }
-        JOptionPane.showMessageDialog(null,"Las Estadisticas son:\n "+ cou + " estudiantes no cumplen con los requerimentos\n"+estu);
+        JOptionPane.showMessageDialog(null, "Las Estadisticas son:\n " + cou + " estudiantes no cumplen con los requerimentos\n" + estu);
 
     }
 

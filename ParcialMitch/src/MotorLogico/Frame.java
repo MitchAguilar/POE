@@ -15,10 +15,12 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -32,19 +34,20 @@ public class Frame implements ActionListener, ItemListener {
     JTextField M1, M2, M4;
     JTextField M5, M6, M7, M8;
     JComboBox M3;
-    //arreglo de estudiantes
-    Estudiante est[];
+    //Array de estudiantes
+    int cou = 0;
+    ArrayList<Estudiante> est = new ArrayList<>();
 
     private void Num(KeyEvent e) {
         char c = e.getKeyChar();
-        if (((c < '0') || (c > '9')||(c=='.')) && (c != KeyEvent.VK_BACK_SPACE)) {
+        if (((c < '0') || (c > '9') || (c == '.')) && (c != KeyEvent.VK_BACK_SPACE)) {
             e.consume();
         }
-        
-//        if ((((c < '0') || (c > '9')) || c != '\b')) {
-//            JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ");
-//        }
+        if ((((c < '0') || (c > '9')) || c != '\b')) {
+            JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ");
+        }
     }
+
     private void Num2(KeyEvent e) {
         char c = e.getKeyChar();
 //        if (((c < '0') || (c > '5')||(c != '.')) && (c != KeyEvent.VK_BACK_SPACE)) {
@@ -207,39 +210,37 @@ public class Frame implements ActionListener, ItemListener {
         Compoents();
         FrameV();
     }
-    int cou = 0;
+    String estu[][] = new String[1][4];
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(f)) {
-            est[0]= new Estudiante();
             if (!(M1.getText().isEmpty() || M2.getText().isEmpty())) {
-                est[cou][0] = M1.getText();
-                est[cou][1] = M2.getText();
+                estu[cou][0] = M1.getText();
+                estu[cou][1] = M2.getText();
                 c.setVisible(true);
                 System.err.println("ingresó el primero");
-            }else{
+            } else {
                 M1.setText(null);
                 M2.setText(null);
                 System.out.println("Error");
             }
             c.setVisible(true);
         }
-        if(e.getSource().equals(h)){
-            if(M4.getText().isEmpty()||M5.getText().isEmpty()||M6.getText().isEmpty()||M8.getText().isEmpty()){
+        if (e.getSource().equals(h)) {
+            if (M4.getText().isEmpty() || M5.getText().isEmpty() || M6.getText().isEmpty() || M8.getText().isEmpty()) {
                 M4.setText(null);
                 M5.setText(null);
                 M6.setText(null);
                 M8.setText(null);
-            }else{
-                double pro=0;
-                pro+=Double.parseDouble(M4.getText());
-                pro+=Double.parseDouble(M5.getText());
-                pro+=Double.parseDouble(M6.getText());
-                pro+=Double.parseDouble(M8.getText());
-                pro/=4;
-                est[cou][3]=pro+"";
-                cou++;
+            } else {
+                double pro = 0;
+                pro += Double.parseDouble(M4.getText());
+                pro += Double.parseDouble(M5.getText());
+                pro += Double.parseDouble(M6.getText());
+                pro += Double.parseDouble(M8.getText());
+                pro /= 4;
+                estu[0][3] = pro + "";
                 c.setVisible(false);
                 M4.setText(null);
                 M5.setText(null);
@@ -247,9 +248,11 @@ public class Frame implements ActionListener, ItemListener {
                 M8.setText(null);
                 M1.setText(null);
                 M2.setText(null);
+                Estudiante ae = new Estudiante(estu[0][1], estu[0][2], estu[0][3], Double.parseDouble(estu[0][3]));
+                est.add(ae);
             }
         }
-        if(e.getSource().equals(g)){
+        if (e.getSource().equals(g)) {
             FrameE a = new FrameE(est);
             this.a.dispose();
         }
@@ -258,9 +261,9 @@ public class Frame implements ActionListener, ItemListener {
     @Override
     public void itemStateChanged(ItemEvent e) {
         if (e.getSource().equals(M3)) {
-            if(!M3.getSelectedItem().equals("Selecione")){
-                est[cou][2]=M3.getSelectedItem()+"";
-            }else{
+            if (!M3.getSelectedItem().equals("Selecione")) {
+                estu[cou][2] = M3.getSelectedItem() + "";
+            } else {
                 M3.setSelectedIndex(0);
                 System.out.println("Error");
             }

@@ -21,16 +21,9 @@ public class ParcialMitch {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-//        Frame  a = new Frame();
+        Frame  a = new Frame();
 //        FrameE  a = new FrameE();
-        ArrayList<Estudiante> arr= new ArrayList<>();
-        for (int i = 0; i < 100000; i++) {
-            Estudiante a=new Estudiante();
-            arr.add(a);
-        }
-        for (int i = 0; i < arr.size(); i++) {
-            System.err.println(arr.get(i));
-        }
+        
     }
     
 }
