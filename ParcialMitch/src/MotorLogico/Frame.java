@@ -50,14 +50,14 @@ public class Frame implements ActionListener, ItemListener {
 
     private void Num2(KeyEvent e) {
         char c = e.getKeyChar();
-        if (((c < '0') || (c > '5')) && (c != '.') && (c != KeyEvent.VK_BACK_SPACE)) {
+        if (((c < '0') || (c > '9')) && (c != '.') && (c != '\b') && (c != KeyEvent.VK_BACK_SPACE)) {
             e.consume();
         }
         if ((((c < '0') || (c > '9')) && (c != '\b') && (c != '.'))) {
             JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ");
         }
         if (M4.getText().contains(".")) {
-            if (((c < '0') || (c > '5')) && (c != KeyEvent.VK_BACK_SPACE)) {
+            if (((c < '0') || (c > '9')) && (c != '\b') && (c != KeyEvent.VK_BACK_SPACE)) {
                 e.consume();
             }
         }
@@ -65,14 +65,14 @@ public class Frame implements ActionListener, ItemListener {
 
     private void Num3(KeyEvent e) {
         char c = e.getKeyChar();
-        if (((c < '0') || (c > '5')) && (c != '.') && (c != KeyEvent.VK_BACK_SPACE)) {
+        if (((c < '0') || (c > '9')) && (c != '.') && (c != '\b') && (c != KeyEvent.VK_BACK_SPACE)) {
             e.consume();
         }
         if ((((c < '0') || (c > '9')) && (c != '\b') && (c != '.'))) {
             JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ");
         }
         if (M5.getText().contains(".")) {
-            if (((c < '0') || (c > '5')) && (c != KeyEvent.VK_BACK_SPACE)) {
+            if (((c < '0') || (c > '9')) && (c != '\b') && (c != KeyEvent.VK_BACK_SPACE)) {
                 e.consume();
             }
         }
@@ -80,14 +80,14 @@ public class Frame implements ActionListener, ItemListener {
 
     private void Num4(KeyEvent e) {
         char c = e.getKeyChar();
-        if (((c < '0') || (c > '5')) && (c != '.') && (c != KeyEvent.VK_BACK_SPACE)) {
+        if (((c < '0') || (c > '9')) && (c != '\b') && (c != '.') && (c != KeyEvent.VK_BACK_SPACE)) {
             e.consume();
         }
         if ((((c < '0') || (c > '9')) && (c != '\b') && (c != '.'))) {
             JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ");
         }
         if (M6.getText().contains(".")) {
-            if (((c < '0') || (c > '5')) && (c != KeyEvent.VK_BACK_SPACE)) {
+            if (((c < '0') || (c > '9')) && (c != '\b') && (c != KeyEvent.VK_BACK_SPACE)) {
                 e.consume();
             }
         }
@@ -95,14 +95,14 @@ public class Frame implements ActionListener, ItemListener {
 
     private void Num5(KeyEvent e) {
         char c = e.getKeyChar();
-        if (((c < '0') || (c > '5')) && (c != '.') && (c != KeyEvent.VK_BACK_SPACE)) {
+        if (((c < '0') || (c > '9')) && (c != '\b') && (c != '.') && (c != KeyEvent.VK_BACK_SPACE)) {
             e.consume();
         }
         if ((((c < '0') || (c > '9')) && (c != '\b') && (c != '.'))) {
             JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ");
         }
         if (M8.getText().contains(".")) {
-            if (((c < '0') || (c > '5')) && (c != KeyEvent.VK_BACK_SPACE)) {
+            if (((c < '0') || (c > '9')) && (c != '\b') && (c != KeyEvent.VK_BACK_SPACE)) {
                 e.consume();
             }
         }
@@ -141,6 +141,7 @@ public class Frame implements ActionListener, ItemListener {
 
         M3 = new JComboBox();
         M3.setBounds(40, 160, 150, 30);
+        M3.addItem("Seleccione");
         M3.addItem("Ing. Sistemas");
         M3.addItem("Ing. Alimientos");
         M3.addItem("Ing. Agroecologica");
@@ -239,6 +240,7 @@ public class Frame implements ActionListener, ItemListener {
         c.add(h);
     }
     Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/img.jpg"));
+
     public void FrameV() {
         a = new JFrame("INGRESO DATOS");
         a.setSize(515, 350);
@@ -267,35 +269,51 @@ public class Frame implements ActionListener, ItemListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(f)) {
             if (!(M1.getText().isEmpty() || M2.getText().isEmpty())) {
-                tempData[cou][0] = M1.getText();
-                tempData[cou][1] = M2.getText();
-                c.setVisible(true);
+                if (tempData[0][2] == null) {
+                    JOptionPane.showMessageDialog(null, "Error- no ha elegido programa academico.");
+                } else {
+                    tempData[cou][0] = M1.getText();
+                    tempData[cou][1] = M2.getText();
+                    c.setVisible(true);
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "Uno de los campos no fué llenado");
             }
         }
         if (e.getSource().equals(h)) {
+
             if (M4.getText().isEmpty() || M5.getText().isEmpty() || M6.getText().isEmpty() || M8.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Uno de los campos no fué llenado");
             } else {
-                double pro = 0;
-                pro += Double.parseDouble(M4.getText());
-                pro += Double.parseDouble(M5.getText());
-                pro += Double.parseDouble(M6.getText());
-                pro += Double.parseDouble(M8.getText());
-                pro /= 4;
-                tempData[0][3] = pro + "";
-                c.setVisible(false);
-                M4.setText(null);
-                M5.setText(null);
-                M6.setText(null);
-                M8.setText(null);
-                M1.setText(null);
-                M2.setText(null);
-                Estudiante ae = new Estudiante(tempData[0][1], tempData[0][2], tempData[0][3], Double.parseDouble(tempData[0][3]));
-                est.add(ae);
-                JOptionPane.showMessageDialog(null, "Estudiante ingresado de forma satisfactoria");
+                if (!(Double.parseDouble(M4.getText()) >= 0 && Double.parseDouble(M4.getText()) <= 5)) {
+                    JOptionPane.showMessageDialog(null, "Nota 1: Fuera del rango de números permitidos (0-5)");
+                } else if (!(Double.parseDouble(M5.getText()) >= 0 && Double.parseDouble(M5.getText()) <= 5)) {
+                    JOptionPane.showMessageDialog(null, "Nota 2: Fuera del rango de números permitidos(0-5)");
+                } else if (!(Double.parseDouble(M6.getText()) >= 0 && Double.parseDouble(M6.getText()) <= 5)) {
+                    JOptionPane.showMessageDialog(null, "Nota 3: Fuera del rango de números permitidos(0-5)");
+                } else if (!(Double.parseDouble(M8.getText()) >= 0 && Double.parseDouble(M8.getText()) <= 5)) {
+                    JOptionPane.showMessageDialog(null, "Nota 4: Fuera del rango de números permitidos(0-5)");
+                } else {
+                    double pro = 0;
+                    pro += Double.parseDouble(M4.getText());
+                    pro += Double.parseDouble(M5.getText());
+                    pro += Double.parseDouble(M6.getText());
+                    pro += Double.parseDouble(M8.getText());
+                    pro /= 4;
+                    tempData[0][3] = pro + "";
+                    c.setVisible(false);
+                    M4.setText(null);
+                    M5.setText(null);
+                    M6.setText(null);
+                    M8.setText(null);
+                    M1.setText(null);
+                    M2.setText(null);
+                    Estudiante ae = new Estudiante(tempData[0][1], tempData[0][2], tempData[0][3], Double.parseDouble(tempData[0][3]));
+                    est.add(ae);
+                    JOptionPane.showMessageDialog(null, "Estudiante ingresado de forma satisfactoria");
+                }
             }
+
         }
         if (e.getSource().equals(g)) {
             if (est.isEmpty()) {
@@ -310,7 +328,7 @@ public class Frame implements ActionListener, ItemListener {
     @Override
     public void itemStateChanged(ItemEvent e) {
         if (e.getSource().equals(M3)) {
-            if (!M3.getSelectedItem().equals("Selecione")) {
+            if (!M3.getSelectedItem().equals("Seleccione")) {
                 tempData[cou][2] = M3.getSelectedItem() + "";
             } else {
                 M3.setSelectedIndex(0);

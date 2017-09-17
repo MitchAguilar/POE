@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author estudiante
+ * @author Mitch
  */
 public class FrameE extends MouseAdapter implements ActionListener {
 
@@ -39,7 +39,7 @@ public class FrameE extends MouseAdapter implements ActionListener {
         //panel incentivos
         b = new JPanel();
         b.setBounds(10, 10, 290, 300);
-        b.setBackground(Color.LIGHT_GRAY);
+        b.setBackground(new Color(127, 105, 110));
         b.setLayout(null);
 
         h = new JLabel("Permanencia:");
@@ -61,7 +61,7 @@ public class FrameE extends MouseAdapter implements ActionListener {
         retur = new JButton("Regresar");
         retur.setBounds(100, 260, 100, 30);
         retur.addActionListener(this);
-        retur.setBackground(Color.red);
+        retur.setBackground(new Color(255,255,165));
 
         b.add(retur);
         b.add(h);
@@ -74,13 +74,13 @@ public class FrameE extends MouseAdapter implements ActionListener {
         //Estadisticas
         c = new JPanel();
         c.setBounds(350, 10, 300, 300);
-        c.setBackground(Color.LIGHT_GRAY);
+        c.setBackground(new Color(127, 105, 110));
         c.setLayout(null);
         
         c.addMouseListener(this);
 
     }
-    Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/img.jpg"));
+    Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/banner.jpg"));
 
     public void FrameV() {
         a = new JFrame("INCENTIVOS Y ESTADISTICAS");
@@ -151,7 +151,7 @@ public class FrameE extends MouseAdapter implements ActionListener {
         }
         if(e.getSource().equals(c)){f.setVisible(false);
             g.setVisible(false);
-            b.setOpaque(false);
+            b.setOpaque(false);    h.setText("Permanencia");
             h.setText(null);
             i.setText(null);
             retur.setVisible(false);
