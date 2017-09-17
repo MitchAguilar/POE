@@ -40,20 +40,72 @@ public class Frame implements ActionListener, ItemListener {
 
     private void Num(KeyEvent e) {
         char c = e.getKeyChar();
-        if (((c < '0') || (c > '9') || (c == '.')) && (c != KeyEvent.VK_BACK_SPACE)) {
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
             e.consume();
         }
-        if ((((c < '0') || (c > '9')) || c != '\b')) {
+        if ((((c < '0') || (c > '9')) && c != '\b')) {
             JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ");
         }
     }
 
     private void Num2(KeyEvent e) {
         char c = e.getKeyChar();
-//        if (((c < '0') || (c > '5')||(c != '.')) && (c != KeyEvent.VK_BACK_SPACE)) {
-//            e.consume();
-//        }
-//       
+        if (((c < '0') || (c > '5')) && (c != '.') && (c != KeyEvent.VK_BACK_SPACE)) {
+            e.consume();
+        }
+        if ((((c < '0') || (c > '9')) && (c != '\b') && (c != '.'))) {
+            JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ");
+        }
+        if (M4.getText().contains(".")) {
+            if (((c < '0') || (c > '5')) && (c != KeyEvent.VK_BACK_SPACE)) {
+                e.consume();
+            }
+        }
+    }
+
+    private void Num3(KeyEvent e) {
+        char c = e.getKeyChar();
+        if (((c < '0') || (c > '5')) && (c != '.') && (c != KeyEvent.VK_BACK_SPACE)) {
+            e.consume();
+        }
+        if ((((c < '0') || (c > '9')) && (c != '\b') && (c != '.'))) {
+            JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ");
+        }
+        if (M5.getText().contains(".")) {
+            if (((c < '0') || (c > '5')) && (c != KeyEvent.VK_BACK_SPACE)) {
+                e.consume();
+            }
+        }
+    }
+
+    private void Num4(KeyEvent e) {
+        char c = e.getKeyChar();
+        if (((c < '0') || (c > '5')) && (c != '.') && (c != KeyEvent.VK_BACK_SPACE)) {
+            e.consume();
+        }
+        if ((((c < '0') || (c > '9')) && (c != '\b') && (c != '.'))) {
+            JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ");
+        }
+        if (M6.getText().contains(".")) {
+            if (((c < '0') || (c > '5')) && (c != KeyEvent.VK_BACK_SPACE)) {
+                e.consume();
+            }
+        }
+    }
+
+    private void Num5(KeyEvent e) {
+        char c = e.getKeyChar();
+        if (((c < '0') || (c > '5')) && (c != '.') && (c != KeyEvent.VK_BACK_SPACE)) {
+            e.consume();
+        }
+        if ((((c < '0') || (c > '9')) && (c != '\b') && (c != '.'))) {
+            JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ");
+        }
+        if (M8.getText().contains(".")) {
+            if (((c < '0') || (c > '5')) && (c != KeyEvent.VK_BACK_SPACE)) {
+                e.consume();
+            }
+        }
     }
 
     public void Compoents() {
@@ -142,7 +194,7 @@ public class Frame implements ActionListener, ItemListener {
         M5.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                Num2(e);
+                Num3(e);
             }
         });
 
@@ -155,7 +207,7 @@ public class Frame implements ActionListener, ItemListener {
         M6.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                Num2(e);
+                Num4(e);
             }
         });
 
@@ -168,7 +220,7 @@ public class Frame implements ActionListener, ItemListener {
         M8.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                Num2(e);
+                Num5(e);
             }
         });
 
@@ -187,7 +239,6 @@ public class Frame implements ActionListener, ItemListener {
         c.add(h);
     }
     Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/img.jpg"));
-
     public void FrameV() {
         a = new JFrame("INGRESO DATOS");
         a.setSize(515, 350);
@@ -210,29 +261,22 @@ public class Frame implements ActionListener, ItemListener {
         Compoents();
         FrameV();
     }
-    String estu[][] = new String[1][4];
+    String[][] tempData = new String[1][4];
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(f)) {
             if (!(M1.getText().isEmpty() || M2.getText().isEmpty())) {
-                estu[cou][0] = M1.getText();
-                estu[cou][1] = M2.getText();
+                tempData[cou][0] = M1.getText();
+                tempData[cou][1] = M2.getText();
                 c.setVisible(true);
-                System.err.println("ingresó el primero");
             } else {
-                M1.setText(null);
-                M2.setText(null);
-                System.out.println("Error");
+                JOptionPane.showMessageDialog(null, "Uno de los campos no fué llenado");
             }
-            c.setVisible(true);
         }
         if (e.getSource().equals(h)) {
             if (M4.getText().isEmpty() || M5.getText().isEmpty() || M6.getText().isEmpty() || M8.getText().isEmpty()) {
-                M4.setText(null);
-                M5.setText(null);
-                M6.setText(null);
-                M8.setText(null);
+                JOptionPane.showMessageDialog(null, "Uno de los campos no fué llenado");
             } else {
                 double pro = 0;
                 pro += Double.parseDouble(M4.getText());
@@ -240,7 +284,7 @@ public class Frame implements ActionListener, ItemListener {
                 pro += Double.parseDouble(M6.getText());
                 pro += Double.parseDouble(M8.getText());
                 pro /= 4;
-                estu[0][3] = pro + "";
+                tempData[0][3] = pro + "";
                 c.setVisible(false);
                 M4.setText(null);
                 M5.setText(null);
@@ -248,13 +292,18 @@ public class Frame implements ActionListener, ItemListener {
                 M8.setText(null);
                 M1.setText(null);
                 M2.setText(null);
-                Estudiante ae = new Estudiante(estu[0][1], estu[0][2], estu[0][3], Double.parseDouble(estu[0][3]));
+                Estudiante ae = new Estudiante(tempData[0][1], tempData[0][2], tempData[0][3], Double.parseDouble(tempData[0][3]));
                 est.add(ae);
+                JOptionPane.showMessageDialog(null, "Estudiante ingresado de forma satisfactoria");
             }
         }
         if (e.getSource().equals(g)) {
-            FrameE a = new FrameE(est);
-            this.a.dispose();
+            if (est.isEmpty()) {
+                System.exit(0);
+            } else {
+                FrameE a = new FrameE(est);
+                this.a.dispose();
+            }
         }
     }
 
@@ -262,10 +311,10 @@ public class Frame implements ActionListener, ItemListener {
     public void itemStateChanged(ItemEvent e) {
         if (e.getSource().equals(M3)) {
             if (!M3.getSelectedItem().equals("Selecione")) {
-                estu[cou][2] = M3.getSelectedItem() + "";
+                tempData[cou][2] = M3.getSelectedItem() + "";
             } else {
                 M3.setSelectedIndex(0);
-                System.out.println("Error");
+                JOptionPane.showMessageDialog(null, "Uno de los campos no fué llenado o seleeccionado");
             }
         }
     }

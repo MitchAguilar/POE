@@ -12,6 +12,7 @@ import java.awt.TextArea;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,7 +24,7 @@ import javax.swing.JPanel;
  *
  * @author estudiante
  */
-public class FrameE implements ActionListener {
+public class FrameE extends MouseAdapter implements ActionListener {
 
     JFrame a;
     JPanel b, c, d;
@@ -37,7 +38,7 @@ public class FrameE implements ActionListener {
     public void Compoents() {
         //panel incentivos
         b = new JPanel();
-        b.setBounds(10, 10, 300, 300);
+        b.setBounds(10, 10, 290, 300);
         b.setBackground(Color.LIGHT_GRAY);
         b.setLayout(null);
 
@@ -58,7 +59,7 @@ public class FrameE implements ActionListener {
         g.setEditable(false);
 
         retur = new JButton("Regresar");
-        retur.setBounds(40, 260, 100, 30);
+        retur.setBounds(100, 260, 100, 30);
         retur.addActionListener(this);
         retur.setBackground(Color.red);
 
@@ -67,19 +68,23 @@ public class FrameE implements ActionListener {
         b.add(f);
         b.add(i);
         b.add(g);
+        
+        b.addMouseListener(this);
 
         //Estadisticas
         c = new JPanel();
-//        c.setBounds(350, 10, 300, 300);
-//        c.setBackground(Color.LIGHT_GRAY);
-//        c.setLayout(null);
+        c.setBounds(350, 10, 300, 300);
+        c.setBackground(Color.LIGHT_GRAY);
+        c.setLayout(null);
+        
+        c.addMouseListener(this);
 
     }
     Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/img.jpg"));
 
     public void FrameV() {
         a = new JFrame("INCENTIVOS Y ESTADISTICAS");
-        a.setSize(310, 350);
+        a.setSize(660, 360);
         a.setLayout(null);
 
         a.add(b);
@@ -112,24 +117,18 @@ public class FrameE implements ActionListener {
         String estu = "";
         for (int k = 0; k < est.size(); k++) {
 
-            try {
-                double pro = est.get(k).getNotadefinitiva();
-                if (pro >= 3 && pro <= 4.3) {
-                    f.setText(f.getText() + est.get(k).getNombre());
-                } else if (pro >= 4.3 && pro <= 5.0) {
-                    g.setText(g.getText() + est.get(k).getNombre());
-                    f.setText(f.getText() + est.get(k).getNombre());
-                } else {
-                    cou++;
-                    estu += "\n" + est.get(k).getNombre();
-                }
-            } catch (Exception e) {
-                System.err.println("todo por usar una matrix :(");
+            double pro = est.get(k).getNotadefinitiva();
+            if (pro >= 3 && pro <= 4.3) {
+                f.setText(f.getText() + est.get(k).getNombre());
+            } else if (pro >= 4.3 && pro <= 5.0) {
+                g.setText(g.getText() + est.get(k).getNombre());
+                f.setText(f.getText() + est.get(k).getNombre());
+            } else {
+                cou++;
+                estu += "\n" + est.get(k).getNombre();
             }
-
         }
         JOptionPane.showMessageDialog(null, "Las Estadisticas son:\n " + cou + " estudiantes no cumplen con los requerimentos\n" + estu);
-
     }
 
     @Override
@@ -138,5 +137,26 @@ public class FrameE implements ActionListener {
             Frame a = new Frame();
             this.a.dispose();
         }
+    }
+
+    public void mouseEntered(java.awt.event.MouseEvent e) {
+        if(e.getSource().equals(b)){
+            f.setVisible(true);
+            g.setVisible(true);
+            b.setOpaque(true);
+            h.setText("Permanencia");
+            i.setText("Exelencia");
+            retur.setVisible(true);
+            c.setOpaque(false);
+        }
+        if(e.getSource().equals(c)){f.setVisible(false);
+            g.setVisible(false);
+            b.setOpaque(false);
+            h.setText(null);
+            i.setText(null);
+            retur.setVisible(false);
+            c.setOpaque(true);
+        }
+        a.repaint();
     }
 }

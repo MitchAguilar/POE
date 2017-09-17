@@ -21,8 +21,8 @@ public class ParcialMitch {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Frame  a = new Frame();
-//        FrameE  a = new FrameE();
+//        Frame  a = new Frame();
+        FrameE  a = new FrameE();
         
     }
     
