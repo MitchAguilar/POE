@@ -19,7 +19,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 public class panel extends JPanel {
-
+    public float dat=0.5f;
     public panel(Color c) {
         setBackground(c);
         setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
@@ -31,7 +31,7 @@ public class panel extends JPanel {
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
                 RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         AlphaComposite old = (AlphaComposite) g2.getComposite();
-        g2.setComposite(AlphaComposite.SrcOver.derive(0.5f));
+        g2.setComposite(AlphaComposite.SrcOver.derive(dat));
         super.paintComponent(g);
         g2.setComposite(old);
     }

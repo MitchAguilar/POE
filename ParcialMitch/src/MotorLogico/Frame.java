@@ -27,7 +27,7 @@ import javax.swing.JTextField;
 public class Frame implements ActionListener, ItemListener {
 
     JFrame a;
-    JPanel b, c, d;
+    panel b, c, d;
     JButton f, g, h;
     JLabel N1, N2, N3;
     JLabel N4, N5, N6, N7;
@@ -110,9 +110,8 @@ public class Frame implements ActionListener, ItemListener {
 
     public void Compoents() {
         //panel 1
-        b = new JPanel();
+        b = new panel(Color.WHITE);
         b.setBounds(10, 10, 200, 300);
-        b.setBackground(Color.lightGray);
         b.setLayout(null);
 
         N1 = new JLabel("Identificación Estudiante:");
@@ -167,7 +166,7 @@ public class Frame implements ActionListener, ItemListener {
         b.add(g);
 
         //panel 2
-        c = new JPanel();
+        c = new panel(Color.white);
         c.setBounds(300, 10, 200, 300);
         c.setBackground(Color.lightGray);
         c.setLayout(null);
@@ -248,7 +247,7 @@ public class Frame implements ActionListener, ItemListener {
 
         a.add(b);
         a.add(c);
-        Imagen uimg = new Imagen("/Complements/banner.jpg", a.getWidth(), a.getHeight());
+        Imagen uimg = new Imagen("/Complements/img3.jpg", a.getWidth(), a.getHeight());
         a.add(uimg);
         a.setIconImage(icon);
         a.repaint();
