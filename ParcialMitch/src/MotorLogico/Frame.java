@@ -308,7 +308,7 @@ public class Frame implements ActionListener, ItemListener {
                     M8.setText(null);
                     M1.setText(null);
                     M2.setText(null);
-                    Estudiante ae = new Estudiante(tempData[0][1], tempData[0][2], tempData[0][3], Double.parseDouble(tempData[0][3]));
+                    Estudiante ae = new Estudiante(tempData[0][1], tempData[0][0], tempData[0][2], Double.parseDouble(tempData[0][3]));
                     est.add(ae);
                     JOptionPane.showMessageDialog(null, "Estudiante ingresado de forma satisfactoria");
                 }
@@ -319,7 +319,7 @@ public class Frame implements ActionListener, ItemListener {
             if (est.isEmpty()) {
                 System.exit(0);
             } else {
-                FrameE a = new FrameE(est);
+                FrameE aeee = new FrameE(est);
                 this.a.dispose();
             }
         }

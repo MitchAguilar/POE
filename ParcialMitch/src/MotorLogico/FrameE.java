@@ -15,11 +15,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -31,25 +34,27 @@ import javax.swing.event.ChangeListener;
 public class FrameE extends MouseAdapter implements ActionListener, ChangeListener {
 
     JFrame a;
-    JPanel b, c, d,p;
     TextArea f, g, n;
-    JLabel h, i, j, m;
+    JLabel h, i, j, m, q, r;
     JButton retur;
     JSlider k;
     Hashtable l;
+    JRadioButton A1,A2,A3,A4;
+    ButtonGroup g1;
     //comletar
     ArrayList<Estudiante> est;
-
+    panel b,c, d, p;
     public void Compoents() {
         //panel incentivos
-        b = new JPanel();
+        b = new panel(Color.gray);
         b.setBounds(10, 10, 290, 300);
-        b.setBackground(new Color(127, 105, 110));
         b.setLayout(null);
+        b.setBorder(BorderFactory.createTitledBorder("Incentivos"));
 
         h = new JLabel("Permanencia:");
         h.setBounds(10, 10, 150, 30);
         h.setOpaque(false);
+        h.setForeground(Color.BLACK);
 
         f = new TextArea();
         f.setBounds(10, 40, 130, 200);
@@ -58,6 +63,7 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
         i = new JLabel("Excelencia:");
         i.setBounds(150, 10, 150, 30);
         i.setOpaque(false);
+        i.setForeground(Color.BLACK);
 
         g = new TextArea();
         g.setBounds(150, 40, 130, 200);
@@ -66,6 +72,7 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
         retur = new JButton("Regresar");
         retur.setBounds(100, 260, 100, 30);
         retur.addActionListener(this);
+        retur.setForeground(Color.BLACK);
         retur.setBackground(new Color(255, 255, 165));
 
         b.add(retur);
@@ -77,21 +84,20 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
         b.addMouseListener(this);
 
         //Estadisticas nivel 1
-        c = new JPanel();
+        c = new panel(Color.GRAY);
         c.setBounds(350, 10, 300, 300);
-        c.setBackground(new Color(127, 105, 110));
         c.setLayout(null);
+        c.setBorder(BorderFactory.createTitledBorder("Estadisticas"));
 
         k = new JSlider(JSlider.HORIZONTAL, 0, 9, 0);
         k.setBounds(10, 30, 290, 90);
         k.setMajorTickSpacing(1);
         k.setPaintTicks(true);
         k.setMajorTickSpacing(1);
-        k.setMinorTickSpacing(1);
-        k.setPaintTicks(true);
         k.setPaintLabels(true);
         k.addChangeListener(this);
         k.setOpaque(false);
+        k.setForeground(Color.BLACK);
 //Create the label table
         l = new Hashtable();
         l.put(new Integer(0), new JLabel("1"));
@@ -110,23 +116,64 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
         m = new JLabel("Seleccione el día de atención");
         m.setBounds(30, 10, 280, 30);
         m.setOpaque(false);
+        m.setForeground(Color.BLACK);
 
         n = new TextArea();
         n.setBounds(50, 100, 200, 100);
 
+        q = new JLabel("Total estudiantes del día: ");
+        q.setBounds(10, 220, 300, 30);
+        q.setForeground(Color.BLACK);
+
+        r = new JLabel("Total Dinero entregado: ");
+        r.setBounds(10, 250, 300, 30);
+        r.setForeground(Color.BLACK);
+
+        c.add(q);
+        c.add(r);
         c.add(n);
         c.add(m);
         c.add(k);
         c.addMouseListener(this);
-        
+
         //panel estadistical nivel 2
-        
-        p= new JPanel();
+        p = new panel(Color.GRAY);
         p.setBounds(175, 330, 300, 300);
-        p.setBackground(Color.red);
+//        p.setBackground(new Color(224,224,224));
+        p.setBorder(BorderFactory.createTitledBorder("Estadisticas Especificas"));
         
         
+        A1= new JRadioButton("Ing. Sistemas");
+        A1.setBounds(10, 10, 100, 30);
+        A1.setOpaque(false);
+        A1.setForeground(Color.BLACK);
         
+        A2=new JRadioButton("Ing. Agroecologica");
+        A2.setBounds(140, 10, 100, 30);
+        A2.setOpaque(false);
+        A2.setForeground(Color.BLACK);
+        
+        A3= new JRadioButton("Ing. Alimentos");
+        A3.setBounds(10, 40, 100, 30);
+        A3.setOpaque(false);
+        A3.setForeground(Color.BLACK);
+        
+        A4= new JRadioButton("MVZ");
+        A4.setBounds(10, 40, 100, 30);
+        A4.setOpaque(false);
+        A4.setForeground(Color.BLACK);
+        
+        g1= new ButtonGroup();
+        g1.add(A1);
+        g1.add(A2);
+        g1.add(A3);
+        g1.add(A4);
+        
+        p.add(A1);
+        p.add(A2);
+        p.add(A3);
+        p.add(A4);
+        p.addMouseListener(this);
 
     }
     Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/banner.jpg"));
@@ -139,7 +186,7 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
         a.add(b);
         a.add(c);
         a.add(p);
-        Imagen uimg = new Imagen("/Complements/banner.jpg", a.getWidth(), a.getHeight());
+        Imagen uimg = new Imagen("/Complements/img3.jpg", a.getWidth(), a.getHeight());
         a.add(uimg);
         a.setIconImage(icon);
         a.repaint();
@@ -153,6 +200,10 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
     public FrameE() {
         Compoents();
         FrameV();
+        
+//        c.setOpaque(false);
+//        p.setOpaque(false);
+//        b.setOpaque(false);
     }
 
     public FrameE(ArrayList<Estudiante> est) {
@@ -190,25 +241,21 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
     }
 
     public void mouseEntered(java.awt.event.MouseEvent e) {
-        if (e.getSource().equals(b)) {
-            f.setVisible(true);
-            g.setVisible(true);
-            b.setOpaque(true);
-            h.setText("Permanencia");
-            i.setText("Exelencia");
-            retur.setVisible(true);
-            c.setOpaque(false);
-        }
-        if (e.getSource().equals(c)) {
-            f.setVisible(false);
-            g.setVisible(false);
-            b.setOpaque(false);
-            h.setText("Permanencia");
-            h.setText(null);
-            i.setText(null);
-            retur.setVisible(false);
-            c.setOpaque(true);
-        }
+//        if (e.getSource().equals(b)) {
+//            b.setOpaque(false);
+//            c.setOpaque(true);
+//            p.setOpaque(true);
+//        }
+//        if (e.getSource().equals(c)) {
+//            b.setOpaque(true);
+//            c.setOpaque(false);
+//            p.setOpaque(true);
+//        }
+//        if(e.getSource().equals(p)){
+//             b.setOpaque(true);
+//            c.setOpaque(true);
+//            p.setOpaque(false);
+//        }
         a.repaint();
     }
 
@@ -218,11 +265,22 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
         //pass
         n.setText(null);
         if (e.getSource().equals(k)) {
-            for (int p = 0; p < est.size(); p++) {
-                if (Integer.parseInt((est.get(p).getIdentificacion().charAt(est.get(p).getIdentificacion().length() - 1)) + "") == k.getValue()) {
-                    n.setText(n.getText() + est.get(p).getNombre() + "\n");
+            int cou=0;
+            long cou2=0;
+            for (int pp = 0; pp < est.size(); pp++) {
+                if (Integer.parseInt((est.get(pp).getIdentificacion().charAt(est.get(pp).getIdentificacion().length() - 1)) + "") == k.getValue()) {
+                    n.setText(n.getText() + est.get(pp).getNombre() + "\n");
+                    cou++;
+                    if(est.get(pp).getNotadefinitiva()>=3&&est.get(pp).getNotadefinitiva()<=4.3){
+                        cou2+=400000;
+                    }
+                    if(est.get(pp).getNotadefinitiva()>=4.3&&est.get(pp).getNotadefinitiva()<=5){
+                        cou2+=600000;
+                    }
                 }
             }
+            q.setText("Total estudiantes del día: "+cou);
+            r.setText("Total dinero entregado: "+cou2);
         }
     }
 }
