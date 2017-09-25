@@ -5,19 +5,26 @@
  */
 package MotorLogico;
 
+import com.sun.javafx.css.Size;
 import java.awt.AlphaComposite;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.HeadlessException;
+import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -72,7 +79,7 @@ public class Meives {
                 e.consume();
             }
             if ((((c < '0') || (c > '9')) && c != '\b')) {
-                JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ");
+                JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ", "Error", JOptionPane.WARNING_MESSAGE);
             }
         }
 
@@ -82,7 +89,7 @@ public class Meives {
                 e.consume();
             }
             if ((((c < '0') || (c > '9')) && (c != '\b') && (c != '.'))) {
-                JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros decimales, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros decimales ");
+                JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros decimales, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros decimales", "Error", JOptionPane.WARNING_MESSAGE);
             }
             if (getText().contains(".")) {
                 if (((c < '0') || (c > '9')) && (c != '\b') && (c != KeyEvent.VK_BACK_SPACE)) {
@@ -97,7 +104,7 @@ public class Meives {
                 e.consume();
             }
             if ((((c < 'a') || (c > 'z')) && ((c < 'A') || (c > 'Z')) && (c != '\b') && (c != 'ñ') && (c != 'Ñ'))) {
-                JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de solo letras, por lo tanto no puede ingresar ningun otro caracter diferente de letras");
+                JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de solo letras, por lo tanto no puede ingresar ningun otro caracter diferente de letras", "Error", JOptionPane.WARNING_MESSAGE);
             }
         }
 
@@ -130,6 +137,10 @@ public class Meives {
                 }
             });
         }
+
+        public textfieldM(Color col) {
+            setBorder(BorderFactory.createLineBorder(col, 1));
+        }
     }
 
     /*Panel Modificado para imagenes de todo tipo*/
@@ -152,8 +163,127 @@ public class Meives {
             super.paintComponent(grafico);
         }
     }
+
     /*Text area modificada para uso especifico*/
-    public static class textareaM{
+    public static class textareaM extends JTextArea {
+
+        private void Num(KeyEvent e) {
+            char c = e.getKeyChar();
+            if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+                e.consume();
+            }
+            if ((((c < '0') || (c > '9')) && c != '\b')) {
+                JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+
+        private void dec(KeyEvent e) {
+            char c = e.getKeyChar();
+            if (((c < '0') || (c > '9')) && (c != '\b') && (c != '.') && (c != KeyEvent.VK_BACK_SPACE)) {
+                e.consume();
+            }
+            if ((((c < '0') || (c > '9')) && (c != '\b') && (c != '.'))) {
+                JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros decimales, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros decimales", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+            if (getText().contains(".")) {
+                if (((c < '0') || (c > '9')) && (c != '\b') && (c != KeyEvent.VK_BACK_SPACE)) {
+                    e.consume();
+                }
+            }
+        }
+
+        private void str(KeyEvent e) {
+            char c = e.getKeyChar();
+            if (((c < 'a') || (c > 'z')) && ((c < 'A') || (c > 'Z')) && (c != '\b') && (c != 'ñ') && (c != 'Ñ')) {
+                e.consume();
+            }
+            if ((((c < 'a') || (c > 'z')) && ((c < 'A') || (c > 'Z')) && (c != '\b') && (c != 'ñ') && (c != 'Ñ'))) {
+                JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de solo letras, por lo tanto no puede ingresar ningun otro caracter diferente de letras", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+
+        public void scroll(int a, int b, int c, int d) {
+            JScrollPane scroll = new JScrollPane(this);
+            scroll.setBounds(new Rectangle(a, b, c, d));
+//            frmprincipal.add(scroll);
+//            frmprincipal.show(true);
+        }
+
+        public textareaM(int num, Color col) {
+            setBorder(BorderFactory.createLineBorder(col, 1));
+            addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    dec(e);
+                }
+            });
+        }
+
+        public textareaM(float num, Color col) {
+            setBorder(BorderFactory.createLineBorder(col, 1));
+            addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    dec(e);
+                }
+            });
+        }
+
+        public textareaM(String text, Color col) {
+            setBorder(BorderFactory.createLineBorder(col, 1));
+            addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyTyped(KeyEvent e) {
+                    str(e);
+                }
+            });
+        }
+    }
+    /*Implementación de errores personalizados*/
+    public static class ErrorM extends Exception {
+
+        public ErrorM() {
+        }
+
+        public ErrorM(String message) {
+            super(message);
+        }
+
+        public ErrorM(String message, Throwable cause) {
+            super(message, cause);
+        }
+
+        public ErrorM(Throwable cause) {
+            super(cause);
+        }
+
+        public ErrorM(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+            super(message, cause, enableSuppression, writableStackTrace);
+        }
+    }
+    public static class frameM extends JFrame{
+
+        public frameM(Dimension sz,String title){
+            setSize(sz);
+            setTitle(title);
+            setVisible(true);
+            setResizable(false);
+            setLocationRelativeTo(null);
+            setDefaultCloseOperation(3);
+        }
+        public frameM(Dimension sz,String title,String url){
+            setSize(sz);
+            setTitle(title);
+            
+            Imagen img= new Imagen(url, getWidth(), getHeight());
+            add(img);
+            repaint();
+            
+            setVisible(true);
+            setResizable(false);
+            setLocationRelativeTo(null);
+            setDefaultCloseOperation(3);
+        }
         
     }
 }

@@ -6,6 +6,8 @@
 package formulario;
 
 import MotorLogico.Formulario;
+import MotorLogico.Meives;
+import java.awt.Dimension;
 import java.util.InputMismatchException;
 import javax.swing.JFrame;
 
@@ -48,11 +50,17 @@ public class Test {
 //            throw new EI("Números fuera de rango");
 //        }
 //    }
-        try {
-            Formulario f = new Formulario();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        Meives.frameM m= new Meives.frameM(new Dimension(600,400), "hola mundo", "/Complements/img2.jpg");
+
+//        try {
+//            Formulario f = new Formulario();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+
+
 //        Scanner s = new Scanner(System.in);
 //        int b = s.nextInt();
 //        System.out.println("mitch");
