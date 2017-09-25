@@ -224,7 +224,7 @@ public class Frame implements ActionListener, ItemListener {
             }
         });
 
-        h = new JButton("Igresar");
+        h = new JButton("Ingresar");
         h.setBounds(50, 265, 120, 30);
         h.addActionListener(this);
 

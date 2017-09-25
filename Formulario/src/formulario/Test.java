@@ -6,18 +6,8 @@
 package formulario;
 
 import MotorLogico.Formulario;
-import MotorLogico.Imagen;
-import MotorLogico.PanelR;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.util.InputMismatchException;
-import java.util.Scanner;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.SwingUtilities;
 
 /**
  *
