@@ -7,6 +7,7 @@ package formulario;
 
 import MotorLogico.Formulario;
 import MotorLogico.Meives;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.InputMismatchException;
 import javax.swing.JFrame;
@@ -51,21 +52,26 @@ public class Test {
 //        }
 //    }
 
-        Meives.frameM m= new Meives.frameM(new Dimension(600,400), "hola mundo", "/Complements/img2.jpg");
+        Meives.frameM m = new Meives.frameM(new Dimension(600, 600), "hola mundo");
+//        m.add(new Meives.textfieldM(Color.red,10,10,100,150));
 
+        Meives.PanelM pan = new Meives.PanelM(Color.cyan, 0.2f);
+        pan.setBounds(100, 100, 400, 400);
+        Meives.textfieldM lb= new Meives.textfieldM(0.1f, Color.red);
+        lb.setBounds(10, 30, 100, 20);
+        pan.add(lb);
+        m.add(pan);
+        m.InsertImg("/Complements/img2.jpg");
+        m.repaint();
 //        try {
 //            Formulario f = new Formulario();
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-
-
-
 //        Scanner s = new Scanner(System.in);
 //        int b = s.nextInt();
 //        System.out.println("mitch");
 //        throw new InputMismatchException();public class EI extends Exception {
-
 //    public EI(String msg) {
 //        super(msg);
 //    }
