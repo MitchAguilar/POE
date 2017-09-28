@@ -134,8 +134,8 @@ public class Meives {
             });
         }
 
-        public textfieldM(String str, Color col, int width, int height, int largo, int ancho) {
-            setBounds(width, height, largo, ancho);
+        public textfieldM(String str, Color col) {
+//            setBounds(width, height, largo, ancho);
             setBorder(BorderFactory.createLineBorder(col, 1));
             addKeyListener(new KeyAdapter() {
                 @Override

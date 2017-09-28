@@ -57,7 +57,8 @@ public class Test {
 
         Meives.PanelM pan = new Meives.PanelM(Color.cyan, 0.2f);
         pan.setBounds(100, 100, 400, 400);
-        Meives.textfieldM lb= new Meives.textfieldM(0.1f, Color.red);
+        pan.dat=0.5f;
+        Meives.textfieldM lb= new Meives.textfieldM( " gfg", Color.red);
         lb.setBounds(10, 30, 100, 20);
         pan.add(lb);
         m.add(pan);
