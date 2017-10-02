@@ -11,8 +11,10 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
+import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.BorderFactory;
@@ -43,6 +45,13 @@ public class Meives {
             setText(text);
             setForeground(col);
         }
+
+        public labelM(String text, Color col) {
+            Font fn = new Font("Agency FB", Font.BOLD, tam);
+            setFont(fn);
+            setText(text);
+            setForeground(col);
+        }
     }
 
     /*Clase panel modificada de la por defecto, para ser trasparente*/
@@ -51,7 +60,8 @@ public class Meives {
         //modificar la opacidad
         public float dat = 0.5f;
 
-        public PanelM(Color c, float opacidad) {
+        public PanelM(Color c, float opacidad, int x, int y, int wi, int he) {
+            setBounds(x, y, wi, he);
             dat = opacidad;
             setBackground(c);
             setLayout(null);
@@ -278,7 +288,11 @@ public class Meives {
         public void InsertImg(String url) {
             Imagen img = new Imagen(url, getWidth(), getHeight());
             add(img);
-//            repaint();
+        }
+
+        public void InsertImgIcon(String url) {
+            Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource(url));
+            setIconImage(icon);
         }
     }
 }

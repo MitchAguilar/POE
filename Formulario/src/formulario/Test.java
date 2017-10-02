@@ -5,7 +5,8 @@
  */
 package formulario;
 
-import MotorLogico.Formulario;
+import MotorLogico.FormularioV2;
+import MotorLogico.Formulariov1;
 import MotorLogico.Meives;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -26,14 +27,7 @@ public class Test {
      * @param args
      */
     public static void main(String[] args) throws InputMismatchException {
-          Meives.frameM a= new Meives.frameM(new  Dimension(500,400),"Hola mundo");
-          Meives.PanelM pan= new  Meives.PanelM(Color.white,0.1f);
-          pan.setBounds(10, 10, 300, 300);
-          Meives.textfieldM tex= new Meives.textfieldM(1, Color.red, 10, 10, 100, 30);
-          pan.add(tex);
-          a.add(pan);
-          a.InsertImg("/Complements/img2.jpg");
-          a.repaint();
+         FormularioV2 v2= new  FormularioV2();
 
 //        String str1 = "120";
 //        String str2 = "3";
