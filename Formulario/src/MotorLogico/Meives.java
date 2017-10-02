@@ -52,7 +52,6 @@ public class Meives {
         public float dat = 0.5f;
 
         public PanelM(Color c, float opacidad) {
-//            setBounds(width, height, largo, ancho);
             dat = opacidad;
             setBackground(c);
             setLayout(null);
@@ -81,8 +80,6 @@ public class Meives {
                 e.consume();
                 JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ", "Error", JOptionPane.WARNING_MESSAGE);
             }
-//            if ((((c < '0') || (c > '9')) && c != '\b')) {
-//               }
         }
 
         private void dec(KeyEvent e) {
@@ -91,8 +88,6 @@ public class Meives {
                 e.consume();
                 JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros decimales, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros decimales", "Error", JOptionPane.WARNING_MESSAGE);
             }
-//            if ((((c < '0') || (c > '9')) && (c != '\b') && (c != '.'))) {
-//                }
             if (getText().contains(".")) {
                 if (((c < '0') || (c > '9')) && (c != '\b') && (c != KeyEvent.VK_BACK_SPACE)) {
                     e.consume();
@@ -108,8 +103,6 @@ public class Meives {
                 JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de solo letras, por lo tanto no puede ingresar ningun otro caracter diferente de letras", "Error", JOptionPane.WARNING_MESSAGE);
 
             }
-//            if ((((c < 'a') || (c > 'z')) && ((c < 'A') || (c > 'Z')) && (c != '\b') && (c != 'ñ') && (c != 'Ñ'))) {
-//               }
         }
 
         public textfieldM(int num, Color col, int width, int height, int largo, int ancho) {
@@ -124,7 +117,6 @@ public class Meives {
         }
 
         public textfieldM(float num, Color col) {
-//            setBounds(width, height, largo, ancho);
             setBorder(BorderFactory.createLineBorder(col, 1));
             addKeyListener(new KeyAdapter() {
                 @Override
@@ -135,7 +127,6 @@ public class Meives {
         }
 
         public textfieldM(String str, Color col) {
-//            setBounds(width, height, largo, ancho);
             setBorder(BorderFactory.createLineBorder(col, 1));
             addKeyListener(new KeyAdapter() {
                 @Override
@@ -185,9 +176,6 @@ public class Meives {
                 e.consume();
                 JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ", "Error", JOptionPane.WARNING_MESSAGE);
             }
-//            if ((((c < '0') || (c > '9')) && c != '\b')) {
-//                JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ", "Error", JOptionPane.WARNING_MESSAGE);
-//            }
         }
 
         private void dec(KeyEvent e) {
@@ -195,14 +183,12 @@ public class Meives {
             if (((c < '0') || (c > '9')) && (c != '\b') && (c != '.') && (c != KeyEvent.VK_BACK_SPACE)) {
                 e.consume();
                 JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros decimales, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros decimales", "Error", JOptionPane.WARNING_MESSAGE);
-            
+
             }
-//            if ((((c < '0') || (c > '9')) && (c != '\b') && (c != '.'))) {
-//                JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros decimales, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros decimales", "Error", JOptionPane.WARNING_MESSAGE);
-//            }
             if (getText().contains(".")) {
                 if (((c < '0') || (c > '9')) && (c != '\b') && (c != KeyEvent.VK_BACK_SPACE)) {
-                    e.consume();JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros decimales, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros decimales", "Error", JOptionPane.WARNING_MESSAGE);
+                    e.consume();
+                    JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros decimales, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros decimales", "Error", JOptionPane.WARNING_MESSAGE);
                 }
             }
         }
@@ -211,11 +197,8 @@ public class Meives {
             char c = e.getKeyChar();
             if (((c < 'a') || (c > 'z')) && ((c < 'A') || (c > 'Z')) && (c != '\b') && (c != 'ñ') && (c != 'Ñ')) {
                 e.consume();
-                JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de solo letras, por lo tanto no puede ingresar ningun otro caracter diferente de letras", "Error", JOptionPane.WARNING_MESSAGE);            
+                JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de solo letras, por lo tanto no puede ingresar ningun otro caracter diferente de letras", "Error", JOptionPane.WARNING_MESSAGE);
             }
-//            if ((((c < 'a') || (c > 'z')) && ((c < 'A') || (c > 'Z')) && (c != '\b') && (c != 'ñ') && (c != 'Ñ'))) {
-//                JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de solo letras, por lo tanto no puede ingresar ningun otro caracter diferente de letras", "Error", JOptionPane.WARNING_MESSAGE);
-//            }
         }
 
         public void scroll(int a, int b, int c, int d) {
@@ -255,8 +238,8 @@ public class Meives {
             });
         }
     }
-    /*Implementación de errores personalizados*/
 
+    /*Implementación de errores personalizados*/
     public static class ErrorM extends Exception {
 
         public ErrorM() {
@@ -278,8 +261,8 @@ public class Meives {
             super(message, cause, enableSuppression, writableStackTrace);
         }
     }
-    /*Frame modificado por parametros para recivir imagenes y personalizaciones*/
 
+    /*Frame modificado por parametros para recivir imagenes y personalizaciones*/
     public static class frameM extends JFrame {
 
         public frameM(Dimension sz, String title) {
@@ -297,6 +280,5 @@ public class Meives {
             add(img);
 //            repaint();
         }
-
     }
 }

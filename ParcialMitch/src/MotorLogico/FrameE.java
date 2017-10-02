@@ -15,7 +15,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Hashtable;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -24,14 +27,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
- *
  * @author Mitch
  */
 public class FrameE extends MouseAdapter implements ActionListener, ChangeListener {
@@ -79,6 +80,7 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
         retur.setBounds(100, 260, 100, 30);
         retur.addActionListener(this);
         retur.setForeground(Color.BLACK);
+        retur.setOpaque(false);
         retur.setBackground(new Color(255, 255, 165));
 
         b.add(retur);
@@ -126,14 +128,17 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
 
         n = new TextArea();
         n.setBounds(50, 100, 200, 100);
+        n.setEditable(false);
 
         q = new JLabel("Total estudiantes del día: ");
         q.setBounds(10, 220, 300, 30);
         q.setForeground(Color.BLACK);
+        q.setOpaque(false);
 
         r = new JLabel("Total Dinero entregado: ");
         r.setBounds(10, 250, 300, 30);
         r.setForeground(Color.BLACK);
+        r.setOpaque(false);
 
         c.add(q);
         c.add(r);
@@ -224,11 +229,13 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
         lU.setBounds(20, 500, 130, 130);
         URL url = this.getClass().getResource("/Complements/logoU.png");
         lU.setIcon(new ImageIcon(url));
+        lU.setOpaque(false);
 
         lD = new JLabel();
         lD.setBounds(500, 500, 130, 130);
         URL url2 = this.getClass().getResource("/Complements/logodps.png");
         lD.setIcon(new ImageIcon(url2));
+        lD.setOpaque(false);
     }
     Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/banner.jpg"));
 
@@ -272,30 +279,30 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
     public void datos() {
         int cou = 0;
         String estu = "";
-        long can=0;
+        long can = 0;
         for (int k = 0; k < est.size(); k++) {
 
             double pro = est.get(k).getNotadefinitiva();
-            if (pro >= 3 && pro <= 4.3) {
-                f.setText(f.getText() + est.get(k).getNombre());
-                can+=400000;
+            if (pro >= 3 && pro < 4.3) {
+                f.setText(f.getText() + "\n" + est.get(k).getNombre());
+                can += 400000;
             } else if (pro >= 4.3 && pro <= 5.0) {
-                g.setText(g.getText() + est.get(k).getNombre());
-                f.setText(f.getText() + est.get(k).getNombre());
-                can+=600000;
+                g.setText(g.getText() + "\n" + est.get(k).getNombre());
+                f.setText(f.getText() + "\n" + est.get(k).getNombre());
+                can += 600000;
             } else {
                 cou++;
                 estu += "\n" + est.get(k).getNombre();
             }
         }
-        EeM.setText("Valor Total:$"+can);
+        EeM.setText("Valor Total:$" + can);
         JOptionPane.showMessageDialog(null, "Las Estadisticas son:\n " + cou + " estudiantes no cumplen con los requerimentos\n" + estu);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(retur)) {
-            Frame a = new Frame();
+            Frame a = new Frame(est);
             this.a.dispose();
         }
         if (e.getSource().equals(A1)) {
@@ -305,10 +312,10 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
             long CVAl = 0;
             for (int o = 0; o < est.size(); o++) {
                 if (est.get(o).getPrograma().equals("Ing. Sistemas")) {
-                    if (est.get(o).getNotadefinitiva() >= 3 && est.get(o).getNotadefinitiva() <= 4.3) {
+                    if (est.get(o).getNotadefinitiva() >= 3 && est.get(o).getNotadefinitiva() < 4.3) {
                         CEP++;
                         CVAl += 400000;
-                    } else if (est.get(o).getNotadefinitiva() > 4.3 && est.get(o).getNotadefinitiva() <= 5) {
+                    } else if (est.get(o).getNotadefinitiva() >= 4.3 && est.get(o).getNotadefinitiva() <= 5) {
                         CEE++;
                         CVAl += 600000;
                     }
@@ -327,10 +334,10 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
             long CVAl = 0;
             for (int o = 0; o < est.size(); o++) {
                 if (est.get(o).getPrograma().equals("Ing. Alimientos")) {
-                    if (est.get(o).getNotadefinitiva() >= 3 && est.get(o).getNotadefinitiva() <= 4.3) {
+                    if (est.get(o).getNotadefinitiva() >= 3 && est.get(o).getNotadefinitiva() < 4.3) {
                         CEP++;
                         CVAl += 400000;
-                    } else if (est.get(o).getNotadefinitiva() > 4.3 && est.get(o).getNotadefinitiva() <= 5) {
+                    } else if (est.get(o).getNotadefinitiva() >= 4.3 && est.get(o).getNotadefinitiva() <= 5) {
                         CEE++;
                         CVAl += 600000;
                     }
@@ -349,10 +356,10 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
             long CVAl = 0;
             for (int o = 0; o < est.size(); o++) {
                 if (est.get(o).getPrograma().equals("MVZ")) {
-                    if (est.get(o).getNotadefinitiva() >= 3 && est.get(o).getNotadefinitiva() <= 4.3) {
+                    if (est.get(o).getNotadefinitiva() >= 3 && est.get(o).getNotadefinitiva() < 4.3) {
                         CEP++;
                         CVAl += 400000;
-                    } else if (est.get(o).getNotadefinitiva() > 4.3 && est.get(o).getNotadefinitiva() <= 5) {
+                    } else if (est.get(o).getNotadefinitiva() >= 4.3 && est.get(o).getNotadefinitiva() <= 5) {
                         CEE++;
                         CVAl += 600000;
                     }
@@ -371,10 +378,10 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
             long CVAl = 0;
             for (int o = 0; o < est.size(); o++) {
                 if (est.get(o).getPrograma().equals("Ing. Agroecologica")) {
-                    if (est.get(o).getNotadefinitiva() >= 3 && est.get(o).getNotadefinitiva() <= 4.3) {
+                    if (est.get(o).getNotadefinitiva() >= 3 && est.get(o).getNotadefinitiva() < 4.3) {
                         CEP++;
                         CVAl += 400000;
-                    } else if (est.get(o).getNotadefinitiva() > 4.3 && est.get(o).getNotadefinitiva() <= 5) {
+                    } else if (est.get(o).getNotadefinitiva() >= 4.3 && est.get(o).getNotadefinitiva() <= 5) {
                         CEE++;
                         CVAl += 600000;
                     }
@@ -407,6 +414,8 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
         a.repaint();
     }
 
+   
+
     @Override
     public void stateChanged(ChangeEvent e) {
 
@@ -419,7 +428,7 @@ public class FrameE extends MouseAdapter implements ActionListener, ChangeListen
                 if (Integer.parseInt((est.get(pp).getIdentificacion().charAt(est.get(pp).getIdentificacion().length() - 1)) + "") == k.getValue()) {
                     n.setText(n.getText() + est.get(pp).getNombre() + "\n");
                     cou++;
-                    if (est.get(pp).getNotadefinitiva() >= 3 && est.get(pp).getNotadefinitiva() <= 4.3) {
+                    if (est.get(pp).getNotadefinitiva() >= 3 && est.get(pp).getNotadefinitiva() < 4.3) {
                         cou2 += 400000;
                     }
                     if (est.get(pp).getNotadefinitiva() >= 4.3 && est.get(pp).getNotadefinitiva() <= 5) {

@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -26,6 +26,15 @@ public class Test {
      * @param args
      */
     public static void main(String[] args) throws InputMismatchException {
+          Meives.frameM a= new Meives.frameM(new  Dimension(500,400),"Hola mundo");
+          Meives.PanelM pan= new  Meives.PanelM(Color.white,0.1f);
+          pan.setBounds(10, 10, 300, 300);
+          Meives.textfieldM tex= new Meives.textfieldM(1, Color.red, 10, 10, 100, 30);
+          pan.add(tex);
+          a.add(pan);
+          a.InsertImg("/Complements/img2.jpg");
+          a.repaint();
+
 //        String str1 = "120";
 //        String str2 = "3";
 //        String respuesta;
@@ -51,19 +60,6 @@ public class Test {
 //            throw new EI("Números fuera de rango");
 //        }
 //    }
-
-        Meives.frameM m = new Meives.frameM(new Dimension(600, 600), "hola mundo");
-//        m.add(new Meives.textfieldM(Color.red,10,10,100,150));
-
-        Meives.PanelM pan = new Meives.PanelM(Color.cyan, 0.2f);
-        pan.setBounds(100, 100, 400, 400);
-        pan.dat=0.5f;
-        Meives.textfieldM lb= new Meives.textfieldM( " gfg", Color.red);
-        lb.setBounds(10, 30, 100, 20);
-        pan.add(lb);
-        m.add(pan);
-        m.InsertImg("/Complements/img2.jpg");
-        m.repaint();
 //        try {
 //            Formulario f = new Formulario();
 //        } catch (Exception e) {
