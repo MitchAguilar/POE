@@ -154,6 +154,9 @@ public class Meives {
             setBorder(BorderFactory.createLineBorder(col, 1));
             setBounds(a, b, c, d);
         }
+        
+        public textfieldM(){
+        }
     }
 
     /*Panel Modificado para imagenes de todo tipo*/

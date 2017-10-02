@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  *
  * @author Usuario
  */
-public class Formulario2 extends Application {
+public class Formulario2 extends Application implements AutoCloseable{
     
     @Override
     public void start(Stage primaryStage) {
@@ -46,6 +46,11 @@ public class Formulario2 extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+
+    @Override
+    public void close() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

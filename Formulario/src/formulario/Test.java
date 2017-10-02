@@ -17,7 +17,7 @@ import javax.swing.JFrame;
  *
  * @author mitch
  */
-public class Test {
+public class Test{
 
     private JFrame frame;
 
@@ -26,9 +26,16 @@ public class Test {
      *
      * @param args
      */
-    public static void main(String[] args) throws InputMismatchException {
-         FormularioV2 v2= new  FormularioV2();
-
+    public static void main(String[] args){
+//         FormularioV2 v2= new  FormularioV2();
+            
+            Meives.frameM a = new Meives.frameM(new Dimension(500, 500),"Hola mundo");
+            Meives.textfieldM b= new Meives.textfieldM();
+            b.setBounds(20, 20, 100, 100);
+            b.setText("h****1Sola");
+            a.add(b);
+            System.out.println(b.getText().matches("Solo.*"));
+            a.repaint();
 //        String str1 = "120";
 //        String str2 = "3";
 //        String respuesta;
