@@ -17,8 +17,10 @@ import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.net.URL;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -33,10 +35,25 @@ import javax.swing.JTextField;
  */
 public class Meives {
 
+    public static class buttonM extends JButton {
+
+        public buttonM(int x, int y, int width, int height) {
+            setBounds(x, y, width, height);
+        }
+
+        public buttonM(String url, int x, int y, int width, int height) {
+            setBounds(x, y, width, height);
+            URL url3 = this.getClass().getResource(url);
+            setIcon(new ImageIcon(url3));
+            setBorder(null);
+        }
+
+    }
+
     /*Clase jlabel modificada de la por defecto*/
     public static class labelM extends JLabel {
 
-        public int tam = 25;
+        public int tam = 100;
 
         public labelM(String text, Color col, int width, int height, int largo, int ancho) {
             setBounds(width, height, largo, ancho);
@@ -129,26 +146,26 @@ public class Meives {
                 }
             }
             if (getText().length() == 4) {
-                if ((c != 'A') && (c != 'E') && (c != 'I') && (c != 'O') && (c != 'U')&& (c != '\b')) {
+                if ((c != 'A') && (c != 'E') && (c != 'I') && (c != 'O') && (c != 'U') && (c != '\b')) {
                     e.consume();
                     JOptionPane.showMessageDialog(null, "Lo sentimos, este campo solo puede ser una VOCAL ", "Error", JOptionPane.WARNING_MESSAGE);
                 }
             }
             if (getText().length() == 5) {
-                if ((c != '-')&& (c != '\b')) {
+                if ((c != '-') && (c != '\b')) {
                     e.consume();
                     JOptionPane.showMessageDialog(null, "Lo sentimos, este campo solo puede ser - ", "Error", JOptionPane.WARNING_MESSAGE);
                 }
             }
-            if (getText().length() == 6||getText().length() == 7) {
-                if ((c < '0') || (c > '9')&& (c != '\b')) {
+            if (getText().length() == 6 || getText().length() == 7) {
+                if ((c < '0') || (c > '9') && (c != '\b')) {
                     e.consume();
                     JOptionPane.showMessageDialog(null, "Lo sentimos, este campo solo puede ser NUMEROS ", "Error", JOptionPane.WARNING_MESSAGE);
                 }
             }
-            if (getText().length() >7) {
-                    e.consume();
-                    JOptionPane.showMessageDialog(null, "Lo sentimos, el tipo de campo no permite que sea más larga", "Error", JOptionPane.WARNING_MESSAGE);
+            if (getText().length() > 7) {
+                e.consume();
+                JOptionPane.showMessageDialog(null, "Lo sentimos, el tipo de campo no permite que sea más larga", "Error", JOptionPane.WARNING_MESSAGE);
             }
         }
 
