@@ -5,9 +5,6 @@
  */
 package relojes;
 
-import MotorVisual.FrameVisual;
-import javafx.application.Application;
-
 /**
  *
  * @author Usuario
@@ -15,6 +12,6 @@ import javafx.application.Application;
 public class Relojes {
 
     public static void main(String[] args) throws Exception {
-        FrameVisual.launch(args);
+       
     }
 }
