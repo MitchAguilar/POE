@@ -53,7 +53,7 @@ public class Meives {
     /*Clase jlabel modificada de la por defecto*/
     public static class labelM extends JLabel {
 
-        public int tam = 100;
+        public int tam = 200;
 
         public labelM(String text, Color col, int width, int height, int largo, int ancho) {
             setBounds(width, height, largo, ancho);

@@ -5,23 +5,32 @@
  */
 package MotorLogico;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 
 /**
  *
  * @author Mitch
  */
-public class Hilos extends Thread{
-    String mensaje;
+public class Hilos extends Thread {
 
-    public Hilos(String msg) {
+    String mensaje;
+    JLabel lb;
+
+    public Hilos(String msg, JLabel lb) {
         super(msg);
+        this.lb = lb;
     }
 
-    public void run(JLabel lb) throws InterruptedException {
+    public void run() {
         for (int i = 0; i < 100; i++) {
-            lb.setText((i+1)+"");
-            sleep(50);
+            try {
+                lb.setText(i + "");
+                sleep(100);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Hilos.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
