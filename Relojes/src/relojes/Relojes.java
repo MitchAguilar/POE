@@ -5,13 +5,15 @@
  */
 package relojes;
 
+import MotorVisual.FrameVisual;
+
 /**
  *
  * @author Usuario
  */
 public class Relojes {
 
-    public static void main(String[] args) throws Exception {
-       
+    public static void main(String[] args) {
+        FrameVisual.run(args);
     }
 }
