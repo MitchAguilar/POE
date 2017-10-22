@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package molde;
+package MotorLogico;
 
 import java.awt.Graphics;
 import javax.swing.ImageIcon;

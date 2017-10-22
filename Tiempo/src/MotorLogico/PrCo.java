@@ -1,3 +1,10 @@
+package MotorLogico;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 import java.awt.Color;
 import java.awt.Font;
@@ -5,25 +12,17 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.geom.Arc2D;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 import javax.swing.JPanel;
-import sun.font.FontManager;
-import sun.java2d.pipe.RenderingEngine;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  *
  * @author Usuario
  */
-public class custom_Class extends JPanel {
+public class PrCo extends JPanel {
 
     int progress = 0;
 
@@ -54,10 +53,9 @@ public class custom_Class extends JPanel {
         g2.rotate(Math.toRadians(90));
         g2.setFont(new Font("Verdana", Font.PLAIN, 50));
         FontMetrics fn = g2.getFontMetrics();
-        Rectangle2D r = fn.getStringBounds(progress + "%", g);
+        Rectangle2D r = fn.getStringBounds(progress + "s", g);
         int x = (0 - (int) r.getWidth()) / 2;
         int y = (0 - (int) r.getHeight()) / 2 + fn.getAscent();
-        g2.drawString(progress + "%", x, y);
-
+        g2.drawString(progress + "s", x, y);
     }
 }

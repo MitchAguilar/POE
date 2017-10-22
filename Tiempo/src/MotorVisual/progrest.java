@@ -1,4 +1,7 @@
+package MotorVisual;
 
+
+import MotorLogico.PrCo;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,9 +32,9 @@ public class progrest extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        custom_Class1 = new custom_Class();
+        custom_Class1 = new PrCo();
         btn_run = new javax.swing.JButton();
-        ip_progress = new custom_Class();
+        ip_progress = new PrCo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,20 +86,7 @@ public class progrest extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_runActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_runActionPerformed
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i <= 100; i++) {
-                    ip_progress.UpdateProgres(i);
-                    try {
-                        ip_progress.repaint();
-                        Thread.sleep(50);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(progrest.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }).start();
+       
 
     }//GEN-LAST:event_btn_runActionPerformed
 
@@ -137,7 +127,7 @@ public class progrest extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_run;
-    private custom_Class custom_Class1;
-    private custom_Class ip_progress;
+    private PrCo custom_Class1;
+    private PrCo ip_progress;
     // End of variables declaration//GEN-END:variables
 }

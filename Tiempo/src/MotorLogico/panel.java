@@ -17,12 +17,19 @@ import java.awt.RenderingHints;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
 
 public class panel extends JPanel {
-    public float dat=0.5f;
-    public panel(Color c) {
+
+    public float dat = 0.5f;
+
+    public panel(Color c, float dat, String title) {
         setBackground(c);
-        setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        this.dat = dat;
+        TitledBorder bord;
+        bord = BorderFactory.createTitledBorder(title);
+        bord.setTitleColor(Color.ORANGE);
+        setBorder(bord);
     }
 
     @Override
