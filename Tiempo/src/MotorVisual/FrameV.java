@@ -5,10 +5,9 @@
  */
 package MotorVisual;
 
+import MotorLogico.panel;
 import java.awt.Color;
-import javafx.geometry.Pos;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 /**
  *
@@ -20,17 +19,17 @@ public class FrameV {
     private panel Pan1, Pan2, Pan3;
 
     public void Components() {
-        Pan1= new panel(Color.WHITE,0.5f,"Contador");
-        Pan1.setLayout(null);
-        Pan1.setBounds(20, 20, 280, 430);
-        
-        Pan2= new panel(Color.WHITE,0.5f,"Reloj");
-        Pan2.setLayout(null);
-        Pan2.setBounds(355, 20, 280, 430);
-        
-        Pan3= new panel(Color.WHITE,0.5f,"Cronometro");
-        Pan3.setLayout(null);
-        Pan3.setBounds(690, 20, 280, 430);
+//        Pan1= new panel(Color.WHITE,0.5f,"Contador");
+//        Pan1.setLayout(null);
+//        Pan1.setBounds(20, 20, 280, 430);
+//        
+//        Pan2= new panel(Color.WHITE,0.5f,"Reloj");
+//        Pan2.setLayout(null);
+//        Pan2.setBounds(355, 20, 280, 430);
+//        
+//        Pan3= new panel(Color.WHITE,0.5f,"Cronometro");
+//        Pan3.setLayout(null);
+//        Pan3.setBounds(690, 20, 280, 430);
     }
 
     public void Fram() {
@@ -42,9 +41,9 @@ public class FrameV {
         fram.add(Pan2);
         fram.add(Pan3);
         
-        Imagen img= new Imagen("/Complements/1.jpg", fram.getWidth(), fram.getHeight());
-        fram.add(img);
-        fram.repaint();
+//        Imagen img= new Imagen("/Complements/1.jpg", fram.getWidth(), fram.getHeight());
+//        fram.add(img);
+//        fram.repaint();
         
         fram.setResizable(false);
         fram.setLocationRelativeTo(null);
