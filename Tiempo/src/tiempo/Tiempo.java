@@ -5,6 +5,8 @@
  */
 package tiempo;
 
+import MotorVisual.FrameV;
+
 /**
  *
  * @author Usuario
@@ -16,6 +18,7 @@ public class Tiempo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        FrameV a = new FrameV();
     }
-    
+
 }
