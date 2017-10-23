@@ -5,16 +5,32 @@
  */
 package MotorLogico;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
  */
-public class HiloReloj {
+public class HiloReloj extends Thread {
 
-    public HiloReloj() {
+    private PrCo c;
+
+    public HiloReloj(PrCo ProgressCount) {
+        this.c = ProgressCount;
     }
 
     public void run() {
-
+        for (int i = 0; i <= 50; i++) {
+            c.UpdateProgres(i);
+            try {
+                c.repaint();
+                Thread.sleep(100);
+            } catch (InterruptedException ex) {
+                JOptionPane.showMessageDialog(null, "Hilo: HiloContador, fué estallado; por favor verifique el código","Error",JOptionPane.WARNING_MESSAGE);
+            }
+        }
+        run();
     }
 }

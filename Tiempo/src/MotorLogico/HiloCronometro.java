@@ -9,9 +9,9 @@ package MotorLogico;
  *
  * @author Usuario
  */
-public class HiloTempo {
+public class HiloCronometro {
 
-    public HiloTempo() {
+    public HiloCronometro() {
     }
 
     public void run() {

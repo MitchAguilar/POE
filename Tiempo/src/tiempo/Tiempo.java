@@ -16,7 +16,7 @@ public class Tiempo {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // TODO code application logic here
         FrameV a = new FrameV();
     }
