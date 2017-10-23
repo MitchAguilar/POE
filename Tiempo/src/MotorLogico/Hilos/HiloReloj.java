@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MotorLogico;
+package MotorLogico.Hilos;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import MotorLogico.PrCo;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,7 +21,7 @@ public class HiloReloj extends Thread {
     }
 
     public void run() {
-        for (int i = 0; i <= 50; i++) {
+        for (int i = 0; i <= 100; i++) {
             c.UpdateProgres(i);
             try {
                 c.repaint();

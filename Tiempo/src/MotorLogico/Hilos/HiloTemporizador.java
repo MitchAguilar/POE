@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MotorLogico;
+package MotorLogico.Hilos;
 
 /**
  *
  * @author Usuario
  */
-public class HiloCronometro {
+public class HiloTemporizador {
 
-    public HiloCronometro() {
+    public HiloTemporizador() {
     }
 
     public void run() {
