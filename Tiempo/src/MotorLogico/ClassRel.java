@@ -61,8 +61,8 @@ public class ClassRel extends JPanel {
             }
         }
         //Fondo atras en gradiante
-//        g2d.setPaint(new GradientPaint(150, 10, Color.BLACK, 35, 100, new Color(0f, 0f, 0.5f), true));
-//        g2d.fill(new Rectangle2D.Double(0, 0, this.getWidth(), this.getHeight()));
+        g2d.setPaint(new GradientPaint(150, 10, Color.black, 35, 100, new Color(22, 123, 176), true));
+        g2d.fill(new Rectangle2D.Double(0, 0, this.getWidth(), this.getHeight()));
         //Fondosegundo
 
         g2d.setPaint(Color.WHITE);
@@ -116,7 +116,7 @@ public class ClassRel extends JPanel {
         S = segundos < 10 ? String.valueOf("0" + segundos) : String.valueOf(segundos);
         M = minutos < 10 ? String.valueOf("0" + minutos) : String.valueOf(minutos);
         H = hora > 12 ? hora - 12 < 10 ? String.valueOf("0" + (hora - 12)) : String.valueOf(hora - 12) : hora < 10 ? String.valueOf("0" + (hora)) : String.valueOf(hora);
-        Tam = 50;
+        Tam = 20;
         g2d.setFont(new Font("SansSerif", Font.PLAIN, Tam));
         g2d.drawString(H + ":" + M + ":" + S, (int) ((this.getWidth() - (Tam * 4)) / 2), (int) ((this.getHeight() + Tam) / 2));
     }
