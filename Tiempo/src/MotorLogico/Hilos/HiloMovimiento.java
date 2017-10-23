@@ -25,6 +25,7 @@ public class HiloMovimiento extends Thread {
 
     public void run() {
         for (int i = 150; i <= 600; i++) {
+            i++;
             Pan.setBounds(i, b, ac, dc);
             try {
                 Thread.sleep(1);
@@ -33,6 +34,7 @@ public class HiloMovimiento extends Thread {
             }
         }
         for (int i = 600; i >= a; i--) {
+            i--;
             Pan.setBounds(i, b, ac, dc);
             try {
                 Thread.sleep(1);

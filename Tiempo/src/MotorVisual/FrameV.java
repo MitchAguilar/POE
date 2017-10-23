@@ -9,17 +9,14 @@ import MotorLogico.*;
 import MotorLogico.Hilos.HiloCronometro;
 import MotorLogico.Hilos.HiloMovimiento;
 import MotorLogico.Hilos.HiloRepaint;
+import MotorLogico.Hilos.HiloTemporizador;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.net.URL;
 import java.util.Hashtable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -38,17 +35,17 @@ public class FrameV implements ActionListener {
 
     private JFrame fram;
     private panel Pan1, Pan2, Pan3, panConfig, tiempo;
-    private ClassCount c, d, e;
-    private JButton btn, btn2, btn3, P1Play, P1Stop, P1Pause, P2Play, P2Stop, P2Pause;
+    private ClassCount c, d, e, c1, d1, e1;
+    private JButton btn, btn2, btn3, P1Play, P1Stop, P1Pause, P2Play, P2Stop, P2Pause, P3Play, P3Stop, P3Pause;
     private ClassRel dibujos;
-    private boolean bandera = true;
-    private JComboBox Val;
+    private boolean bandera = true, bandera2 = true;
     private int time;
     JSlider Time;
     Hashtable has;
     //hilos peligrosos
 //    HiloMovimiento Relo;
     HiloCronometro crm;
+    HiloTemporizador tmp;
 
     public void Components() {
         //panel de configuraciones
@@ -152,7 +149,7 @@ public class FrameV implements ActionListener {
         Time.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                time = Time.getValue()+1;
+                time = Time.getValue() + 1;
             }
         });
 
@@ -243,19 +240,97 @@ public class FrameV implements ActionListener {
                 URL url7 = this.getClass().getResource("/Complements/play.png");
                 P2Play.setIcon(new ImageIcon(url7));
                 Time.setEnabled(true);
-                time=0;
+                time = 0;
             }
         });
 
         Pan2.add(P2Play);
         Pan2.add(P2Pause);
         Pan2.add(P2Stop);
-//        Pan2.add(Ti);
 
         //panel 3
         Pan3 = new panel(Color.WHITE, 0.5f, "Temporizador");
         Pan3.setLayout(null);
         Pan3.setVisible(false);
+
+        c1 = new ClassCount(72);
+        c1.setLayout(null);
+        c1.setBounds(15, 60, 100, 100);
+
+        d1 = new ClassCount(6);
+        d1.setLayout(null);
+        d1.setBounds(115, 60, 100, 100);
+
+        e1 = new ClassCount(100);
+        e1.setLayout(null);
+        e1.setBounds(215, 60, 100, 100);
+
+        Pan3.add(c1);
+        Pan3.add(d1);
+        Pan3.add(e1);
+
+        P3Play = new JButton();
+        P3Play.setBounds(100, 170, 140, 140);
+        URL url10 = this.getClass().getResource("/Complements/PlayG.png");
+        P3Play.setIcon(new ImageIcon(url10));
+        P3Play.addActionListener(this);
+        P3Play.setOpaque(false);
+        P3Play.setContentAreaFilled(false);
+        P3Play.setBorder(null);
+        P3Play.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (bandera2) {
+                    URL url10 = this.getClass().getResource("/Complements/ResumeG.png");
+                    P3Play.setIcon(new ImageIcon(url10));
+                    tmp.start();
+                } else {
+                    tmp.resume();
+                    URL url10 = this.getClass().getResource("/Complements/ResumeG.png");
+                    P3Play.setIcon(new ImageIcon(url10));
+                }
+
+            }
+        });
+        P3Pause = new JButton();
+        P3Pause.setBounds(40, 340, 80, 80);
+        URL url11 = this.getClass().getResource("/Complements/PauseG.png");
+        P3Pause.setIcon(new ImageIcon(url11));
+        P3Pause.addActionListener(this);
+        P3Pause.setOpaque(false);
+        P3Pause.setContentAreaFilled(false);
+        P3Pause.setBorder(null);
+        P3Pause.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tmp.suspend();
+                bandera2 = false;
+                URL url11 = this.getClass().getResource("/Complements/ResumeG.png");
+                P3Play.setIcon(new ImageIcon(url11));
+            }
+        });
+        P3Stop = new JButton();
+        P3Stop.setBounds(220, 340, 80, 80);
+        URL url12 = this.getClass().getResource("/Complements/StopG.png");
+        P3Stop.setIcon(new ImageIcon(url12));
+        P3Stop.addActionListener(this);
+        P3Stop.setOpaque(false);
+        P3Stop.setContentAreaFilled(false);
+        P3Stop.setBorder(null);
+        P3Stop.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f) {
+                tmp.stop();
+                tmp = new HiloTemporizador(c1, d1, e1, 5);
+                bandera2 = true;
+                URL url12 = this.getClass().getResource("/Complements/PlayG.png");
+                P3Play.setIcon(new ImageIcon(url12));
+            }
+        });
+
+        Pan3.add(P3Play);
+        Pan3.add(P3Stop);
+        Pan3.add(P3Pause);
     }
 
     int a = (995 - 330) / 2, b = 20, ac = 330, dc = 430;
@@ -282,7 +357,7 @@ public class FrameV implements ActionListener {
         Imagen img = new Imagen("/Complements/1.jpg", fram.getWidth(), fram.getHeight());
         fram.add(img);
         fram.setIconImage(icon);
-        fram.repaint();
+
         fram.setResizable(false);
         fram.setLocationRelativeTo(null);
         fram.setVisible(true);
@@ -292,6 +367,8 @@ public class FrameV implements ActionListener {
     public FrameV() throws InterruptedException {
         Components();
         Fram();
+//        HiloImagen hl = new HiloImagen(fram);
+//        hl.start();
         HiloRepaint Rp = new HiloRepaint(fram);
         Rp.start();
     }
@@ -326,8 +403,8 @@ public class FrameV implements ActionListener {
             Pan1.setVisible(false);
             HiloMovimiento h = new HiloMovimiento(Pan3);
             h.start();
+            tmp = new HiloTemporizador(c1, d1, e1, 5);
             System.out.println("final 3");
         }
     }
-
 }
