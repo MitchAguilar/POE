@@ -5,6 +5,7 @@
  */
 package MotorVisual;
 
+import MotorLogico.ClassRel;
 import MotorLogico.Hilos.HiloMovimiento;
 import MotorLogico.Hilos.HiloReloj;
 import MotorLogico.Hilos.HiloRepaint;
@@ -12,11 +13,13 @@ import MotorLogico.PrCo;
 import MotorLogico.Imagen;
 import MotorLogico.panel;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -31,8 +34,9 @@ public class FrameV implements ActionListener {
 
     private JFrame fram;
     private panel Pan1, Pan2, Pan3, panConfig;
-    private PrCo c, d, e;
+//    private PrCo c, d, e;
     private JButton btn, btn2, btn3;
+    private ClassRel dibujos;
 
     public void Components() {
         panConfig = new panel(Color.white, 0.5f, "Administración");
@@ -71,21 +75,20 @@ public class FrameV implements ActionListener {
         Pan1.setLayout(null);
         Pan1.setVisible(false);
 
-        c = new PrCo();
-        c.setLayout(null);
-        c.setBounds(15, 60, 100, 100);
-
-        d = new PrCo();
-        d.setLayout(null);
-        d.setBounds(115, 60, 100, 100);
-
-        e = new PrCo();
-        e.setLayout(null);
-        e.setBounds(215, 60, 100, 100);
-        Pan1.add(c);
-        Pan1.add(d);
-        Pan1.add(e);
-
+//        c = new PrCo();
+//        c.setLayout(null);
+//        c.setBounds(15, 60, 100, 100);
+//
+//        d = new PrCo();
+//        d.setLayout(null);
+//        d.setBounds(115, 60, 100, 100);
+//
+//        e = new PrCo();
+//        e.setLayout(null);
+//        e.setBounds(215, 60, 100, 100);
+//        Pan1.add(c);
+//        Pan1.add(d);
+//        Pan1.add(e);
         Pan2 = new panel(Color.WHITE, 0.5f, "Cronometro");
         Pan2.setLayout(null);
         Pan2.setVisible(false);
@@ -99,17 +102,10 @@ public class FrameV implements ActionListener {
     boolean aaa = true;
 
     public void runningPan1() throws InterruptedException {
-//        HiloReloj h1 = new HiloReloj(c);
-//        h1.start();
-//        HiloReloj h2 = new HiloReloj(d);
-//        h2.start();
-//        HiloReloj h3 = new HiloReloj(e);
-//        h3.start();
-
-//        h1.stop();
-//        h2.stop();
-//        h3.stop();
-        runningPan1();
+        dibujos = new ClassRel();
+        Pan1.add(dibujos);
+        dibujos.setBounds(10, 20, 310, 300);
+        dibujos.setVisible(true);
     }
 
     public void Fram() {
@@ -136,7 +132,7 @@ public class FrameV implements ActionListener {
     public FrameV() throws InterruptedException {
         Components();
         Fram();
-        HiloRepaint Rp= new HiloRepaint(fram);
+        HiloRepaint Rp = new HiloRepaint(fram);
         Rp.start();
     }
 
@@ -148,6 +144,11 @@ public class FrameV implements ActionListener {
             Pan1.setVisible(true);
             HiloMovimiento h = new HiloMovimiento(Pan1);
             h.start();
+            try {
+                runningPan1();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(FrameV.class.getName()).log(Level.SEVERE, null, ex);
+            }
             System.out.println("final");
         }
     }

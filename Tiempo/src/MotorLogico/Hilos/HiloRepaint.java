@@ -5,9 +5,6 @@
  */
 package MotorLogico.Hilos;
 
-import MotorLogico.PrCo;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -22,12 +19,14 @@ public class HiloRepaint extends Thread {
     public HiloRepaint(JFrame ProgressCount) {
         this.c = ProgressCount;
     }
+
     public void run() {
         c.repaint();
         try {
-            sleep(10);
+            sleep(100);
         } catch (InterruptedException ex) {
-            Logger.getLogger(HiloRepaint.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Lo siento, reventaste el proceso de pila de la JVM,\n por tanto no es posible recuperar tu aplicación."
+                    + " \n te recomendamos reiniciar." + ex.getCause(), "Error", JOptionPane.WARNING_MESSAGE);
         }
         run();
     }

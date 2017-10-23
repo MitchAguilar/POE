@@ -7,7 +7,6 @@ package MotorLogico;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
@@ -16,7 +15,6 @@ import java.awt.RenderingHints;
 import java.awt.geom.Arc2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Calendar;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class ClassRel extends JPanel {
@@ -26,34 +24,8 @@ public class ClassRel extends JPanel {
     static int fps = 0;
     static int contador1 = 1, contador2 = 1, contador3 = 1;
 
-    public static void main(String[] args) throws InterruptedException {
-
-        int hora, minutos, segundos, anchoReloj;
-        Calendar calendario = Calendar.getInstance();
-        hora = (calendario.get(Calendar.HOUR_OF_DAY));
-        minutos = (calendario.get(Calendar.MINUTE));
-        segundos = (calendario.get(Calendar.SECOND));
-//        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("/Recurso/Mitch.png"));
-        JFrame lienzo = new JFrame("Hola Mundo");
-//        lienzo.setIconImage(retValue);
-        Dimension dimension = new Dimension();
-        dimension.setSize(700, 700);
-        lienzo.setSize(dimension);
-        lienzo.setLocationRelativeTo(null);
-        lienzo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ClassRel dibujos = new ClassRel();
-        lienzo.add(dibujos);
-        lienzo.setVisible(true);
-
-        while (true) {
-            dibujos.repaint();
-            Thread.sleep(1000);
-        }
-    }
-
     @Override
     public void paint(Graphics g) {
-
         super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
@@ -65,10 +37,10 @@ public class ClassRel extends JPanel {
         hora = (calendario.get(Calendar.HOUR_OF_DAY));
         minutos = (calendario.get(Calendar.MINUTE));
         segundos = (calendario.get(Calendar.SECOND));
-        anchoSegundo = 550;
-        anchoMinuto = 450;
-        anchoHora = 350;
-        anchoTexto = 250;
+        anchoSegundo = 250;
+        anchoMinuto = 200;
+        anchoHora = 150;
+        anchoTexto = 100;
 
         if (segundos == 0) {
             contador1 = contador1 == 2 ? 1 : 2;
@@ -88,9 +60,9 @@ public class ClassRel extends JPanel {
                 }
             }
         }
-        //Fondo        
-        g2d.setPaint(new GradientPaint(150, 10, Color.BLACK, 35, 100, new Color(0f, 0f, 0.3f), true));
-        g2d.fill(new Rectangle2D.Double(0, 0, this.getWidth(), this.getHeight()));
+        //Fondo atras en gradiante
+//        g2d.setPaint(new GradientPaint(150, 10, Color.BLACK, 35, 100, new Color(0f, 0f, 0.5f), true));
+//        g2d.fill(new Rectangle2D.Double(0, 0, this.getWidth(), this.getHeight()));
         //Fondosegundo
 
         g2d.setPaint(Color.WHITE);
