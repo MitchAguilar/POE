@@ -5,26 +5,30 @@
  */
 package MotorVisual;
 
-import MotorLogico.ClassRel;
+import MotorLogico.*;
+import MotorLogico.Hilos.HiloCronometro;
 import MotorLogico.Hilos.HiloMovimiento;
-import MotorLogico.Hilos.HiloReloj;
 import MotorLogico.Hilos.HiloRepaint;
-import MotorLogico.PrCo;
-import MotorLogico.Imagen;
-import MotorLogico.panel;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.net.URL;
-import java.util.Calendar;
+import java.util.Hashtable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  *
@@ -33,12 +37,21 @@ import javax.swing.JFrame;
 public class FrameV implements ActionListener {
 
     private JFrame fram;
-    private panel Pan1, Pan2, Pan3, panConfig;
-//    private PrCo c, d, e;
-    private JButton btn, btn2, btn3;
+    private panel Pan1, Pan2, Pan3, panConfig, tiempo;
+    private ClassCount c, d, e;
+    private JButton btn, btn2, btn3, P1Play, P1Stop, P1Pause, P2Play, P2Stop, P2Pause;
     private ClassRel dibujos;
+    private boolean bandera = true;
+    private JComboBox Val;
+    private int time;
+    JSlider Time;
+    Hashtable has;
+    //hilos peligrosos
+//    HiloMovimiento Relo;
+    HiloCronometro crm;
 
     public void Components() {
+        //panel de configuraciones
         panConfig = new panel(Color.white, 0.5f, "Administración");
         panConfig.setLayout(null);
         panConfig.setBounds(10, 10, 120, 350);
@@ -71,28 +84,175 @@ public class FrameV implements ActionListener {
         panConfig.add(btn2);
         panConfig.add(btn3);
 
+        //panel del reloj
         Pan1 = new panel(Color.WHITE, 0.5f, "Reloj");
         Pan1.setLayout(null);
         Pan1.setVisible(false);
 
-//        c = new PrCo();
-//        c.setLayout(null);
-//        c.setBounds(15, 60, 100, 100);
-//
-//        d = new PrCo();
-//        d.setLayout(null);
-//        d.setBounds(115, 60, 100, 100);
-//
-//        e = new PrCo();
-//        e.setLayout(null);
-//        e.setBounds(215, 60, 100, 100);
-//        Pan1.add(c);
-//        Pan1.add(d);
-//        Pan1.add(e);
+        P1Play = new JButton();
+        P1Play.setBounds(10, 345, 60, 60);
+        URL url4 = this.getClass().getResource("/Complements/play.png");
+        P1Play.setIcon(new ImageIcon(url4));
+        P1Play.addActionListener(this);
+        P1Play.setOpaque(false);
+        P1Play.setContentAreaFilled(false);
+        P1Play.setBorder(null);
+
+        P1Pause = new JButton();
+        P1Pause.setBounds(140, 345, 60, 60);
+        URL url5 = this.getClass().getResource("/Complements/Pause.png");
+        P1Pause.setIcon(new ImageIcon(url5));
+        P1Pause.addActionListener(this);
+        P1Pause.setOpaque(false);
+        P1Pause.setContentAreaFilled(false);
+        P1Pause.setBorder(null);
+
+        P1Stop = new JButton();
+        P1Stop.setBounds(260, 345, 60, 60);
+        URL url6 = this.getClass().getResource("/Complements/Stop.png");
+        P1Stop.setIcon(new ImageIcon(url6));
+        P1Stop.addActionListener(this);
+        P1Stop.setOpaque(false);
+        P1Stop.setContentAreaFilled(false);
+        P1Stop.setBorder(null);
+
+        Pan1.add(P1Play);
+        Pan1.add(P1Pause);
+        Pan1.add(P1Stop);
+
+        //panel cronometro
+        c = new ClassCount(72);
+        c.setLayout(null);
+        c.setBounds(15, 60, 100, 100);
+
+        d = new ClassCount(6);
+        d.setLayout(null);
+        d.setBounds(115, 60, 100, 100);
+
+        e = new ClassCount(100);
+        e.setLayout(null);
+        e.setBounds(215, 60, 100, 100);
+
         Pan2 = new panel(Color.WHITE, 0.5f, "Cronometro");
         Pan2.setLayout(null);
         Pan2.setVisible(false);
 
+        Pan2.add(c);
+        Pan2.add(d);
+        Pan2.add(e);
+
+        Time = new JSlider(JSlider.HORIZONTAL, 0, 3, 0);
+        Time.setBounds(50, 30, 220, 50);
+        Time.setMajorTickSpacing(1);
+        Time.setPaintTicks(true);
+        Time.setMajorTickSpacing(1);
+        Time.setPaintLabels(true);
+        Time.setOpaque(false);
+        Time.setForeground(Color.white);
+        Time.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                time = Time.getValue()+1;
+            }
+        });
+
+        has = new Hashtable();
+        JLabel p1 = new JLabel("2");
+        p1.setForeground(Color.ORANGE);
+        JLabel p2 = new JLabel("3");
+        p2.setForeground(Color.ORANGE);
+        JLabel p3 = new JLabel("5");
+        p3.setForeground(Color.ORANGE);
+        JLabel p4 = new JLabel("0");
+        p4.setForeground(Color.ORANGE);
+
+        has.put(new Integer(0), p4);
+        has.put(new Integer(1), p1);
+        has.put(new Integer(2), p2);
+        has.put(new Integer(3), p3);
+        Time.setLabelTable(has);
+
+        tiempo = new panel(Color.BLACK, 0.6f, "Tiempo");
+        tiempo.setBounds(15, 200, 300, 100);
+        tiempo.add(Time);
+        tiempo.setLayout(null);
+
+        Pan2.add(tiempo);
+
+        P2Play = new JButton();
+        P2Play.setBounds(10, 345, 60, 60);
+        URL url7 = this.getClass().getResource("/Complements/play.png");
+        P2Play.setIcon(new ImageIcon(url7));
+        P2Play.addActionListener(this);
+        P2Play.setOpaque(false);
+        P2Play.setContentAreaFilled(false);
+        P2Play.setBorder(null);
+        P2Play.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (Time.getValue() != 0) {
+                    Time.setEnabled(false);
+                    if (bandera) {
+                        URL url7 = this.getClass().getResource("/Complements/Resume.png");
+                        P2Play.setIcon(new ImageIcon(url7));
+                        crm.Temp(time++);
+                        crm.start();
+                    } else {
+                        crm.resume();
+                        URL url7 = this.getClass().getResource("/Complements/Resume.png");
+                        P2Play.setIcon(new ImageIcon(url7));
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Por favor elija un tiempo", "Error", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+
+        P2Pause = new JButton();
+        P2Pause.setBounds(140, 345, 60, 60);
+        URL url8 = this.getClass().getResource("/Complements/Pause.png");
+        P2Pause.setIcon(new ImageIcon(url8));
+        P2Pause.addActionListener(this);
+        P2Pause.setOpaque(false);
+        P2Pause.setContentAreaFilled(false);
+        P2Pause.setBorder(null);
+        P2Pause.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                crm.suspend();
+                bandera = false;
+                URL url7 = this.getClass().getResource("/Complements/Resume.png");
+                P2Play.setIcon(new ImageIcon(url7));
+            }
+        });
+
+        P2Stop = new JButton();
+        P2Stop.setBounds(260, 345, 60, 60);
+        URL url9 = this.getClass().getResource("/Complements/Stop.png");
+        P2Stop.setIcon(new ImageIcon(url9));
+        P2Stop.addActionListener(this);
+        P2Stop.setOpaque(false);
+        P2Stop.setContentAreaFilled(false);
+        P2Stop.setBorder(null);
+        P2Stop.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f) {
+                crm.stop();
+                crm = new HiloCronometro(c, d, e);
+                bandera = true;
+                URL url7 = this.getClass().getResource("/Complements/play.png");
+                P2Play.setIcon(new ImageIcon(url7));
+                Time.setEnabled(true);
+                time=0;
+            }
+        });
+
+        Pan2.add(P2Play);
+        Pan2.add(P2Pause);
+        Pan2.add(P2Stop);
+//        Pan2.add(Ti);
+
+        //panel 3
         Pan3 = new panel(Color.WHITE, 0.5f, "Temporizador");
         Pan3.setLayout(null);
         Pan3.setVisible(false);
@@ -115,8 +275,8 @@ public class FrameV implements ActionListener {
 
         fram.add(panConfig);
         fram.add(Pan1);
-//        fram.add(Pan2);
-//        fram.add(Pan3);
+        fram.add(Pan2);
+        fram.add(Pan3);
 
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/icon.png"));
         Imagen img = new Imagen("/Complements/1.jpg", fram.getWidth(), fram.getHeight());
@@ -139,6 +299,7 @@ public class FrameV implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(btn)) {
+
             Pan2.setVisible(false);
             Pan3.setVisible(false);
             Pan1.setVisible(true);
@@ -147,9 +308,25 @@ public class FrameV implements ActionListener {
             try {
                 runningPan1();
             } catch (InterruptedException ex) {
-                Logger.getLogger(FrameV.class.getName()).log(Level.SEVERE, null, ex);
             }
-            System.out.println("final");
+            System.out.println("final 1");
+        }
+        if (e.getSource().equals(btn2)) {
+            Pan2.setVisible(true);
+            Pan3.setVisible(false);
+            Pan1.setVisible(false);
+            HiloMovimiento h = new HiloMovimiento(Pan2);
+            h.start();
+            crm = new HiloCronometro(c, d, this.e);
+            System.out.println("final 2");
+        }
+        if (e.getSource().equals(btn3)) {
+            Pan2.setVisible(false);
+            Pan3.setVisible(true);
+            Pan1.setVisible(false);
+            HiloMovimiento h = new HiloMovimiento(Pan3);
+            h.start();
+            System.out.println("final 3");
         }
     }
 

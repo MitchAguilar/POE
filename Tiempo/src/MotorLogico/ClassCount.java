@@ -21,12 +21,16 @@ import javax.swing.JPanel;
  *
  * @author Usuario
  */
-public class PrCo extends JPanel {
+public class ClassCount extends JPanel {
 
-    int progress = 0;
+    private int progress = 0,rotate=0;
 
     public void UpdateProgres(int progress) {
         this.progress = progress;
+    }
+
+    public ClassCount(int rotate) {
+        this.rotate=rotate;
     }
 
     @Override
@@ -41,7 +45,7 @@ public class PrCo extends JPanel {
         arc.setFrameFromCenter(new Point(0, 0), new Point(40, 40));
         circle.setFrameFromCenter(new Point(0, 0), new Point(30, 30));
         arc.setAngleStart(1);
-        arc.setAngleExtent(-progress * 3.6);//360/100=3.6
+        arc.setAngleExtent(-progress * rotate);//360/100=3.6
         g2.setColor(Color.DARK_GRAY);
         g2.draw(arc);
         g2.fill(arc);
@@ -50,11 +54,11 @@ public class PrCo extends JPanel {
         g2.fill(circle);
         g2.setColor(Color.DARK_GRAY);
         g2.rotate(Math.toRadians(90));
-        g2.setFont(new Font("Verdana", Font.PLAIN, 20));
+        g2.setFont(new Font("Verdana", Font.PLAIN, 40));
         FontMetrics fn = g2.getFontMetrics();
-        Rectangle2D r = fn.getStringBounds(progress + "s", g);
+        Rectangle2D r = fn.getStringBounds(progress + "", g);
         int x = (0 - (int) r.getWidth()) / 2;
         int y = (0 - (int) r.getHeight()) / 2 + fn.getAscent();
-        g2.drawString(progress + "s", x, y);
+        g2.drawString(progress + "", x, y);
     }
 }

@@ -5,23 +5,43 @@
  */
 package MotorLogico.Hilos;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import MotorLogico.ClassCount;
+import MotorLogico.Sonido;
 
 /**
  *
  * @author Usuario
  */
-public class HiloCronometro extends Thread{
+public class HiloCronometro extends Thread {
 
-    public HiloCronometro() {
+    private ClassCount pan1, pan2, pan3;
+    private int temp;
+
+    public HiloCronometro(ClassCount pan1, ClassCount pan2, ClassCount pan3) {
+        this.pan1 = pan1;
+        this.pan2 = pan2;
+        this.pan3 = pan3;
+    }
+
+    public void Temp(int clock) {
+        temp = clock;
     }
 
     public void run() {
-        try {
-            sleep(100);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(HiloCronometro.class.getName()).log(Level.SEVERE, null, ex);
+        for (int i = temp; i > 0; i--) {
+            pan1.UpdateProgres(i - 1);
+            for (int j = 60; j >= 0; j--) {
+                pan2.UpdateProgres(j);
+                for (int k = 100; k >= 0; k--) {
+                    pan3.UpdateProgres(k);
+                    try {
+                        sleep(10);
+                    } catch (InterruptedException ex) {
+                    }
+                }
+            }
+            Sonido.MIN.play();
         }
+        System.out.println("Terminó hilo cronometro");
     }
 }

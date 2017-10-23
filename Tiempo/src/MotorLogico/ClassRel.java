@@ -120,5 +120,4 @@ public class ClassRel extends JPanel {
         g2d.setFont(new Font("SansSerif", Font.PLAIN, Tam));
         g2d.drawString(H + ":" + M + ":" + S, (int) ((this.getWidth() - (Tam * 4)) / 2), (int) ((this.getHeight() + Tam) / 2));
     }
-
 }
