@@ -376,7 +376,9 @@ public class FrameV implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(btn)) {
-
+            btn.setEnabled(false);
+            btn2.setEnabled(true);
+            btn3.setEnabled(true);
             Pan2.setVisible(false);
             Pan3.setVisible(false);
             Pan1.setVisible(true);
@@ -389,6 +391,9 @@ public class FrameV implements ActionListener {
             System.out.println("final 1");
         }
         if (e.getSource().equals(btn2)) {
+            btn.setEnabled(true);
+            btn2.setEnabled(false);
+            btn3.setEnabled(true);
             Pan2.setVisible(true);
             Pan3.setVisible(false);
             Pan1.setVisible(false);
@@ -398,6 +403,9 @@ public class FrameV implements ActionListener {
             System.out.println("final 2");
         }
         if (e.getSource().equals(btn3)) {
+            btn.setEnabled(true);
+            btn2.setEnabled(true);
+            btn3.setEnabled(false);
             Pan2.setVisible(false);
             Pan3.setVisible(true);
             Pan1.setVisible(false);
