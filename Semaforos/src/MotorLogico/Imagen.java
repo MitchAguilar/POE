@@ -26,4 +26,8 @@ public class Imagen extends javax.swing.JPanel {
         setOpaque(false);
         super.paintComponent(grafico);
     }
+    /*
+    Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/icon.png"));
+    fram.setIconImage(icon);
+    */
 }

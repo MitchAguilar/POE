@@ -5,7 +5,7 @@
  */
 package semaforos;
 
-import MotorLogico.Frame;
+import MotorVisual.Frame;
 
 /**
  *
