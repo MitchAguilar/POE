@@ -39,7 +39,6 @@ public class Frame {
         Fram.setResizable(false);
         Fram.setLocationRelativeTo(null);
         Fram.setDefaultCloseOperation(3);
-        
     }
 
     public Frame() {
