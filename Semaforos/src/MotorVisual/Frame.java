@@ -25,15 +25,14 @@ public class Frame {
     public void Fram() {
         Fram = new JFrame("Semaforos");
 //        Fram.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
-        Fram.setSize(1000, 600);
+        Fram.setSize(1024, 700);
         Fram.setLayout(null);
-        
-        
+
         Imagen img = new Imagen("/Complements/Fondo.jpg", Fram.getWidth(), Fram.getHeight());
         Fram.add(img);
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/Icon.png"));
         Fram.setIconImage(icon);
-        
+
         Fram.repaint();
         Fram.setVisible(true);
         Fram.setResizable(false);
@@ -45,5 +44,4 @@ public class Frame {
         Components();
         Fram();
     }
-
 }
