@@ -5,6 +5,8 @@
  */
 package semaforos;
 
+import MotorLogico.Frame;
+
 /**
  *
  * @author Usuario
@@ -16,6 +18,7 @@ public class Semaforos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Frame a= new Frame();
     }
     
 }
