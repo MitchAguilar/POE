@@ -21,40 +21,47 @@ import javax.swing.JPanel;
 public class Frame {
 
     JFrame Fram;
-    JPanel Cesped, Cesped2;
+    JPanel Cesped, Cesped2, Edific;
     JLabel Arb;
-    static Imagen img ;
+    static Imagen img;
+
     public void Components() {
         Cesped = new JPanel();
-        Cesped.setBounds(0, 0, 450, 300);
+        Cesped.setBounds(0, 398, 450, 300);
         Cesped.setLayout(null);
-        img= new Imagen("/Complements/Cesped.PNG", Cesped.getWidth(), Cesped.getHeight());
+        img = new Imagen("/Complements/Cesped.PNG", Cesped.getWidth(), Cesped.getHeight());
         Cesped.add(img);
 
         Cesped2 = new JPanel();
-        Cesped2.setBounds(550, 0, 700, 300);
+        Cesped2.setBounds(550, 398, 700, 300);
         Cesped2.setLayout(null);
         Imagen img2 = new Imagen("/Complements/Cesped.PNG", Cesped2.getWidth(), Cesped2.getHeight());
         Cesped2.add(img2);
 
         Arb = new JLabel();
-        URL url = this.getClass().getResource("/Complements/Arbol.gif");
+        URL url = this.getClass().getResource("/Complements/Edificios.png");
         Arb.setIcon(new ImageIcon(url));
         Arb.setFocusable(false);
-        Arb.setBounds(10, 50, 560, 300);
+        Arb.setBounds(850, 90, 560, 300);
         Arb.setBorder(null);
         Arb.setOpaque(false);
-        Cesped.add(Arb);
+
+//            Edific= new JPanel();
+//            Edific.setBounds(10,300, 260, 340);
+//            Imagen im= new Imagen("/Complements/Edificios.png", Edific.getWidth(), Edific.getHeight());
+//            Edific.add(im);
+//            Edific.repaint();
     }
 
     public void Fram() {
         Fram = new JFrame("Semaforos");
-//        Fram.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
         Fram.setSize(1024, 700);
         Fram.setLayout(null);
 
         Fram.add(Cesped);
         Fram.add(Cesped2);
+//        Fram.add(Edific);
+        Fram.add(Arb);
 
         Imagen img = new Imagen("/Complements/Fondo.jpg", Fram.getWidth(), Fram.getHeight());
         Fram.add(img);

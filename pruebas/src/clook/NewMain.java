@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class NewMain {
 
-    public static long plus(long a, long b) {
-        long c, d;
+    public static int plus(int a, int b) {
+        int c, d;
         do {
             c = a ^ b;
             d = a & b;
@@ -15,10 +15,59 @@ public class NewMain {
         return c;
     }
 
+    public static int mult(int a,int  b) {
+        int c=0;
+        for (int i = 0; i < b; i++) {
+            c =plus(c, a);
+        }
+        return c;
+    }
+
     public static void main(String[] args) {
-        System.out.println(plus(3, 5));
-        
-        
+        int a = 7;
+        int b = 3;
+        System.out.println(~7);
+
+    }
+
+} 
+//        a = 3;
+//        a=a<<1;
+//        System.out.println("3x2= "+a);
+//        a = 3;
+//        a=a<<2;
+//        System.out.println("3x3= "+a);  
+//        a = 3;
+//        a=a<<3;
+//        System.out.println("3x4= "+a);
+//        a = 3;
+//        a=a<<4;
+//        System.out.println("3x5= "+a);
+//        a = 3;
+//        a=a<<5;
+//        System.out.println("3x6= "+a);
+//        a = 3;
+//        a=a<<6;
+//        System.out.println("3x7= "+a);
+//        a = 3;
+//        a=a<<7;
+//        System.out.println("3x8= "+a);
+//        a = 3;
+//        a=a<<8;
+//        System.out.println("3x9= "+a);
+//        a = 3;
+//        a=a<<9;
+////        System.out.println("3x10= "+a);  
+//a=a<<0;
+//        System.out.println(a);//notamos que es como multiplicar 3*1=3
+//        a=a<<1;
+//        System.out.println(a);//notamos que es como multiplicar 3*2=6
+//        a=3;
+//        a=a<<2;
+//        System.out.println(a);//notamos que es como multiplicar 3*4=12
+//        a=3;
+//        a=a<<3;
+//        System.out.println(a);//notamos que es como multiplicar 3*7=24
 //        for (int i = 0; i < 50000; i++) {
 //
 //////            System.out.println((int)(Math.random()*(1000000000+1)));
@@ -27,9 +76,6 @@ public class NewMain {
 //////            System.out.println("->"+plus(c, b));
 ////            System.out.println("->"+(b+c));
 //        }
-    }
-
-}
 //suma normal, en promedio: 16 minutos y 7 segundos
 //suma especial, en promedio:  15 minutos y 7 segundos
 
@@ -405040,4 +405086,4 @@ public class NewMain {
 4161543
 6849926
 5466039
-*/
+ */
