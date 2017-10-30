@@ -10,7 +10,6 @@ import java.applet.AudioClip;
 
 public class Sonido {
 
-    public static final AudioClip MIN = Applet.newAudioClip(Sonido.class.getResource("/Complements/min.wav"));
-    public static final AudioClip HOR = Applet.newAudioClip(Sonido.class.getResource("/Complements/hor.wav"));
+    public static final AudioClip Camion = Applet.newAudioClip(Sonido.class.getResource("/Complements/pito.wav"));
 
 }

@@ -5,6 +5,7 @@
  */
 package MotorLogico.Hilos;
 
+import MotorLogico.Sonido;
 import MotorVisual.DibujarCirculo;
 import java.awt.Color;
 import java.util.logging.Level;
@@ -61,6 +62,7 @@ public class HiloSemaforos extends Thread {
             sleep(18000);
 
             //Segundo Acto
+            Sonido.Camion.play();
             DeBaAm.col = Color.YELLOW;
             DeBaRo.col = Color.BLACK;
             DeBaVe.col = Color.BLACK;
@@ -80,6 +82,7 @@ public class HiloSemaforos extends Thread {
             sleep(2000);
 
             //Tercer Acto
+            Sonido.Camion.stop();
             DeBaAm.col = Color.BLACK;
             DeBaRo.col = Color.RED;
             DeBaVe.col = Color.BLACK;
@@ -99,6 +102,7 @@ public class HiloSemaforos extends Thread {
             sleep(18000);
 
             //Cuarto Acto
+            Sonido.Camion.play();
             DeBaAm.col = Color.BLACK;
             DeBaRo.col = Color.RED;
             DeBaVe.col = Color.BLACK;
@@ -118,6 +122,7 @@ public class HiloSemaforos extends Thread {
             sleep(2000);
 
             //Quinto Acto
+            Sonido.Camion.stop();
             DeBaAm.col = Color.BLACK;
             DeBaRo.col = Color.RED;
             DeBaVe.col = Color.BLACK;
@@ -137,6 +142,7 @@ public class HiloSemaforos extends Thread {
             sleep(18000);
 
             //Sexto Acto
+            Sonido.Camion.play();
             DeBaAm.col = Color.BLACK;
             DeBaRo.col = Color.RED;
             DeBaVe.col = Color.BLACK;
@@ -156,6 +162,7 @@ public class HiloSemaforos extends Thread {
             sleep(2000);
             
             //Septimo Acto
+            Sonido.Camion.stop();
             DeBaAm.col = Color.BLACK;
             DeBaRo.col = Color.RED;
             DeBaVe.col = Color.BLACK;
@@ -175,6 +182,7 @@ public class HiloSemaforos extends Thread {
             sleep(18000);
             
             //Octavo Acto
+            Sonido.Camion.play();
             DeBaAm.col = Color.BLACK;
             DeBaRo.col = Color.RED;
             DeBaVe.col = Color.BLACK;
@@ -192,6 +200,7 @@ public class HiloSemaforos extends Thread {
             IzBaVe.col = Color.BLACK;
             Fram.repaint();
             sleep(2000);
+            Sonido.Camion.stop();
             run();
         } catch (InterruptedException ex) {
             Logger.getLogger(HiloSemaforos.class.getName()).log(Level.SEVERE, null, ex);

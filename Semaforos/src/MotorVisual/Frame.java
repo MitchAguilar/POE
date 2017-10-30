@@ -84,9 +84,11 @@ public class Frame {
 
     public void Components() {
         Lona = new JPanel();
-        Lona.setBounds(0, 0, 1024, 700);
+        Lona.setBounds(1024, 0, 200, 700);
         Lona.setLayout(null);
         Lona.setOpaque(true);
+        Imagen img2 = new Imagen("/Complements/Lona.jpg", Lona.getWidth(), Lona.getHeight());
+        Lona.add(img2);
 
         start = new JButton();
         start.setBounds(1070, 150, 100, 100);
@@ -101,6 +103,7 @@ public class Frame {
                 Init(ol);
                 HiloSemaforos hs = new HiloSemaforos(Fram, DeBaAm, DeBaRo, DeBaVe, DeAlAm, DeAlRo, DeAlVe, IzAlAm, IzAlRo, IzAlVe, IzBaAm, IzBaRo, IzBaVe);
                 hs.start();
+                start.setEnabled(false);
             }
         });
 
@@ -149,10 +152,10 @@ public class Frame {
 
         //Semafoto izquierda Bajo
         IzBaAm = new DibujarCirculo();
-        IzBaAm.setBounds(373, 448, 40, 40);
+        IzBaAm.setBounds(373, 476, 40, 40);
 
         IzBaRo = new DibujarCirculo();
-        IzBaRo.setBounds(373, 476, 40, 40);
+        IzBaRo.setBounds(373, 448, 40, 40);
 
         IzBaVe = new DibujarCirculo();
         IzBaVe.setBounds(373, 462, 40, 40);
@@ -174,6 +177,7 @@ public class Frame {
         Fram.add(start);
         Fram.add(stop);
         Fram.add(Fuente);
+        Fram.add(Lona);
 
         //Semaforo Derecha bajo
         Fram.add(DeBaAm);
@@ -191,9 +195,8 @@ public class Frame {
         Fram.add(IzBaAm);
         Fram.add(IzBaRo);
         Fram.add(IzBaVe);
-
-        Imagen img = new Imagen("/Complements/Fondo.jpg", Lona.getWidth(), Lona.getHeight());
-        Lona.add(img);
+        Imagen img = new Imagen("/Complements/Fondo.jpg", 1024, Fram.getHeight());
+//        Lona.add(img);
         Fram.add(img);
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/Icon.png"));
         Fram.setIconImage(icon);
