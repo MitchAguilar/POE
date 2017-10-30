@@ -1,21 +1,22 @@
 package MotorVisual;
 
+import MotorLogico.panel;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
-public class DibujarCirculo extends JPanel {
+public class DibujarCirculo extends panel {
 
-    private double radio = 100;
+    private double radio = 7;
     private double diametro = radio * 2;
     public Color col = Color.BLACK;
     private Graphics2D circulo;
+
+    public DibujarCirculo() {
+        super(0.1f);
+    }
 
     public void paint(Graphics g) {
         super.paint(g);
@@ -27,66 +28,65 @@ public class DibujarCirculo extends JPanel {
         circulo.fillOval(10, 10, (int) (diametro), (int) (diametro));
     }
 
-    public static class Fr {
-
-        JFrame io;
-        public DibujarCirculo a = new DibujarCirculo();
-        public Hilo hl;
-
-        public Fr() {
-            io = new JFrame("Hola mundo");
-            io.setSize(250, 300);
-            io.setLayout(null);
-
-            a.setBounds(10, 10, 300, 250);
-            a.col = Color.BLUE;
-            io.add(a);
-            io.repaint();
-            io.setResizable(false);
-            io.setLocationRelativeTo(null);
-            io.setDefaultCloseOperation(3);
-            io.setVisible(true);
-            hl = new Hilo(a, io);
-            hl.start();
-        }
-    }
-
-    public static class Hilo extends Thread {
-
-        DibujarCirculo db;
-        JFrame fr;
-
-        public Hilo(DibujarCirculo db, JFrame fr) {
-            this.db = db;
-            this.fr = fr;
-        }
-
-        public void run() {
-            try {
-                db.col = Color.RED;
-                fr.repaint();
-                sleep(50);
-                System.out.println("1");
-                db.col = Color.YELLOW;
-                fr.repaint();
-                sleep(50);
-                System.out.println("2");
-                db.col = Color.GREEN;
-                fr.repaint();
-                sleep(50);
-                System.out.println("3");
-                run();
-            } catch (InterruptedException ex) {
-                Logger.getLogger(DibujarCirculo.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        }
-    }
-
-    public static void main(String[] args) {
-        // TODO code application logic here
-        Fr a = new Fr();
-    }
+//    public static class Fr {
+//
+//        JFrame io;
+//        public DibujarCirculo a = new DibujarCirculo();
+//        public Hilo hl;
+//
+//        public Fr() {
+//            io = new JFrame("Hola mundo");
+//            io.setSize(250, 300);
+//            io.setLayout(null);
+//
+//            a.setBounds(10, 10, 300, 250);
+//            a.col = Color.BLUE;
+//            io.add(a);
+//            io.repaint();
+//            io.setResizable(false);
+//            io.setLocationRelativeTo(null);
+//            io.setDefaultCloseOperation(3);
+//            io.setVisible(true);
+//            hl = new Hilo(a, io);
+//            hl.start();
+//        }
+//    }
+//
+//    public static class Hilo extends Thread {
+//
+//        DibujarCirculo db;
+//        JFrame fr;
+//
+//        public Hilo(DibujarCirculo db, JFrame fr) {
+//            this.db = db;
+//            this.fr = fr;
+//        }
+//
+//        public void run() {
+//            try {
+//                db.col = Color.RED;
+//                fr.repaint();
+//                sleep(500);
+//                System.out.println("1");
+//                db.col = Color.YELLOW;
+//                fr.repaint();
+//                sleep(500);
+//                System.out.println("2");
+//                db.col = Color.GREEN;
+//                fr.repaint();
+//                sleep(500);
+//                System.out.println("3");
+//                run();
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(DibujarCirculo.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//
+//        }
+//    }
+//    public static void main(String[] args) {
+//        // TODO code application logic here
+//        Fr a = new Fr();
+//    }
 }
 //import java.awt.Color;
 //import java.awt.Dimension;
