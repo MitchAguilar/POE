@@ -5,13 +5,14 @@
  */
 package MotorVisual;
 
+import MotorLogico.Hilos.Hilo;
+import MotorLogico.Hilos.HiloSemaforos;
 import MotorLogico.Imagen;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import static java.lang.Thread.sleep;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -27,7 +28,7 @@ public class Frame {
 
     JFrame Fram;
     JPanel Lona;
-    JLabel Arb;
+    JLabel Fuente;
     JButton start, stop;
     DibujarCirculo DeBaAm, DeBaRo, DeBaVe;
     DibujarCirculo DeAlAm, DeAlRo, DeAlVe;
@@ -98,6 +99,8 @@ public class Frame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Init(ol);
+                HiloSemaforos hs = new HiloSemaforos(Fram, DeBaAm, DeBaRo, DeBaVe, DeAlAm, DeAlRo, DeAlVe, IzAlAm, IzAlRo, IzAlVe, IzBaAm, IzBaRo, IzBaVe);
+                hs.start();
             }
         });
 
@@ -149,11 +152,15 @@ public class Frame {
         IzBaAm.setBounds(373, 448, 40, 40);
 
         IzBaRo = new DibujarCirculo();
-        IzBaRo.setBounds(373, 462, 40, 40);
+        IzBaRo.setBounds(373, 476, 40, 40);
 
         IzBaVe = new DibujarCirculo();
-        IzBaVe.setBounds(373, 476, 40, 40);
+        IzBaVe.setBounds(373, 462, 40, 40);
 
+        Fuente = new JLabel();
+        URL url2 = this.getClass().getResource("/Complements/fuente.gif");
+        Fuente.setIcon(new ImageIcon(url2));
+        Fuente.setBounds(760, 480, 117, 128);
     }
 
     public void Fram() {
@@ -166,6 +173,8 @@ public class Frame {
 
         Fram.add(start);
         Fram.add(stop);
+        Fram.add(Fuente);
+
         //Semaforo Derecha bajo
         Fram.add(DeBaAm);
         Fram.add(DeBaRo);
@@ -182,6 +191,7 @@ public class Frame {
         Fram.add(IzBaAm);
         Fram.add(IzBaRo);
         Fram.add(IzBaVe);
+
         Imagen img = new Imagen("/Complements/Fondo.jpg", Lona.getWidth(), Lona.getHeight());
         Lona.add(img);
         Fram.add(img);
@@ -194,47 +204,12 @@ public class Frame {
         Fram.setLocationRelativeTo(null);
         Fram.setDefaultCloseOperation(3);
         Init(ol);
-        ol=false;
+        ol = false;
     }
 
     public Frame() {
         Components();
         Fram();
-    }
-
-    public static class Hilo extends Thread {
-
-        DibujarCirculo db;
-        JFrame fr;
-
-        public Hilo(DibujarCirculo db, JFrame fr) {
-            this.db = db;
-            this.fr = fr;
-        }
-
-        public int num() {
-            return (int) (Math.random() * (254 + 0));
-        }
-
-        public void run() {
-            try {
-                db.col = new Color(num(), num(), num());
-                fr.repaint();
-                sleep(1000);
-                System.out.println("1");
-                db.col = new Color(num(), num(), num());
-                fr.repaint();
-                sleep(1000);
-                System.out.println("2");
-                db.col = new Color(num(), num(), num());
-                fr.repaint();
-                sleep(1000);
-                System.out.println("3");
-                run();
-            } catch (InterruptedException ex) {
-            }
-
-        }
     }
 
 }
