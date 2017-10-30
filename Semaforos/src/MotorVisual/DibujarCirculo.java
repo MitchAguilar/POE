@@ -9,13 +9,13 @@ import java.awt.RenderingHints;
 
 public class DibujarCirculo extends panel {
 
-    private double radio = 7;
+    private double radio = 7.5;
     private double diametro = radio * 2;
     public Color col = Color.BLACK;
     private Graphics2D circulo;
 
     public DibujarCirculo() {
-        super(0.1f);
+        super(0.0f);
     }
 
     public void paint(Graphics g) {
