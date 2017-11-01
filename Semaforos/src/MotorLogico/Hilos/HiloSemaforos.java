@@ -19,6 +19,8 @@ import javax.swing.JFrame;
 public class HiloSemaforos extends Thread {
 
     JFrame Fram;
+    int amarillo=4000;
+    int rojo=20000;
 
     public HiloSemaforos(JFrame Fram, DibujarCirculo DeBaAm, DibujarCirculo DeBaRo, DibujarCirculo DeBaVe, DibujarCirculo DeAlAm, DibujarCirculo DeAlRo, DibujarCirculo DeAlVe, DibujarCirculo IzAlAm, DibujarCirculo IzAlRo, DibujarCirculo IzAlVe, DibujarCirculo IzBaAm, DibujarCirculo IzBaRo, DibujarCirculo IzBaVe) {
         this.Fram = Fram;
@@ -59,7 +61,7 @@ public class HiloSemaforos extends Thread {
             IzBaRo.col = Color.RED;
             IzBaVe.col = Color.BLACK;
             Fram.repaint();
-            sleep(18000);
+            sleep(rojo);
 
             //Segundo Acto
             Sonido.Camion.play();
@@ -67,8 +69,8 @@ public class HiloSemaforos extends Thread {
             DeBaRo.col = Color.BLACK;
             DeBaVe.col = Color.BLACK;
 
-            DeAlAm.col = Color.BLACK;
-            DeAlRo.col = Color.RED;
+            DeAlAm.col = Color.YELLOW;
+            DeAlRo.col = Color.BLACK;
             DeAlVe.col = Color.BLACK;
 
             IzAlAm.col = Color.BLACK;
@@ -79,7 +81,7 @@ public class HiloSemaforos extends Thread {
             IzBaRo.col = Color.RED;
             IzBaVe.col = Color.BLACK;
             Fram.repaint();
-            sleep(2000);
+            sleep(amarillo);
 
             //Tercer Acto
             Sonido.Camion.stop();
@@ -99,7 +101,7 @@ public class HiloSemaforos extends Thread {
             IzBaRo.col = Color.RED;
             IzBaVe.col = Color.BLACK;
             Fram.repaint();
-            sleep(18000);
+            sleep(rojo);
 
             //Cuarto Acto
             Sonido.Camion.play();
@@ -111,15 +113,15 @@ public class HiloSemaforos extends Thread {
             DeAlRo.col = Color.BLACK;
             DeAlVe.col = Color.BLACK;
 
-            IzAlAm.col = Color.BLACK;
-            IzAlRo.col = Color.RED;
+            IzAlAm.col = Color.yellow;
+            IzAlRo.col = Color.BLACK;
             IzAlVe.col = Color.BLACK;
 
             IzBaAm.col = Color.BLACK;
             IzBaRo.col = Color.RED;
             IzBaVe.col = Color.BLACK;
             Fram.repaint();
-            sleep(2000);
+            sleep(amarillo);
 
             //Quinto Acto
             Sonido.Camion.stop();
@@ -139,7 +141,7 @@ public class HiloSemaforos extends Thread {
             IzBaRo.col = Color.RED;
             IzBaVe.col = Color.BLACK;
             Fram.repaint();
-            sleep(18000);
+            sleep(rojo);
 
             //Sexto Acto
             Sonido.Camion.play();
@@ -155,11 +157,11 @@ public class HiloSemaforos extends Thread {
             IzAlRo.col = Color.BLACK;
             IzAlVe.col = Color.BLACK;
 
-            IzBaAm.col = Color.BLACK;
-            IzBaRo.col = Color.RED;
+            IzBaAm.col = Color.yellow;
+            IzBaRo.col = Color.BLACK;
             IzBaVe.col = Color.BLACK;
             Fram.repaint();
-            sleep(2000);
+            sleep(amarillo);
             
             //Septimo Acto
             Sonido.Camion.stop();
@@ -179,12 +181,12 @@ public class HiloSemaforos extends Thread {
             IzBaRo.col = Color.BLACK;
             IzBaVe.col = Color.GREEN;
             Fram.repaint();
-            sleep(18000);
+            sleep(rojo);
             
             //Octavo Acto
             Sonido.Camion.play();
-            DeBaAm.col = Color.BLACK;
-            DeBaRo.col = Color.RED;
+            DeBaAm.col = Color.yellow;
+            DeBaRo.col = Color.BLACK;
             DeBaVe.col = Color.BLACK;
 
             DeAlAm.col = Color.BLACK;
@@ -199,7 +201,7 @@ public class HiloSemaforos extends Thread {
             IzBaRo.col = Color.BLACK;
             IzBaVe.col = Color.BLACK;
             Fram.repaint();
-            sleep(2000);
+            sleep(amarillo);
             Sonido.Camion.stop();
             run();
         } catch (InterruptedException ex) {
