@@ -14,6 +14,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -30,6 +31,7 @@ public class FrameP {
     JLabel TiempoVer, TiempoAma, Aleator;
     Meives.textfieldM Tv, Ta;
     JButton enviar;
+    JCheckBox A1,A2;
 
     public void Components() {
         Lona = new panel(Color.WHITE, 0.5f, "Parametros");
@@ -41,6 +43,19 @@ public class FrameP {
 
         TiempoAma = new JLabel("Tiempo Amarillo:");
         TiempoAma.setBounds(10, 80, 120, 30);
+        
+        Aleator= new JLabel("Semaforos Aleatorios:");
+        Aleator.setBounds(10, 120, 150, 30);
+        
+        A1= new JCheckBox("Si");//Para el aleatorio
+        A1.setBounds(150, 120, 50, 30);
+        A1.setOpaque(false);
+        A1.setEnabled(false);
+        
+        A2= new JCheckBox("No");//Para el aleatorio
+        A2.setBounds(230, 120, 50, 30);
+        A2.setOpaque(false);
+        A2.setEnabled(false);
 
         Tv = new Meives.textfieldM(0, Color.ORANGE, 150, 30, 200, 30);
         Ta = new Meives.textfieldM(0, Color.ORANGE, 150, 80, 200, 30);
@@ -63,8 +78,11 @@ public class FrameP {
         Lona.add(TiempoVer);
         Lona.add(Tv);
         Lona.add(Ta);
+        Lona.add(A1);
+        Lona.add(A2);
         Lona.add(enviar);
         Lona.add(TiempoAma);
+        Lona.add(Aleator);
     }
 
     public void Fram() {
