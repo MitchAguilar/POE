@@ -10,22 +10,29 @@ package MotorLogico;
  * @author mitch
  */
 import java.awt.AlphaComposite;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
 
 public class panel extends JPanel {
 
     public float dat = 0.5f;
 
     public panel(float dat) {
-//        setBackground(c);
         this.dat = dat;
-//        TitledBorder bord;
-//        bord = BorderFactory.createTitledBorder(title);
-//        bord.setTitleColor(Color.ORANGE);
-//        setBorder(bord);
+    }
+
+    public panel(Color c, float dat, String title) {
+        setBackground(c);
+        this.dat = dat;
+        TitledBorder bord;
+        bord = BorderFactory.createTitledBorder(title);
+        bord.setTitleColor(Color.ORANGE);
+        setBorder(bord);
     }
 
     @Override

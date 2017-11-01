@@ -20,8 +20,12 @@ public class HiloSemaforos extends Thread {
 
     JFrame Fram;
     int amarillo=4000;
-    int rojo=20000;
+    int Verde=20000;
 
+    public void tiempo(int Ve,int Am){
+        amarillo=Am*1000;
+        Verde=Ve*1000;
+    }
     public HiloSemaforos(JFrame Fram, DibujarCirculo DeBaAm, DibujarCirculo DeBaRo, DibujarCirculo DeBaVe, DibujarCirculo DeAlAm, DibujarCirculo DeAlRo, DibujarCirculo DeAlVe, DibujarCirculo IzAlAm, DibujarCirculo IzAlRo, DibujarCirculo IzAlVe, DibujarCirculo IzBaAm, DibujarCirculo IzBaRo, DibujarCirculo IzBaVe) {
         this.Fram = Fram;
         this.DeBaAm = DeBaAm;
@@ -61,7 +65,7 @@ public class HiloSemaforos extends Thread {
             IzBaRo.col = Color.RED;
             IzBaVe.col = Color.BLACK;
             Fram.repaint();
-            sleep(rojo);
+            sleep(Verde);
 
             //Segundo Acto
             Sonido.Camion.play();
@@ -101,7 +105,7 @@ public class HiloSemaforos extends Thread {
             IzBaRo.col = Color.RED;
             IzBaVe.col = Color.BLACK;
             Fram.repaint();
-            sleep(rojo);
+            sleep(Verde);
 
             //Cuarto Acto
             Sonido.Camion.play();
@@ -141,7 +145,7 @@ public class HiloSemaforos extends Thread {
             IzBaRo.col = Color.RED;
             IzBaVe.col = Color.BLACK;
             Fram.repaint();
-            sleep(rojo);
+            sleep(Verde);
 
             //Sexto Acto
             Sonido.Camion.play();
@@ -181,7 +185,7 @@ public class HiloSemaforos extends Thread {
             IzBaRo.col = Color.BLACK;
             IzBaVe.col = Color.GREEN;
             Fram.repaint();
-            sleep(rojo);
+            sleep(Verde);
             
             //Octavo Acto
             Sonido.Camion.play();

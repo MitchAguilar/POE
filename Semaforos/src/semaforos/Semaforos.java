@@ -6,6 +6,7 @@
 package semaforos;
 
 import MotorVisual.Frame;
+import MotorVisual.FrameP;
 
 /**
  *
@@ -18,7 +19,7 @@ public class Semaforos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Frame a= new Frame();
+        FrameP a= new FrameP();
     }
     
 }

@@ -36,6 +36,7 @@ public class Frame {
     DibujarCirculo IzBaAm, IzBaRo, IzBaVe;
     Hilo hl, hl1, hl2, hl3, hl4, hl5, hl6, hl7, hl8, hl9, hl10, hl11;
     boolean ol = true;
+    private int Tv,ta;
 
     public void Init(boolean old) {
         if (old) {
@@ -102,6 +103,7 @@ public class Frame {
             public void actionPerformed(ActionEvent e) {
                 Init(ol);
                 HiloSemaforos hs = new HiloSemaforos(Fram, DeBaAm, DeBaRo, DeBaVe, DeAlAm, DeAlRo, DeAlVe, IzAlAm, IzAlRo, IzAlVe, IzBaAm, IzBaRo, IzBaVe);
+                hs.tiempo(Tv, ta);
                 hs.start();
                 start.setEnabled(false);
             }
@@ -210,7 +212,9 @@ public class Frame {
         ol = false;
     }
 
-    public Frame() {
+    public Frame(int t,int t1) {
+        Tv=t;
+        ta=t1;
         Components();
         Fram();
     }
