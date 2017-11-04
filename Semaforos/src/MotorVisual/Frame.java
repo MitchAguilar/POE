@@ -90,7 +90,7 @@ public class Frame {
         Lona.setBounds(1024, 0, 200, 700);
         Lona.setLayout(null);
         Lona.setOpaque(true);
-        Imagen img2 = new Imagen("/Complements/Lona.jpg", Lona.getWidth(), Lona.getHeight());
+        Imagen img2 = new Imagen("/Complements/Lona2.jpg", Lona.getWidth(), Lona.getHeight());
         Lona.add(img2);
         Lona.setFocusable(true);
         Lona.addKeyListener(new KeyAdapter() {
