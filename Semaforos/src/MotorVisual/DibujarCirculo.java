@@ -9,6 +9,7 @@ import java.awt.RenderingHints;
 
 public class DibujarCirculo extends panel {
 
+//    private double radio = 10;
     private double radio = 7.5;
     private double diametro = radio * 2;
     public Color col = Color.BLACK;

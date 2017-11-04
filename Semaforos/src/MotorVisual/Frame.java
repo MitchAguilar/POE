@@ -15,7 +15,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -102,38 +101,115 @@ public class Frame {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                if (e.getKeyChar() == 'c') {
-                    System.out.println("hola");
+                switch (e.getExtendedKeyCode()) {
+                    case KeyEvent.VK_UP:
+                        DeBaAm.setLocation(DeBaAm.getX(), DeBaAm.getY() - 5);
+                        DeAlAm.setLocation(DeAlAm.getX(), DeAlAm.getY() - 5);
+                        IzBaAm.setLocation(IzBaAm.getX(), IzBaAm.getY() - 5);
+                        IzAlAm.setLocation(IzAlAm.getX(), IzAlAm.getY() - 5);
+                        break;
+                    case KeyEvent.VK_DOWN:
+                        DeBaAm.setLocation(DeBaAm.getX(), DeBaAm.getY() + 5);
+                        DeAlAm.setLocation(DeAlAm.getX(), DeAlAm.getY() + 5);
+                        IzBaAm.setLocation(IzBaAm.getX(), IzBaAm.getY() + 5);
+                        IzAlAm.setLocation(IzAlAm.getX(), IzAlAm.getY() + 5);
+                        break;
+                    case KeyEvent.VK_LEFT:
+                        DeBaAm.setLocation(DeBaAm.getX() - 5, DeBaAm.getY());
+                        DeAlAm.setLocation(DeAlAm.getX() - 5, DeAlAm.getY());
+                        IzBaAm.setLocation(IzBaAm.getX() - 5, IzBaAm.getY());
+                        IzAlAm.setLocation(IzAlAm.getX() - 5, IzAlAm.getY());
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        DeBaAm.setLocation(DeBaAm.getX() + 5, DeBaAm.getY());
+                        DeAlAm.setLocation(DeAlAm.getX() + 5, DeAlAm.getY());
+                        IzBaAm.setLocation(IzBaAm.getX() + 5, IzBaAm.getY());
+                        IzAlAm.setLocation(IzAlAm.getX() + 5, IzAlAm.getY());
+                        break;
                 }
                 switch (e.getExtendedKeyCode()) {
                     case KeyEvent.VK_UP:
-                        DeBaAm.setLocation(DeBaAm.getX(), DeBaAm.getY() - 10);
-                        DeAlAm.setLocation(DeAlAm.getX(), DeAlAm.getY() - 10);
-                        IzBaAm.setLocation(IzBaAm.getX(), IzBaAm.getY() - 10);
-                        IzAlAm.setLocation(IzAlAm.getX(), IzAlAm.getY() - 10);
+                        DeBaRo.setLocation(DeBaRo.getX(), DeBaRo.getY() - 10);
+                        DeAlRo.setLocation(DeAlRo.getX(), DeAlRo.getY() - 10);
+                        IzBaRo.setLocation(IzBaRo.getX(), IzBaRo.getY() - 10);
+                        IzAlRo.setLocation(IzAlRo.getX(), IzAlRo.getY() - 10);
                         break;
                     case KeyEvent.VK_DOWN:
-                        DeBaAm.setLocation(DeBaAm.getX(), DeBaAm.getY() + 10);
-                        DeAlAm.setLocation(DeAlAm.getX(), DeAlAm.getY() + 10);
-                        IzBaAm.setLocation(IzBaAm.getX(), IzBaAm.getY() + 10);
-                        IzAlAm.setLocation(IzAlAm.getX(), IzAlAm.getY() + 10);
+                        DeBaRo.setLocation(DeBaRo.getX(), DeBaRo.getY() + 10);
+                        DeAlRo.setLocation(DeAlRo.getX(), DeAlRo.getY() + 10);
+                        IzBaRo.setLocation(IzBaRo.getX(), IzBaRo.getY() + 10);
+                        IzAlRo.setLocation(IzAlRo.getX(), IzAlRo.getY() + 10);
                         break;
                     case KeyEvent.VK_LEFT:
-                        DeBaAm.setLocation(DeBaAm.getX() - 10, DeBaAm.getY());
-                        DeAlAm.setLocation(DeAlAm.getX() - 10, DeAlAm.getY());
-                        IzBaAm.setLocation(IzBaAm.getX() - 10, IzBaAm.getY());
-                        IzAlAm.setLocation(IzAlAm.getX() - 10, IzAlAm.getY());
+                        DeBaRo.setLocation(DeBaRo.getX() - 10, DeBaRo.getY());
+                        DeAlRo.setLocation(DeAlRo.getX() - 10, DeAlRo.getY());
+                        IzBaRo.setLocation(IzBaRo.getX() - 10, IzBaRo.getY());
+                        IzAlRo.setLocation(IzAlRo.getX() - 10, IzAlRo.getY());
                         break;
                     case KeyEvent.VK_RIGHT:
-                        DeBaAm.setLocation(DeBaAm.getX() + 10, DeBaAm.getY());
-                        DeAlAm.setLocation(DeAlAm.getX() + 10, DeAlAm.getY());
-                        IzBaAm.setLocation(IzBaAm.getX() + 10, IzBaAm.getY());
-                        IzAlAm.setLocation(IzAlAm.getX() + 10, IzAlAm.getY());
+                        DeBaRo.setLocation(DeBaRo.getX() + 10, DeBaRo.getY());
+                        DeAlRo.setLocation(DeAlRo.getX() + 10, DeAlRo.getY());
+                        IzBaRo.setLocation(IzBaRo.getX() + 10, IzBaRo.getY());
+                        IzAlRo.setLocation(IzAlRo.getX() + 10, IzAlRo.getY());
                         break;
-
                 }
-                System.out.println("entré");
-//                Fram.repaint();
+                switch (e.getExtendedKeyCode()) {
+                    case KeyEvent.VK_UP:
+                        DeBaVe.setLocation(DeBaVe.getX(), DeBaVe.getY() - 15);
+                        DeAlVe.setLocation(DeAlVe.getX(), DeAlVe.getY() - 15);
+                        IzBaVe.setLocation(IzBaVe.getX(), IzBaVe.getY() - 15);
+                        IzAlVe.setLocation(IzAlVe.getX(), IzAlVe.getY() - 15);
+                        break;
+                    case KeyEvent.VK_DOWN:
+                        DeBaVe.setLocation(DeBaVe.getX(), DeBaVe.getY() + 15);
+                        DeAlVe.setLocation(DeAlVe.getX(), DeAlVe.getY() + 15);
+                        IzBaVe.setLocation(IzBaVe.getX(), IzBaVe.getY() + 15);
+                        IzAlVe.setLocation(IzAlVe.getX(), IzAlVe.getY() + 15);
+                        break;
+                    case KeyEvent.VK_LEFT:
+                        DeBaVe.setLocation(DeBaVe.getX() - 15, DeBaVe.getY());
+                        DeAlVe.setLocation(DeAlVe.getX() - 15, DeAlVe.getY());
+                        IzBaVe.setLocation(IzBaVe.getX() - 15, IzBaVe.getY());
+                        IzAlVe.setLocation(IzAlVe.getX() - 15, IzAlVe.getY());
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        DeBaVe.setLocation(DeBaVe.getX() + 15, DeBaVe.getY());
+                        DeAlVe.setLocation(DeAlVe.getX() + 15, DeAlVe.getY());
+                        IzBaVe.setLocation(IzBaVe.getX() + 15, IzBaVe.getY());
+                        IzAlVe.setLocation(IzAlVe.getX() + 15, IzAlVe.getY());
+                        break;
+                }
+//                
+//                System.out.println("entré");
+                int key=e.getExtendedKeyCode();
+                if (key==KeyEvent.VK_0) {
+                    DeBaAm.setBounds(596, 439, 40, 40);
+
+                    DeBaRo.setBounds(581, 439, 40, 40);
+
+                    DeBaVe.setBounds(611, 439, 40, 40);
+
+                    //Semaforo Derecha Alto
+                    DeAlAm.setBounds(601, 221, 40, 40);
+
+                    DeAlRo.setBounds(601, 236, 40, 40);
+
+                    DeAlVe.setBounds(601, 206, 40, 40);
+
+                    //Semaforo izquierda Alto
+                    IzAlAm.setBounds(336, 221, 40, 40);
+
+                    IzAlRo.setBounds(321, 221, 40, 40);
+
+                    IzAlVe.setBounds(351, 221, 40, 40);
+
+                    //Semafoto izquierda Bajo
+                    IzBaAm.setBounds(373, 476, 40, 40);
+
+                    IzBaRo.setBounds(373, 448, 40, 40);
+
+                    IzBaVe.setBounds(373, 462, 40, 40);
+                }
             }
 
             @Override
