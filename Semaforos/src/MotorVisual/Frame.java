@@ -29,7 +29,7 @@ import javax.swing.JPanel;
 public class Frame {
 
     JFrame Fram;
-    JPanel Lona;
+    JPanel Lona, Lona2;
     JLabel Fuente;
     JButton start, stop;
     DibujarCirculo DeBaAm, DeBaRo, DeBaVe;
@@ -86,6 +86,13 @@ public class Frame {
     }
 
     public void Components() {
+        Lona2 = new JPanel();
+        Lona2.setBounds(1070, 550, 100, 100);
+        Lona2.setLayout(null);
+        Lona2.setOpaque(true);
+        Imagen img3 = new Imagen("/Complements/transparente.png", Lona2.getWidth(), Lona2.getHeight());
+        Lona2.add(img3);
+
         Lona = new JPanel();
         Lona.setBounds(1024, 0, 200, 700);
         Lona.setLayout(null);
@@ -181,8 +188,8 @@ public class Frame {
                 }
 //                
 //                System.out.println("entré");
-                int key=e.getExtendedKeyCode();
-                if (key==KeyEvent.VK_0) {
+                int key = e.getExtendedKeyCode();
+                if (key == KeyEvent.VK_0) {
                     DeBaAm.setBounds(596, 439, 40, 40);
 
                     DeBaRo.setBounds(581, 439, 40, 40);
@@ -308,6 +315,7 @@ public class Frame {
         Fram.add(stop);
         Fram.add(Fuente);
         Fram.add(Lona);
+        Fram.add(Lona2);
 
         //Semaforo Derecha bajo
         Fram.add(DeBaAm);
