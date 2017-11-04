@@ -9,12 +9,16 @@ import MotorLogico.Hilos.Hilo;
 import MotorLogico.Hilos.HiloSemaforos;
 import MotorLogico.Imagen;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -39,6 +43,7 @@ public class Frame {
     Hilo hl, hl1, hl2, hl3, hl4, hl5, hl6, hl7, hl8, hl9, hl10, hl11;
     boolean ol = true;
     private int Tv, ta;
+
 
     public void Init(boolean old) {
         if (old) {
