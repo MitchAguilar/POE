@@ -13,6 +13,9 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -36,7 +39,7 @@ public class Frame {
     DibujarCirculo IzBaAm, IzBaRo, IzBaVe;
     Hilo hl, hl1, hl2, hl3, hl4, hl5, hl6, hl7, hl8, hl9, hl10, hl11;
     boolean ol = true;
-    private int Tv,ta;
+    private int Tv, ta;
 
     public void Init(boolean old) {
         if (old) {
@@ -90,6 +93,55 @@ public class Frame {
         Lona.setOpaque(true);
         Imagen img2 = new Imagen("/Complements/Lona.jpg", Lona.getWidth(), Lona.getHeight());
         Lona.add(img2);
+        Lona.setFocusable(true);
+        Lona.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+//                System.out.println("prueba: tecla escrita");
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyChar() == 'c') {
+                    System.out.println("hola");
+                }
+                switch (e.getExtendedKeyCode()) {
+                    case KeyEvent.VK_UP:
+                        DeBaAm.setLocation(DeBaAm.getX(), DeBaAm.getY() - 10);
+                        DeAlAm.setLocation(DeAlAm.getX(), DeAlAm.getY() - 10);
+                        IzBaAm.setLocation(IzBaAm.getX(), IzBaAm.getY() - 10);
+                        IzAlAm.setLocation(IzAlAm.getX(), IzAlAm.getY() - 10);
+                        break;
+                    case KeyEvent.VK_DOWN:
+                        DeBaAm.setLocation(DeBaAm.getX(), DeBaAm.getY() + 10);
+                        DeAlAm.setLocation(DeAlAm.getX(), DeAlAm.getY() + 10);
+                        IzBaAm.setLocation(IzBaAm.getX(), IzBaAm.getY() + 10);
+                        IzAlAm.setLocation(IzAlAm.getX(), IzAlAm.getY() + 10);
+                        break;
+                    case KeyEvent.VK_LEFT:
+                        DeBaAm.setLocation(DeBaAm.getX() - 10, DeBaAm.getY());
+                        DeAlAm.setLocation(DeAlAm.getX() - 10, DeAlAm.getY());
+                        IzBaAm.setLocation(IzBaAm.getX() - 10, IzBaAm.getY());
+                        IzAlAm.setLocation(IzAlAm.getX() - 10, IzAlAm.getY());
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        DeBaAm.setLocation(DeBaAm.getX() + 10, DeBaAm.getY());
+                        DeAlAm.setLocation(DeAlAm.getX() + 10, DeAlAm.getY());
+                        IzBaAm.setLocation(IzBaAm.getX() + 10, IzBaAm.getY());
+                        IzAlAm.setLocation(IzAlAm.getX() + 10, IzAlAm.getY());
+                        break;
+
+                }
+                System.out.println("entré");
+//                Fram.repaint();
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+//                System.out.println("prueba: tecla liberada");
+            }
+
+        });
 
         start = new JButton();
         start.setBounds(1070, 150, 100, 100);
@@ -209,14 +261,15 @@ public class Frame {
         Fram.setLocationRelativeTo(null);
         Fram.setDefaultCloseOperation(3);
         Init(ol);
+        Fram.setFocusable(true);
         ol = false;
+
     }
 
-    public Frame(int t,int t1) {
-        Tv=t;
-        ta=t1;
+    public Frame(int t, int t1) {
+        Tv = t;
+        ta = t1;
         Components();
         Fram();
     }
-
 }

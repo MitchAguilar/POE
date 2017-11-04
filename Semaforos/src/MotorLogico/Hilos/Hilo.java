@@ -33,15 +33,15 @@ public class Hilo extends Thread {
             db.col = new Color(num(), num(), num());
             fr.repaint();
             sleep(1000);
-            System.out.println("1");
+//            System.out.println("1");
             db.col = new Color(num(), num(), num());
             fr.repaint();
             sleep(1000);
-            System.out.println("2");
+//            System.out.println("2");
             db.col = new Color(num(), num(), num());
             fr.repaint();
             sleep(1000);
-            System.out.println("3");
+//            System.out.println("3");
             run();
         } catch (InterruptedException ex) {
         }

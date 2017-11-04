@@ -19,7 +19,8 @@ public class Semaforos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        FrameP a= new FrameP();
+//        FrameP a= new FrameP();
+        Frame fr = new Frame(1, 1);
     }
-    
+
 }
