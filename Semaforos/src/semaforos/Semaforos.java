@@ -19,13 +19,9 @@ public class Semaforos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-//        FrameP a= new FrameP();
-
-        Frame fr;
         try {
-//            fr = new Frame(1, 1);
-            FrameP a = new FrameP();
+            Frame fr = new Frame(2, 2);
+//            FrameP a = new FrameP();
         } catch (StackOverflowError io) {
             JOptionPane.showMessageDialog(null, "Error por memoria", "Error", JOptionPane.WARNING_MESSAGE);
         }

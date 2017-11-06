@@ -15,11 +15,12 @@ import javax.swing.JLabel;
  *
  * @author Usuario
  */
-public class HiloMovimiento extends Thread{
+public class HiloMovimiento extends Thread {
+
     JLabel aux;
     JFrame FrmAux;
     int tiempo;
-    Point posInicial,posFinal;
+    Point posInicial, posFinal;
 
     public HiloMovimiento(JLabel aux, JFrame FrmAux, int tiempo, Point posInicial, Point posFinal) {
         this.aux = aux;
@@ -28,9 +29,10 @@ public class HiloMovimiento extends Thread{
         this.posInicial = posInicial;
         this.posFinal = posFinal;
     }
-    
-    public void run(){
-        for (int i = posInicial.x; i <posInicial.x ; i++) {
+
+    public void run() {
+        aux.setVisible(true);
+        for (int i = posInicial.x; i <= posFinal.x; i++) {
             try {
                 aux.setLocation(i, posFinal.y);
                 FrmAux.repaint();
@@ -39,5 +41,7 @@ public class HiloMovimiento extends Thread{
                 Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        aux.setLocation(posInicial);
+        aux.setVisible(false);
     }
 }

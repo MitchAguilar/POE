@@ -8,9 +8,11 @@ package MotorLogico.Hilos;
 import MotorLogico.Sonido;
 import MotorVisual.Circulo;
 import java.awt.Color;
+import java.awt.Point;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  *
@@ -29,13 +31,14 @@ public class HiloSemaforos extends Thread {
     Circulo IzAlRo, IzAlVe;
     Circulo IzBaAm;
     Circulo IzBaRo, IzBaVe;
+    JLabel car;
 
     public void tiempo(int Ve, int Am) {
         amarillo = Am * 1000;
         Verde = Ve * 1000;
     }
 
-    public HiloSemaforos(JFrame Fram, Circulo DeBaAm, Circulo DeBaRo, Circulo DeBaVe, Circulo DeAlAm, Circulo DeAlRo, Circulo DeAlVe, Circulo IzAlAm, Circulo IzAlRo, Circulo IzAlVe, Circulo IzBaAm, Circulo IzBaRo, Circulo IzBaVe) {
+    public HiloSemaforos(JFrame Fram, Circulo DeBaAm, Circulo DeBaRo, Circulo DeBaVe, Circulo DeAlAm, Circulo DeAlRo, Circulo DeAlVe, Circulo IzAlAm, Circulo IzAlRo, Circulo IzAlVe, Circulo IzBaAm, Circulo IzBaRo, Circulo IzBaVe, JLabel lb) {
         this.Fram = Fram;
         this.DeBaAm = DeBaAm;
         this.DeBaRo = DeBaRo;
@@ -49,10 +52,14 @@ public class HiloSemaforos extends Thread {
         this.IzBaAm = IzBaAm;
         this.IzBaRo = IzBaRo;
         this.IzBaVe = IzBaVe;
+        car = lb;
     }
+    HiloMovimiento hlm;
 
     public void run() {
         try {
+            HiloMovimiento hlm = new HiloMovimiento(car, Fram, 1, new Point(car.getX(), car.getY()), new Point(950, car.getY()));
+            hlm.start();
             acto1();
             acto2();
             acto3();

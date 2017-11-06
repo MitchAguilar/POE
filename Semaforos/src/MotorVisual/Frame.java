@@ -6,6 +6,7 @@
 package MotorVisual;
 
 import MotorLogico.Hilos.Hilo;
+import MotorLogico.Hilos.HiloMovimiento;
 import MotorLogico.Hilos.HiloSemaforos;
 import MotorLogico.Imagen;
 import java.awt.Color;
@@ -21,6 +22,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.net.URL;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -36,7 +38,7 @@ public class Frame {
 
     JFrame Fram;
     JPanel Lona, Lona2;
-    JLabel Fuente;
+    JLabel Fuente, car;
     JButton start, stop;
     Circulo DeBaAm;
     Circulo DeBaRo, DeBaVe;
@@ -49,7 +51,6 @@ public class Frame {
     Hilo hl, hl1, hl2, hl3, hl4, hl5, hl6, hl7, hl8, hl9, hl10, hl11;
     boolean ol = true;
     private int Tv, ta;
-
 
     public void Init(boolean old) {
         if (old) {
@@ -197,7 +198,7 @@ public class Frame {
                         IzAlVe.setLocation(IzAlVe.getX() + 15, IzAlVe.getY());
                         break;
                 }
-                
+
                 int key = e.getExtendedKeyCode();
                 if (key == KeyEvent.VK_0) {
                     //Semaforo Derecha bajo
@@ -248,7 +249,7 @@ public class Frame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Init(ol);
-                HiloSemaforos hs = new HiloSemaforos(Fram, DeBaAm, DeBaRo, DeBaVe, DeAlAm, DeAlRo, DeAlVe, IzAlAm, IzAlRo, IzAlVe, IzBaAm, IzBaRo, IzBaVe);
+                HiloSemaforos hs = new HiloSemaforos(Fram, DeBaAm, DeBaRo, DeBaVe, DeAlAm, DeAlRo, DeAlVe, IzAlAm, IzAlRo, IzAlVe, IzBaAm, IzBaRo, IzBaVe, car);
                 hs.tiempo(Tv, ta);
                 hs.start();
                 start.setEnabled(false);
@@ -312,6 +313,14 @@ public class Frame {
         URL url2 = this.getClass().getResource("/Complements/fuente.gif");
         Fuente.setIcon(new ImageIcon(url2));
         Fuente.setBounds(760, 480, 117, 128);
+
+        //carros
+        car = new JLabel();
+        car.setBounds(10, 270, 70, 70);
+        ImageIcon a3 = new ImageIcon(getClass().getResource("/Complements/carro2.png")); // IMAGENES EN BOTONES O LABELS SE ADAPTA Ponme debajo del bounds
+        Icon fondocara3 = new ImageIcon(a3.getImage().getScaledInstance(car.getWidth(), car.getHeight(), Image.SCALE_DEFAULT));
+        car.setIcon(fondocara3);
+
     }
 
     public void Fram() {
@@ -321,7 +330,9 @@ public class Frame {
 
         Fram.setUndecorated(true);
         Fram.getContentPane().setBackground(Color.lightGray);
-
+        //carros
+        Fram.add(car);
+        //components
         Fram.add(start);
         Fram.add(stop);
         Fram.add(Fuente);
@@ -357,7 +368,6 @@ public class Frame {
         Init(ol);
         Fram.setFocusable(true);
         ol = false;
-
     }
 
     public Frame(int t, int t1) {
