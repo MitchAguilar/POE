@@ -7,6 +7,7 @@ package semaforos;
 
 import MotorVisual.Frame;
 import MotorVisual.FrameP;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,7 +21,14 @@ public class Semaforos {
     public static void main(String[] args) {
         // TODO code application logic here
 //        FrameP a= new FrameP();
-        Frame fr = new Frame(1, 1);
+
+        Frame fr;
+        try {
+//            fr = new Frame(1, 1);
+            FrameP a = new FrameP();
+        } catch (StackOverflowError io) {
+            JOptionPane.showMessageDialog(null, "Error por memoria", "Error", JOptionPane.WARNING_MESSAGE);
+        }
     }
 
 }

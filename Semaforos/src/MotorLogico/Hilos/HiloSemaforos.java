@@ -6,7 +6,7 @@
 package MotorLogico.Hilos;
 
 import MotorLogico.Sonido;
-import MotorVisual.DibujarCirculo;
+import MotorVisual.Circulo;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,14 +19,23 @@ import javax.swing.JFrame;
 public class HiloSemaforos extends Thread {
 
     JFrame Fram;
-    int amarillo=4000;
-    int Verde=20000;
+    int amarillo = 4000;
+    int Verde = 20000;
+    Circulo DeBaAm;
+    Circulo DeBaRo, DeBaVe;
+    Circulo DeAlAm;
+    Circulo DeAlRo, DeAlVe;
+    Circulo IzAlAm;
+    Circulo IzAlRo, IzAlVe;
+    Circulo IzBaAm;
+    Circulo IzBaRo, IzBaVe;
 
-    public void tiempo(int Ve,int Am){
-        amarillo=Am*1000;
-        Verde=Ve*1000;
+    public void tiempo(int Ve, int Am) {
+        amarillo = Am * 1000;
+        Verde = Ve * 1000;
     }
-    public HiloSemaforos(JFrame Fram, DibujarCirculo DeBaAm, DibujarCirculo DeBaRo, DibujarCirculo DeBaVe, DibujarCirculo DeAlAm, DibujarCirculo DeAlRo, DibujarCirculo DeAlVe, DibujarCirculo IzAlAm, DibujarCirculo IzAlRo, DibujarCirculo IzAlVe, DibujarCirculo IzBaAm, DibujarCirculo IzBaRo, DibujarCirculo IzBaVe) {
+
+    public HiloSemaforos(JFrame Fram, Circulo DeBaAm, Circulo DeBaRo, Circulo DeBaVe, Circulo DeAlAm, Circulo DeAlRo, Circulo DeAlVe, Circulo IzAlAm, Circulo IzAlRo, Circulo IzAlVe, Circulo IzBaAm, Circulo IzBaRo, Circulo IzBaVe) {
         this.Fram = Fram;
         this.DeBaAm = DeBaAm;
         this.DeBaRo = DeBaRo;
@@ -41,175 +50,197 @@ public class HiloSemaforos extends Thread {
         this.IzBaRo = IzBaRo;
         this.IzBaVe = IzBaVe;
     }
-    DibujarCirculo DeBaAm, DeBaRo, DeBaVe;
-    DibujarCirculo DeAlAm, DeAlRo, DeAlVe;
-    DibujarCirculo IzAlAm, IzAlRo, IzAlVe;
-    DibujarCirculo IzBaAm, IzBaRo, IzBaVe;
 
     public void run() {
         try {
-            //Primer Acto
-            DeBaAm.col = Color.BLACK;
-            DeBaRo.col = Color.BLACK;
-            DeBaVe.col = Color.GREEN;
-
-            DeAlAm.col = Color.BLACK;
-            DeAlRo.col = Color.RED;
-            DeAlVe.col = Color.BLACK;
-
-            IzAlAm.col = Color.BLACK;
-            IzAlRo.col = Color.RED;
-            IzAlVe.col = Color.BLACK;
-
-            IzBaAm.col = Color.BLACK;
-            IzBaRo.col = Color.RED;
-            IzBaVe.col = Color.BLACK;
-            Fram.repaint();
-            sleep(Verde);
-
-            //Segundo Acto
-            Sonido.Camion.play();
-            DeBaAm.col = Color.YELLOW;
-            DeBaRo.col = Color.BLACK;
-            DeBaVe.col = Color.BLACK;
-
-            DeAlAm.col = Color.YELLOW;
-            DeAlRo.col = Color.BLACK;
-            DeAlVe.col = Color.BLACK;
-
-            IzAlAm.col = Color.BLACK;
-            IzAlRo.col = Color.RED;
-            IzAlVe.col = Color.BLACK;
-
-            IzBaAm.col = Color.BLACK;
-            IzBaRo.col = Color.RED;
-            IzBaVe.col = Color.BLACK;
-            Fram.repaint();
-            sleep(amarillo);
-
-            //Tercer Acto
-            Sonido.Camion.stop();
-            DeBaAm.col = Color.BLACK;
-            DeBaRo.col = Color.RED;
-            DeBaVe.col = Color.BLACK;
-
-            DeAlAm.col = Color.BLACK;
-            DeAlRo.col = Color.BLACK;
-            DeAlVe.col = Color.GREEN;
-
-            IzAlAm.col = Color.BLACK;
-            IzAlRo.col = Color.RED;
-            IzAlVe.col = Color.BLACK;
-
-            IzBaAm.col = Color.BLACK;
-            IzBaRo.col = Color.RED;
-            IzBaVe.col = Color.BLACK;
-            Fram.repaint();
-            sleep(Verde);
-
-            //Cuarto Acto
-            Sonido.Camion.play();
-            DeBaAm.col = Color.BLACK;
-            DeBaRo.col = Color.RED;
-            DeBaVe.col = Color.BLACK;
-
-            DeAlAm.col = Color.YELLOW;
-            DeAlRo.col = Color.BLACK;
-            DeAlVe.col = Color.BLACK;
-
-            IzAlAm.col = Color.yellow;
-            IzAlRo.col = Color.BLACK;
-            IzAlVe.col = Color.BLACK;
-
-            IzBaAm.col = Color.BLACK;
-            IzBaRo.col = Color.RED;
-            IzBaVe.col = Color.BLACK;
-            Fram.repaint();
-            sleep(amarillo);
-
-            //Quinto Acto
-            Sonido.Camion.stop();
-            DeBaAm.col = Color.BLACK;
-            DeBaRo.col = Color.RED;
-            DeBaVe.col = Color.BLACK;
-
-            DeAlAm.col = Color.BLACK;
-            DeAlRo.col = Color.RED;
-            DeAlVe.col = Color.BLACK;
-
-            IzAlAm.col = Color.BLACK;
-            IzAlRo.col = Color.BLACK;
-            IzAlVe.col = Color.GREEN;
-
-            IzBaAm.col = Color.BLACK;
-            IzBaRo.col = Color.RED;
-            IzBaVe.col = Color.BLACK;
-            Fram.repaint();
-            sleep(Verde);
-
-            //Sexto Acto
-            Sonido.Camion.play();
-            DeBaAm.col = Color.BLACK;
-            DeBaRo.col = Color.RED;
-            DeBaVe.col = Color.BLACK;
-
-            DeAlAm.col = Color.BLACK;
-            DeAlRo.col = Color.RED;
-            DeAlVe.col = Color.BLACK;
-
-            IzAlAm.col = Color.YELLOW;
-            IzAlRo.col = Color.BLACK;
-            IzAlVe.col = Color.BLACK;
-
-            IzBaAm.col = Color.yellow;
-            IzBaRo.col = Color.BLACK;
-            IzBaVe.col = Color.BLACK;
-            Fram.repaint();
-            sleep(amarillo);
-            
-            //Septimo Acto
-            Sonido.Camion.stop();
-            DeBaAm.col = Color.BLACK;
-            DeBaRo.col = Color.RED;
-            DeBaVe.col = Color.BLACK;
-
-            DeAlAm.col = Color.BLACK;
-            DeAlRo.col = Color.RED;
-            DeAlVe.col = Color.BLACK;
-
-            IzAlAm.col = Color.BLACK;
-            IzAlRo.col = Color.RED;
-            IzAlVe.col = Color.BLACK;
-
-            IzBaAm.col = Color.BLACK;
-            IzBaRo.col = Color.BLACK;
-            IzBaVe.col = Color.GREEN;
-            Fram.repaint();
-            sleep(Verde);
-            
-            //Octavo Acto
-            Sonido.Camion.play();
-            DeBaAm.col = Color.yellow;
-            DeBaRo.col = Color.BLACK;
-            DeBaVe.col = Color.BLACK;
-
-            DeAlAm.col = Color.BLACK;
-            DeAlRo.col = Color.RED;
-            DeAlVe.col = Color.BLACK;
-
-            IzAlAm.col = Color.BLACK;
-            IzAlRo.col = Color.RED;
-            IzAlVe.col = Color.BLACK;
-
-            IzBaAm.col = Color.YELLOW;
-            IzBaRo.col = Color.BLACK;
-            IzBaVe.col = Color.BLACK;
-            Fram.repaint();
-            sleep(amarillo);
-            Sonido.Camion.stop();
+            acto1();
+            acto2();
+            acto3();
+            acto4();
+            acto5();
+            acto6();
+            acto7();
+            acto8();
             run();
         } catch (InterruptedException ex) {
             Logger.getLogger(HiloSemaforos.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+    }
+
+    public void acto1() throws InterruptedException {
+        //Primer Acto
+        DeBaAm.col = Color.BLACK;
+        DeBaRo.col = Color.BLACK;
+        DeBaVe.col = Color.GREEN;
+
+        DeAlAm.col = Color.BLACK;
+        DeAlRo.col = Color.RED;
+        DeAlVe.col = Color.BLACK;
+
+        IzAlAm.col = Color.BLACK;
+        IzAlRo.col = Color.RED;
+        IzAlVe.col = Color.BLACK;
+
+        IzBaAm.col = Color.BLACK;
+        IzBaRo.col = Color.RED;
+        IzBaVe.col = Color.BLACK;
+        Fram.repaint();
+        sleep(Verde);
+    }
+
+    public void acto2() throws InterruptedException {
+        //Segundo Acto
+        Sonido.Camion.play();
+        DeBaAm.col = Color.YELLOW;
+        DeBaRo.col = Color.BLACK;
+        DeBaVe.col = Color.BLACK;
+
+        DeAlAm.col = Color.YELLOW;
+        DeAlRo.col = Color.BLACK;
+        DeAlVe.col = Color.BLACK;
+
+        IzAlAm.col = Color.BLACK;
+        IzAlRo.col = Color.RED;
+        IzAlVe.col = Color.BLACK;
+
+        IzBaAm.col = Color.BLACK;
+        IzBaRo.col = Color.RED;
+        IzBaVe.col = Color.BLACK;
+        Fram.repaint();
+        sleep(amarillo);
+    }
+
+    public void acto3() throws InterruptedException {
+        //Tercer Acto
+        Sonido.Camion.stop();
+        DeBaAm.col = Color.BLACK;
+        DeBaRo.col = Color.RED;
+        DeBaVe.col = Color.BLACK;
+
+        DeAlAm.col = Color.BLACK;
+        DeAlRo.col = Color.BLACK;
+        DeAlVe.col = Color.GREEN;
+
+        IzAlAm.col = Color.BLACK;
+        IzAlRo.col = Color.RED;
+        IzAlVe.col = Color.BLACK;
+
+        IzBaAm.col = Color.BLACK;
+        IzBaRo.col = Color.RED;
+        IzBaVe.col = Color.BLACK;
+        Fram.repaint();
+        sleep(Verde);
+    }
+
+    public void acto4() throws InterruptedException {
+        //Cuarto Acto
+        Sonido.Camion.play();
+        DeBaAm.col = Color.BLACK;
+        DeBaRo.col = Color.RED;
+        DeBaVe.col = Color.BLACK;
+
+        DeAlAm.col = Color.YELLOW;
+        DeAlRo.col = Color.BLACK;
+        DeAlVe.col = Color.BLACK;
+
+        IzAlAm.col = Color.yellow;
+        IzAlRo.col = Color.BLACK;
+        IzAlVe.col = Color.BLACK;
+
+        IzBaAm.col = Color.BLACK;
+        IzBaRo.col = Color.RED;
+        IzBaVe.col = Color.BLACK;
+        Fram.repaint();
+        sleep(amarillo);
+    }
+
+    public void acto5() throws InterruptedException {
+        //Quinto Acto
+        Sonido.Camion.stop();
+        DeBaAm.col = Color.BLACK;
+        DeBaRo.col = Color.RED;
+        DeBaVe.col = Color.BLACK;
+
+        DeAlAm.col = Color.BLACK;
+        DeAlRo.col = Color.RED;
+        DeAlVe.col = Color.BLACK;
+
+        IzAlAm.col = Color.BLACK;
+        IzAlRo.col = Color.BLACK;
+        IzAlVe.col = Color.GREEN;
+
+        IzBaAm.col = Color.BLACK;
+        IzBaRo.col = Color.RED;
+        IzBaVe.col = Color.BLACK;
+        Fram.repaint();
+        sleep(Verde);
+    }
+
+    public void acto6() throws InterruptedException {
+        //Sexto Acto
+        Sonido.Camion.play();
+        DeBaAm.col = Color.BLACK;
+        DeBaRo.col = Color.RED;
+        DeBaVe.col = Color.BLACK;
+
+        DeAlAm.col = Color.BLACK;
+        DeAlRo.col = Color.RED;
+        DeAlVe.col = Color.BLACK;
+
+        IzAlAm.col = Color.YELLOW;
+        IzAlRo.col = Color.BLACK;
+        IzAlVe.col = Color.BLACK;
+
+        IzBaAm.col = Color.yellow;
+        IzBaRo.col = Color.BLACK;
+        IzBaVe.col = Color.BLACK;
+        Fram.repaint();
+        sleep(amarillo);
+    }
+
+    public void acto7() throws InterruptedException {
+        //Septimo Acto
+        Sonido.Camion.stop();
+        DeBaAm.col = Color.BLACK;
+        DeBaRo.col = Color.RED;
+        DeBaVe.col = Color.BLACK;
+
+        DeAlAm.col = Color.BLACK;
+        DeAlRo.col = Color.RED;
+        DeAlVe.col = Color.BLACK;
+
+        IzAlAm.col = Color.BLACK;
+        IzAlRo.col = Color.RED;
+        IzAlVe.col = Color.BLACK;
+
+        IzBaAm.col = Color.BLACK;
+        IzBaRo.col = Color.BLACK;
+        IzBaVe.col = Color.GREEN;
+        Fram.repaint();
+        sleep(Verde);
+    }
+
+    public void acto8() throws InterruptedException {
+        //Octavo Acto
+        Sonido.Camion.play();
+        DeBaAm.col = Color.yellow;
+        DeBaRo.col = Color.BLACK;
+        DeBaVe.col = Color.BLACK;
+
+        DeAlAm.col = Color.BLACK;
+        DeAlRo.col = Color.RED;
+        DeAlVe.col = Color.BLACK;
+
+        IzAlAm.col = Color.BLACK;
+        IzAlRo.col = Color.RED;
+        IzAlVe.col = Color.BLACK;
+
+        IzBaAm.col = Color.YELLOW;
+        IzBaRo.col = Color.BLACK;
+        IzBaVe.col = Color.BLACK;
+        Fram.repaint();
+        sleep(amarillo);
+        Sonido.Camion.stop();
     }
 }

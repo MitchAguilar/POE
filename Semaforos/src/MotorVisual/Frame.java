@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,6 +26,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.text.Position;
 
 /**
  *
@@ -36,10 +38,14 @@ public class Frame {
     JPanel Lona, Lona2;
     JLabel Fuente;
     JButton start, stop;
-    DibujarCirculo DeBaAm, DeBaRo, DeBaVe;
-    DibujarCirculo DeAlAm, DeAlRo, DeAlVe;
-    DibujarCirculo IzAlAm, IzAlRo, IzAlVe;
-    DibujarCirculo IzBaAm, IzBaRo, IzBaVe;
+    Circulo DeBaAm;
+    Circulo DeBaRo, DeBaVe;
+    Circulo DeAlAm;
+    Circulo DeAlRo, DeAlVe;
+    Circulo IzAlAm;
+    Circulo IzAlRo, IzAlVe;
+    Circulo IzBaAm;
+    Circulo IzBaRo, IzBaVe;
     Hilo hl, hl1, hl2, hl3, hl4, hl5, hl6, hl7, hl8, hl9, hl10, hl11;
     boolean ol = true;
     private int Tv, ta;
@@ -191,10 +197,10 @@ public class Frame {
                         IzAlVe.setLocation(IzAlVe.getX() + 15, IzAlVe.getY());
                         break;
                 }
-//                
-//                System.out.println("entré");
+                
                 int key = e.getExtendedKeyCode();
                 if (key == KeyEvent.VK_0) {
+                    //Semaforo Derecha bajo
                     DeBaAm.setBounds(596, 439, 40, 40);
 
                     DeBaRo.setBounds(581, 439, 40, 40);
@@ -263,43 +269,43 @@ public class Frame {
             }
         });
         //Semaforo Derecha bajo
-        DeBaAm = new DibujarCirculo();
+        DeBaAm = new Circulo();
         DeBaAm.setBounds(596, 439, 40, 40);
 
-        DeBaRo = new DibujarCirculo();
+        DeBaRo = new Circulo();
         DeBaRo.setBounds(581, 439, 40, 40);
 
-        DeBaVe = new DibujarCirculo();
+        DeBaVe = new Circulo();
         DeBaVe.setBounds(611, 439, 40, 40);
 
         //Semaforo Derecha Alto
-        DeAlAm = new DibujarCirculo();
+        DeAlAm = new Circulo();
         DeAlAm.setBounds(601, 221, 40, 40);
 
-        DeAlRo = new DibujarCirculo();
+        DeAlRo = new Circulo();
         DeAlRo.setBounds(601, 236, 40, 40);
 
-        DeAlVe = new DibujarCirculo();
+        DeAlVe = new Circulo();
         DeAlVe.setBounds(601, 206, 40, 40);
 
         //Semaforo izquierda Alto
-        IzAlAm = new DibujarCirculo();
+        IzAlAm = new Circulo();
         IzAlAm.setBounds(336, 221, 40, 40);
 
-        IzAlRo = new DibujarCirculo();
+        IzAlRo = new Circulo();
         IzAlRo.setBounds(321, 221, 40, 40);
 
-        IzAlVe = new DibujarCirculo();
+        IzAlVe = new Circulo();
         IzAlVe.setBounds(351, 221, 40, 40);
 
         //Semafoto izquierda Bajo
-        IzBaAm = new DibujarCirculo();
+        IzBaAm = new Circulo();
         IzBaAm.setBounds(373, 476, 40, 40);
 
-        IzBaRo = new DibujarCirculo();
+        IzBaRo = new Circulo();
         IzBaRo.setBounds(373, 448, 40, 40);
 
-        IzBaVe = new DibujarCirculo();
+        IzBaVe = new Circulo();
         IzBaVe.setBounds(373, 462, 40, 40);
 
         Fuente = new JLabel();
@@ -339,7 +345,6 @@ public class Frame {
         Fram.add(IzBaRo);
         Fram.add(IzBaVe);
         Imagen img = new Imagen("/Complements/Fondo.jpg", 1024, Fram.getHeight());
-//        Lona.add(img);
         Fram.add(img);
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/Icon.png"));
         Fram.setIconImage(icon);

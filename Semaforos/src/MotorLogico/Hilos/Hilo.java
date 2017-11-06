@@ -5,7 +5,7 @@
  */
 package MotorLogico.Hilos;
 
-import MotorVisual.DibujarCirculo;
+import MotorVisual.Circulo;
 import java.awt.Color;
 import static java.lang.Thread.sleep;
 import javax.swing.JFrame;
@@ -16,10 +16,10 @@ import javax.swing.JFrame;
  */
 public class Hilo extends Thread {
 
-    DibujarCirculo db;
+    Circulo db;
     JFrame fr;
 
-    public Hilo(DibujarCirculo db, JFrame fr) {
+    public Hilo(Circulo db, JFrame fr) {
         this.db = db;
         this.fr = fr;
     }
@@ -33,15 +33,15 @@ public class Hilo extends Thread {
             db.col = new Color(num(), num(), num());
             fr.repaint();
             sleep(1000);
-//            System.out.println("1");
+            System.out.println("1");
             db.col = new Color(num(), num(), num());
             fr.repaint();
             sleep(1000);
-//            System.out.println("2");
+            System.out.println("2");
             db.col = new Color(num(), num(), num());
             fr.repaint();
             sleep(1000);
-//            System.out.println("3");
+            System.out.println("3");
             run();
         } catch (InterruptedException ex) {
         }
