@@ -31,7 +31,7 @@ public class Frame {
 
     JFrame Fram;
     JPanel Lona, Lona2;
-    JLabel Fuente, car,car2,car3;
+    JLabel Fuente, car,car2,car3,car4,car5,car6;
     JButton start, stop;
     Circulo DeBaAm;
     Circulo DeBaRo, DeBaVe;
@@ -307,9 +307,9 @@ public class Frame {
         Fuente.setIcon(new ImageIcon(url2));
         Fuente.setBounds(760, 480, 117, 128);
 
-        //carros
+        //car 1
         car = new JLabel();
-        car.setBounds(300, 270, 80, 70);
+        car.setBounds(300, 270, 100, 70);
         ImageIcon a3 = new ImageIcon(getClass().getResource("/Complements/carro1.png")); // IMAGENES EN BOTONES O LABELS SE ADAPTA Ponme debajo del bounds
         Icon fondocara3 = new ImageIcon(a3.getImage().getScaledInstance(car.getWidth(), car.getHeight(), Image.SCALE_DEFAULT));
         car.setIcon(fondocara3);
@@ -325,6 +325,24 @@ public class Frame {
         ImageIcon a5 = new ImageIcon(getClass().getResource("/Complements/carro3.png")); // IMAGENES EN BOTONES O LABELS SE ADAPTA Ponme debajo del bounds
         Icon fondocara5 = new ImageIcon(a5.getImage().getScaledInstance(car3.getWidth(), car3.getHeight(), Image.SCALE_DEFAULT));
         car3.setIcon(fondocara5);
+        //car 2
+        car4 = new JLabel();
+        car4.setBounds(600, 330, 100, 70);
+        ImageIcon a6 = new ImageIcon(getClass().getResource("/Complements/carro1Invert.png")); // IMAGENES EN BOTONES O LABELS SE ADAPTA Ponme debajo del bounds
+        Icon fondocara6 = new ImageIcon(a6.getImage().getScaledInstance(car4.getWidth(), car4.getHeight(), Image.SCALE_DEFAULT));
+        car4.setIcon(fondocara6);
+        
+        car5 = new JLabel();
+        car5.setBounds(700, 330, 80, 70);
+        ImageIcon a7 = new ImageIcon(getClass().getResource("/Complements/carro2Invert.png")); // IMAGENES EN BOTONES O LABELS SE ADAPTA Ponme debajo del bounds
+        Icon fondocara7 = new ImageIcon(a7.getImage().getScaledInstance(car5.getWidth(), car5.getHeight(), Image.SCALE_DEFAULT));
+        car5.setIcon(fondocara7);
+        
+        car6 = new JLabel();
+        car6.setBounds(800, 330, 80, 70);
+        ImageIcon a8 = new ImageIcon(getClass().getResource("/Complements/carro3Invert.png")); // IMAGENES EN BOTONES O LABELS SE ADAPTA Ponme debajo del bounds
+        Icon fondocara8 = new ImageIcon(a8.getImage().getScaledInstance(car6.getWidth(), car6.getHeight(), Image.SCALE_DEFAULT));
+        car6.setIcon(fondocara8);
 
     }
 
@@ -339,6 +357,9 @@ public class Frame {
         Fram.add(car);
         Fram.add(car2);
         Fram.add(car3);
+        Fram.add(car4);
+        Fram.add(car5);
+        Fram.add(car6);
         //components
         Fram.add(start);
         Fram.add(stop);
