@@ -34,14 +34,14 @@ public class HiloSemaforos extends Thread {
     Circulo IzAlRo, IzAlVe;
     Circulo IzBaAm;
     Circulo IzBaRo, IzBaVe;
-    JLabel car;
+    JLabel car, car2, car3;
 
     public void tiempo(int Ve, int Am) {
         amarillo = Am * 1000;
         Verde = Ve * 1000;
     }
 
-    public HiloSemaforos(JFrame Fram, Circulo DeBaAm, Circulo DeBaRo, Circulo DeBaVe, Circulo DeAlAm, Circulo DeAlRo, Circulo DeAlVe, Circulo IzAlAm, Circulo IzAlRo, Circulo IzAlVe, Circulo IzBaAm, Circulo IzBaRo, Circulo IzBaVe, JLabel lb) {
+    public HiloSemaforos(JFrame Fram, Circulo DeBaAm, Circulo DeBaRo, Circulo DeBaVe, Circulo DeAlAm, Circulo DeAlRo, Circulo DeAlVe, Circulo IzAlAm, Circulo IzAlRo, Circulo IzAlVe, Circulo IzBaAm, Circulo IzBaRo, Circulo IzBaVe, JLabel car, JLabel car2, JLabel car3) {
         this.Fram = Fram;
         this.DeBaAm = DeBaAm;
         this.DeBaRo = DeBaRo;
@@ -55,15 +55,15 @@ public class HiloSemaforos extends Thread {
         this.IzBaAm = IzBaAm;
         this.IzBaRo = IzBaRo;
         this.IzBaVe = IzBaVe;
-        car = lb;
+        this.car = car;
+        this.car2 = car2;
+        this.car3 = car3;
     }
 
     /*
     HiloMovimiento hlm = new HiloMovimiento(car, Fram, 1, new Point(car.getX(), car.getY()), new Point(950, car.getY()));
             hlm.start();
      */
-    HiloMovimiento hlm;
-
     public void run() {
         try {
             acto1();
@@ -71,10 +71,17 @@ public class HiloSemaforos extends Thread {
             acto3();
             acto4();
             //arranque carro
-             
-            hlm = new HiloMovimiento(car, Fram, 1, new Point(car.getX(), car.getY()), new Point(950, car.getY()),1);
-            hlm.start();
+            ArrayList<HiloMovimiento> hl= new ArrayList<>();
+            HiloMovimiento hm= new HiloMovimiento(car, Fram, 1, new Point(car.getX(), car.getY()),new Point(950, car.getY()),1);
+            HiloMovimiento hm2= new HiloMovimiento(car2, Fram, 1, new Point(car2.getX(), car2.getY()),new Point(950, car2.getY()),1);
+            HiloMovimiento hm3= new HiloMovimiento(car3, Fram, 1, new Point(car3.getX(), car3.getY()),new Point(950, car3.getY()),1);
+            hl.add(hm);
+            hl.add(hm2);
+            hl.add(hm3);
             
+            SpiderDeHilos sph= new SpiderDeHilos(1, 2, hl);
+            sph.start();
+            //end carro
             acto5();
             acto6();
             acto7();

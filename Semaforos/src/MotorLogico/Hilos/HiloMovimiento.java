@@ -95,6 +95,6 @@ public class HiloMovimiento extends Thread {
             JOptionPane.showMessageDialog(null, "Erro de indice- HiloMovimiento " + e.getMessage(), "Error", JOptionPane.WARNING_MESSAGE);
         }
         aux.setLocation(posInicial);
-        aux.setVisible(false);
+        aux.setVisible(true);
     }
 }

@@ -6,6 +6,8 @@
 package MotorLogico.Hilos;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,10 +26,19 @@ public class SpiderDeHilos extends Thread {
 
     @Override
     public void run() {
-        int Al = (int) (Math.random()*(Spider.size()+0));
-        while (TiempoSemaforo!=0) {
-            Spider.get(Al).start();
-            TiempoSemaforo--;
+//        int Al = (int) (Math.random()*(Spider.size()+0));
+        while (TiempoSemaforo != 0) {
+            try {
+                Spider.get(0).start();
+                sleep(TiempoCarro);
+                Spider.get(1).start();
+                sleep(TiempoCarro);
+                Spider.get(2).start();
+                sleep(TiempoCarro);
+                TiempoSemaforo--;
+            } catch (InterruptedException ex) {
+                Logger.getLogger(SpiderDeHilos.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

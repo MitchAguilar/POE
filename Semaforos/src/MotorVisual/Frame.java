@@ -6,21 +6,15 @@
 package MotorVisual;
 
 import MotorLogico.Hilos.Hilo;
-import MotorLogico.Hilos.HiloMovimiento;
 import MotorLogico.Hilos.HiloSemaforos;
 import MotorLogico.Imagen;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 import java.net.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -28,7 +22,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.text.Position;
 
 /**
  *
@@ -38,7 +31,7 @@ public class Frame {
 
     JFrame Fram;
     JPanel Lona, Lona2;
-    JLabel Fuente, car;
+    JLabel Fuente, car,car2,car3;
     JButton start, stop;
     Circulo DeBaAm;
     Circulo DeBaRo, DeBaVe;
@@ -249,7 +242,7 @@ public class Frame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Init(ol);
-                HiloSemaforos hs = new HiloSemaforos(Fram, DeBaAm, DeBaRo, DeBaVe, DeAlAm, DeAlRo, DeAlVe, IzAlAm, IzAlRo, IzAlVe, IzBaAm, IzBaRo, IzBaVe, car);
+                HiloSemaforos hs = new HiloSemaforos(Fram, DeBaAm, DeBaRo, DeBaVe, DeAlAm, DeAlRo, DeAlVe, IzAlAm, IzAlRo, IzAlVe, IzBaAm, IzBaRo, IzBaVe, car,car2,car3);
                 hs.tiempo(Tv, ta);
                 hs.start();
                 start.setEnabled(false);
@@ -316,10 +309,22 @@ public class Frame {
 
         //carros
         car = new JLabel();
-        car.setBounds(300, 270, 70, 70);
+        car.setBounds(300, 270, 80, 70);
         ImageIcon a3 = new ImageIcon(getClass().getResource("/Complements/carro1.png")); // IMAGENES EN BOTONES O LABELS SE ADAPTA Ponme debajo del bounds
         Icon fondocara3 = new ImageIcon(a3.getImage().getScaledInstance(car.getWidth(), car.getHeight(), Image.SCALE_DEFAULT));
         car.setIcon(fondocara3);
+        
+        car2 = new JLabel();
+        car2.setBounds(200, 270, 80, 70);
+        ImageIcon a4 = new ImageIcon(getClass().getResource("/Complements/carro2.png")); // IMAGENES EN BOTONES O LABELS SE ADAPTA Ponme debajo del bounds
+        Icon fondocara4 = new ImageIcon(a4.getImage().getScaledInstance(car2.getWidth(), car2.getHeight(), Image.SCALE_DEFAULT));
+        car2.setIcon(fondocara4);
+        
+        car3 = new JLabel();
+        car3.setBounds(100, 270, 80, 70);
+        ImageIcon a5 = new ImageIcon(getClass().getResource("/Complements/carro3.png")); // IMAGENES EN BOTONES O LABELS SE ADAPTA Ponme debajo del bounds
+        Icon fondocara5 = new ImageIcon(a5.getImage().getScaledInstance(car3.getWidth(), car3.getHeight(), Image.SCALE_DEFAULT));
+        car3.setIcon(fondocara5);
 
     }
 
@@ -332,6 +337,8 @@ public class Frame {
         Fram.getContentPane().setBackground(Color.lightGray);
         //carros
         Fram.add(car);
+        Fram.add(car2);
+        Fram.add(car3);
         //components
         Fram.add(start);
         Fram.add(stop);
