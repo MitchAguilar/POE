@@ -79,7 +79,7 @@ public class HiloSemaforos extends Thread {
             hl.add(hm2);
             hl.add(hm3);
             
-            SpiderDeHilos sph= new SpiderDeHilos(1, 2, hl);
+            SpiderDeHilos sph= new SpiderDeHilos(1, 20, hl);
             sph.start();
             //end carro
             acto5();
