@@ -28,6 +28,7 @@ public class Hilo extends Thread {
         return (int) (Math.random() * (254 + 0));
     }
 
+    @Override
     public void run() {
         try {
             db.col = new Color(num(), num(), num());

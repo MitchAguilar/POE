@@ -9,10 +9,12 @@ import MotorLogico.Sonido;
 import MotorVisual.Circulo;
 import java.awt.Color;
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +25,7 @@ public class HiloSemaforos extends Thread {
     JFrame Fram;
     int amarillo = 4000;
     int Verde = 20000;
+    int tiempoCarros;
     Circulo DeBaAm;
     Circulo DeBaRo, DeBaVe;
     Circulo DeAlAm;
@@ -54,16 +57,24 @@ public class HiloSemaforos extends Thread {
         this.IzBaVe = IzBaVe;
         car = lb;
     }
+
+    /*
+    HiloMovimiento hlm = new HiloMovimiento(car, Fram, 1, new Point(car.getX(), car.getY()), new Point(950, car.getY()));
+            hlm.start();
+     */
     HiloMovimiento hlm;
 
     public void run() {
         try {
-            HiloMovimiento hlm = new HiloMovimiento(car, Fram, 1, new Point(car.getX(), car.getY()), new Point(950, car.getY()));
-            hlm.start();
             acto1();
             acto2();
             acto3();
             acto4();
+            //arranque carro
+             
+            hlm = new HiloMovimiento(car, Fram, 1, new Point(car.getX(), car.getY()), new Point(950, car.getY()),1);
+            hlm.start();
+            
             acto5();
             acto6();
             acto7();

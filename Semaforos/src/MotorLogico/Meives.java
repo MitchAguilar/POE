@@ -90,7 +90,6 @@ public class Meives {
                 e.consume();
                 JOptionPane.showMessageDialog(null, "Lo sentimos, ésto es un campo de numeros, por lo tanto no puede ingresar ningun otro caracter diferente de los numeros enteros ", "Error", JOptionPane.WARNING_MESSAGE);
             }
-            
             if (getText().length() >= 5) {
                 e.consume();
                 JOptionPane.showMessageDialog(null, "Lo sentimos, ése campo no puede recibir un valor tan grande ", "Error", JOptionPane.WARNING_MESSAGE);

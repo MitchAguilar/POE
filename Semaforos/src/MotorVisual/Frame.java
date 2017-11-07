@@ -223,11 +223,11 @@ public class Frame {
                     IzAlVe.setBounds(351, 221, 40, 40);
 
                     //Semafoto izquierda Bajo
-                    IzBaAm.setBounds(373, 476, 40, 40);
-
-                    IzBaRo.setBounds(373, 448, 40, 40);
-
-                    IzBaVe.setBounds(373, 462, 40, 40);
+                    IzBaAm.setBounds(373, 462, 40, 40);
+                    
+                    IzBaRo.setBounds(373, 476, 40, 40);
+                    
+                    IzBaVe.setBounds(373, 448, 40, 40);
                 }
             }
 
@@ -301,13 +301,13 @@ public class Frame {
 
         //Semafoto izquierda Bajo
         IzBaAm = new Circulo();
-        IzBaAm.setBounds(373, 476, 40, 40);
+        IzBaAm.setBounds(373, 462, 40, 40);
 
         IzBaRo = new Circulo();
-        IzBaRo.setBounds(373, 448, 40, 40);
+        IzBaRo.setBounds(373, 476, 40, 40);
 
         IzBaVe = new Circulo();
-        IzBaVe.setBounds(373, 462, 40, 40);
+        IzBaVe.setBounds(373, 448, 40, 40);
 
         Fuente = new JLabel();
         URL url2 = this.getClass().getResource("/Complements/fuente.gif");
@@ -316,8 +316,8 @@ public class Frame {
 
         //carros
         car = new JLabel();
-        car.setBounds(10, 270, 70, 70);
-        ImageIcon a3 = new ImageIcon(getClass().getResource("/Complements/carro2.png")); // IMAGENES EN BOTONES O LABELS SE ADAPTA Ponme debajo del bounds
+        car.setBounds(300, 270, 70, 70);
+        ImageIcon a3 = new ImageIcon(getClass().getResource("/Complements/carro1.png")); // IMAGENES EN BOTONES O LABELS SE ADAPTA Ponme debajo del bounds
         Icon fondocara3 = new ImageIcon(a3.getImage().getScaledInstance(car.getWidth(), car.getHeight(), Image.SCALE_DEFAULT));
         car.setIcon(fondocara3);
 
