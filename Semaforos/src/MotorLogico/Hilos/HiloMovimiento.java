@@ -41,7 +41,7 @@ public class HiloMovimiento extends Thread {
             switch (estado) {
                 //of x1--->x2 
                 case 1:
-                    for (int i = posInicial.x; i <= posFinal.x; i++) {
+                    for (int i = posInicial.x; i <= posFinal.x; i=i+2) {
                         try {
                             aux.setLocation(i, posFinal.y);
                             FrmAux.repaint();

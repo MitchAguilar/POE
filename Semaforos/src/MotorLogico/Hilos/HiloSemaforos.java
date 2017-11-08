@@ -71,15 +71,15 @@ public class HiloSemaforos extends Thread {
             acto3();
             acto4();
             //arranque carro
-            ArrayList<HiloMovimiento> hl= new ArrayList<>();
-            HiloMovimiento hm= new HiloMovimiento(car, Fram, 1, new Point(car.getX(), car.getY()),new Point(950, car.getY()),1);
-            HiloMovimiento hm2= new HiloMovimiento(car2, Fram, 1, new Point(car2.getX(), car2.getY()),new Point(950, car2.getY()),1);
-            HiloMovimiento hm3= new HiloMovimiento(car3, Fram, 1, new Point(car3.getX(), car3.getY()),new Point(950, car3.getY()),1);
-            hl.add(hm);
-            hl.add(hm2);
-            hl.add(hm3);
-            
-            SpiderDeHilos sph= new SpiderDeHilos(1, 20, hl);
+//            ArrayList<HiloMovimiento> hl= new ArrayList<>();
+            HiloMovimiento hm = new HiloMovimiento(car, Fram, 1, new Point(car.getX(), car.getY()), new Point(950, car.getY()), 1);
+            HiloMovimiento hm2 = new HiloMovimiento(car2, Fram, 1, new Point(car2.getX(), car2.getY()), new Point(950, car2.getY()), 1);
+            HiloMovimiento hm3 = new HiloMovimiento(car3, Fram, 1, new Point(car3.getX(), car3.getY()), new Point(950, car3.getY()), 1);
+//            hl.add(hm);
+//            hl.add(hm2);
+//            hl.add(hm3);
+//            
+            SpiderDeHilos sph = new SpiderDeHilos(1, 100, hm, hm2, hm3);
             sph.start();
             //end carro
             acto5();

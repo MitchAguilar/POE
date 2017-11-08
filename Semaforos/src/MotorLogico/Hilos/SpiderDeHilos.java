@@ -5,6 +5,7 @@
  */
 package MotorLogico.Hilos;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,12 +17,16 @@ import java.util.logging.Logger;
 public class SpiderDeHilos extends Thread {
 
     int TiempoSemaforo, TiempoCarro;
-    ArrayList<HiloMovimiento> Spider = new ArrayList<>();
+//    ArrayList<HiloMovimiento> Spider = new ArrayList<>();
+//    ArrayList<HiloMovimiento> AuxSpider = new ArrayList<>();
+    HiloMovimiento hm, hm2, hm3;
 
-    public SpiderDeHilos(int TiempoSemaforo, int TiempoCarro, ArrayList<HiloMovimiento> Araña) {
+    public SpiderDeHilos(int TiempoSemaforo, int TiempoCarro, HiloMovimiento hm, HiloMovimiento hm2, HiloMovimiento hm3) {
         this.TiempoSemaforo = TiempoSemaforo;
         this.TiempoCarro = TiempoCarro;
-        this.Spider = Araña;
+        this.hm = hm;
+        this.hm2 = hm2;
+        this.hm3 = hm3;
     }
 
     @Override
@@ -29,11 +34,11 @@ public class SpiderDeHilos extends Thread {
 //        int Al = (int) (Math.random()*(Spider.size()+0));
         while (TiempoSemaforo != 0) {
             try {
-                Spider.get(0).start();
+                hm.start();
                 sleep(TiempoCarro);
-                Spider.get(1).start();
+                hm2.start();
                 sleep(TiempoCarro);
-                Spider.get(2).start();
+                hm3.start();
                 sleep(TiempoCarro);
                 TiempoSemaforo--;
             } catch (InterruptedException ex) {
