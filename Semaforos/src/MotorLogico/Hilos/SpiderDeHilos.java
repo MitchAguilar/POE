@@ -16,13 +16,14 @@ import java.util.logging.Logger;
  */
 public class SpiderDeHilos extends Thread {
 
-    int TiempoSemaforo, TiempoCarro;
+    public boolean Estado;
+    int TiempoCarro;
 //    ArrayList<HiloMovimiento> Spider = new ArrayList<>();
 //    ArrayList<HiloMovimiento> AuxSpider = new ArrayList<>();
     HiloMovimiento hm, hm2, hm3;
 
-    public SpiderDeHilos(int TiempoSemaforo, int TiempoCarro, HiloMovimiento hm, HiloMovimiento hm2, HiloMovimiento hm3) {
-        this.TiempoSemaforo = TiempoSemaforo;
+    public SpiderDeHilos(boolean Estado, int TiempoCarro, HiloMovimiento hm, HiloMovimiento hm2, HiloMovimiento hm3) {
+        this.Estado = Estado;
         this.TiempoCarro = TiempoCarro;
         this.hm = hm;
         this.hm2 = hm2;
@@ -32,15 +33,22 @@ public class SpiderDeHilos extends Thread {
     @Override
     public void run() {
 //        int Al = (int) (Math.random()*(Spider.size()+0));
-        while (TiempoSemaforo != 0) {
+        while (Estado) {
             try {
+                if(Estado)
                 hm.start();
                 sleep(TiempoCarro);
+                if(Estado)
                 hm2.start();
                 sleep(TiempoCarro);
+                if(Estado)
                 hm3.start();
                 sleep(TiempoCarro);
-                TiempoSemaforo--;
+                sleep(2000);//tiempo hilos
+                hm = new HiloMovimiento(hm.aux, hm.FrmAux, hm.tiempo, hm.posInicial, hm.posFinal, hm.estado);
+                hm2 = new HiloMovimiento(hm2.aux, hm2.FrmAux, hm2.tiempo, hm2.posInicial, hm2.posFinal, hm2.estado);
+                hm3 = new HiloMovimiento(hm3.aux, hm3.FrmAux, hm3.tiempo, hm3.posInicial, hm3.posFinal, hm3.estado);
+                System.err.println("pase");
             } catch (InterruptedException ex) {
                 Logger.getLogger(SpiderDeHilos.class.getName()).log(Level.SEVERE, null, ex);
             }
