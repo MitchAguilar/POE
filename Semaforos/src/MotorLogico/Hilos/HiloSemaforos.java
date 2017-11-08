@@ -68,19 +68,19 @@ public class HiloSemaforos extends Thread {
             HiloMovimiento hm6 = new HiloMovimiento(cars[5], Fram, 1, new Point(cars[5].getX(), cars[5].getY()), new Point(1, cars[5].getY()), 2);
             SpiderDeHilos sph1 = new SpiderDeHilos(true, 100, hm4, hm5, hm6);
             sph1.start();
-            //end carro
             acto1();
+            //end carro
             sph1.Estado = false;
             acto2();
             //arranque carro
-            HiloMovimiento hm7 = new HiloMovimiento(cars[6], Fram, 1, new Point(cars[6].getX(), cars[6].getY()), new Point(cars[6].getX(), 1), 3);
-            HiloMovimiento hm8 = new HiloMovimiento(cars[7], Fram, 1, new Point(cars[7].getX(), cars[7].getY()), new Point(cars[7].getX(), 1), 3);
-            HiloMovimiento hm9 = new HiloMovimiento(cars[8], Fram, 1, new Point(cars[8].getX(), cars[8].getY()), new Point(cars[8].getX(), 1), 3);
-            SpiderDeHilos sph2 = new SpiderDeHilos(true, 100, hm7, hm8, hm9);
-            sph2.start();
+            HiloMovimiento hm10 = new HiloMovimiento(cars[9], Fram, 1, new Point(cars[9].getX(), cars[9].getY()), new Point(cars[9].getX(), 700), 3);
+            HiloMovimiento hm11 = new HiloMovimiento(cars[10], Fram, 1, new Point(cars[10].getX(), cars[10].getY()), new Point(cars[10].getX(), 700), 3);
+            HiloMovimiento hm12 = new HiloMovimiento(cars[11], Fram, 1, new Point(cars[11].getX(), cars[11].getY()), new Point(cars[11].getX(), 700), 3);
+            SpiderDeHilos sph3 = new SpiderDeHilos(true, 100, hm10, hm11, hm12);
+            sph3.start();
             //end carro
             acto3();
-            sph2.Estado = false;
+            sph3.Estado = false;
             acto4();
             //arranque carro
             HiloMovimiento hm = new HiloMovimiento(cars[0], Fram, 1, new Point(cars[0].getX(), cars[0].getY()), new Point(950, cars[0].getY()), 1);
@@ -93,14 +93,14 @@ public class HiloSemaforos extends Thread {
             sph.Estado = false;
             acto6();
             //arranque carro
-            HiloMovimiento hm10 = new HiloMovimiento(cars[0], Fram, 1, new Point(cars[0].getX(), cars[0].getY()), new Point(950, cars[0].getY()), 4);
-            HiloMovimiento hm11 = new HiloMovimiento(cars[1], Fram, 1, new Point(cars[1].getX(), cars[1].getY()), new Point(950, cars[1].getY()), 4);
-            HiloMovimiento hm12 = new HiloMovimiento(cars[2], Fram, 1, new Point(cars[2].getX(), cars[2].getY()), new Point(950, cars[2].getY()), 4);
-            SpiderDeHilos sph3 = new SpiderDeHilos(true, 100, hm10, hm11, hm12);
-            sph3.start();
-            //end carro
+            HiloMovimiento hm7 = new HiloMovimiento(cars[6], Fram, 1, new Point(cars[6].getX(), cars[6].getY()), new Point(cars[6].getX(), 1), 4);
+            HiloMovimiento hm8 = new HiloMovimiento(cars[7], Fram, 1, new Point(cars[7].getX(), cars[7].getY()), new Point(cars[7].getX(), 1), 4);
+            HiloMovimiento hm9 = new HiloMovimiento(cars[8], Fram, 1, new Point(cars[8].getX(), cars[8].getY()), new Point(cars[8].getX(), 1), 4);
+            SpiderDeHilos sph2 = new SpiderDeHilos(true, 100, hm7, hm8, hm9);
+            sph2.start();
+            //end carro            
             acto7();
-            sph3.Estado = false;
+            sph2.Estado = false;
             acto8();
             run();
         } catch (InterruptedException ex) {

@@ -17,7 +17,7 @@ public class Semaforos {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         try {
             Frame fr = new Frame(2, 2);
 //            FrameP a = new FrameP();

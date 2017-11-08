@@ -31,8 +31,8 @@ public class Frame {
 
     JFrame Fram;
     JPanel Lona, Lona2;
-    JLabel Fuente, car1,car2,car3,car4,car5,car6,car7,car8,car9,car10,car11,car12;
-    JLabel[] cars=new JLabel[12];
+    JLabel Fuente, car1, car2, car3, car4, car5, car6, car7, car8, car9, car10, car11, car12;
+    JLabel[] cars = new JLabel[12];
     JButton start, stop;
     Circulo DeBaAm;
     Circulo DeBaRo, DeBaVe;
@@ -218,9 +218,9 @@ public class Frame {
 
                     //Semafoto izquierda Bajo
                     IzBaAm.setBounds(373, 462, 40, 40);
-                    
+
                     IzBaRo.setBounds(373, 476, 40, 40);
-                    
+
                     IzBaVe.setBounds(373, 448, 40, 40);
                 }
             }
@@ -314,51 +314,50 @@ public class Frame {
         ImageIcon a3 = new ImageIcon(getClass().getResource("/Complements/carro1.png"));
         Icon fondocara3 = new ImageIcon(a3.getImage().getScaledInstance(car1.getWidth(), car1.getHeight(), Image.SCALE_DEFAULT));
         car1.setIcon(fondocara3);
-        
+
         car2 = new JLabel();
         car2.setBounds(200, 270, 80, 70);
-        ImageIcon a4 = new ImageIcon(getClass().getResource("/Complements/carro2.png")); 
+        ImageIcon a4 = new ImageIcon(getClass().getResource("/Complements/carro2.png"));
         Icon fondocara4 = new ImageIcon(a4.getImage().getScaledInstance(car2.getWidth(), car2.getHeight(), Image.SCALE_DEFAULT));
         car2.setIcon(fondocara4);
-        
+
         car3 = new JLabel();
         car3.setBounds(100, 270, 80, 70);
-        ImageIcon a5 = new ImageIcon(getClass().getResource("/Complements/carro3.png")); 
+        ImageIcon a5 = new ImageIcon(getClass().getResource("/Complements/carro3.png"));
         Icon fondocara5 = new ImageIcon(a5.getImage().getScaledInstance(car3.getWidth(), car3.getHeight(), Image.SCALE_DEFAULT));
         car3.setIcon(fondocara5);
         //car 2
         car4 = new JLabel();
         car4.setBounds(600, 330, 100, 70);
-        ImageIcon a6 = new ImageIcon(getClass().getResource("/Complements/carro1Invert.png")); 
+        ImageIcon a6 = new ImageIcon(getClass().getResource("/Complements/carro1Invert.png"));
         Icon fondocara6 = new ImageIcon(a6.getImage().getScaledInstance(car4.getWidth(), car4.getHeight(), Image.SCALE_DEFAULT));
         car4.setIcon(fondocara6);
-        
+
         car5 = new JLabel();
         car5.setBounds(700, 330, 80, 70);
-        ImageIcon a7 = new ImageIcon(getClass().getResource("/Complements/carro2Invert.png")); 
+        ImageIcon a7 = new ImageIcon(getClass().getResource("/Complements/carro2Invert.png"));
         Icon fondocara7 = new ImageIcon(a7.getImage().getScaledInstance(car5.getWidth(), car5.getHeight(), Image.SCALE_DEFAULT));
         car5.setIcon(fondocara7);
-        
+
         car6 = new JLabel();
         car6.setBounds(800, 330, 80, 70);
-        ImageIcon a8 = new ImageIcon(getClass().getResource("/Complements/carro3Invert.png")); 
+        ImageIcon a8 = new ImageIcon(getClass().getResource("/Complements/carro3Invert.png"));
         Icon fondocara8 = new ImageIcon(a8.getImage().getScaledInstance(car6.getWidth(), car6.getHeight(), Image.SCALE_DEFAULT));
         car6.setIcon(fondocara8);
-        
+
         //car 3
-        
         car7 = new JLabel();
         car7.setBounds(430, 440, 60, 80);
         ImageIcon a9 = new ImageIcon(getClass().getResource("/Complements/carro1y2y1.png"));
         Icon fondocara9 = new ImageIcon(a9.getImage().getScaledInstance(car7.getWidth(), car7.getHeight(), Image.SCALE_DEFAULT));
         car7.setIcon(fondocara9);
-        
+
         car8 = new JLabel();
-        car8.setBounds(430, 530,60, 80);
-        ImageIcon a10 = new ImageIcon(getClass().getResource("/Complements/carro2y2y1.png")); 
+        car8.setBounds(430, 530, 60, 80);
+        ImageIcon a10 = new ImageIcon(getClass().getResource("/Complements/carro2y2y1.png"));
         Icon fondocara10 = new ImageIcon(a10.getImage().getScaledInstance(car8.getWidth(), car8.getHeight(), Image.SCALE_DEFAULT));
         car8.setIcon(fondocara10);
-        
+
         car9 = new JLabel();
         car9.setBounds(430, 620, 60, 80);
         ImageIcon a11 = new ImageIcon(getClass().getResource("/Complements/carro3y2y1.png"));
@@ -366,37 +365,36 @@ public class Frame {
         car9.setIcon(fondocara11);
 
         //car 4
-        
         car10 = new JLabel();
         car10.setBounds(490, 170, 60, 80);
         ImageIcon a12 = new ImageIcon(getClass().getResource("/Complements/carro1y1y2.png"));
         Icon fondocara12 = new ImageIcon(a12.getImage().getScaledInstance(car10.getWidth(), car10.getHeight(), Image.SCALE_DEFAULT));
         car10.setIcon(fondocara12);
-        
+
         car11 = new JLabel();
         car11.setBounds(490, 90, 60, 80);
         ImageIcon a13 = new ImageIcon(getClass().getResource("/Complements/carro2y1y2.png"));
         Icon fondocara13 = new ImageIcon(a13.getImage().getScaledInstance(car11.getWidth(), car11.getHeight(), Image.SCALE_DEFAULT));
         car11.setIcon(fondocara13);
-        
+
         car12 = new JLabel();
         car12.setBounds(500, 0, 60, 80);
         ImageIcon a14 = new ImageIcon(getClass().getResource("/Complements/carro3y1y2.png"));
         Icon fondocara14 = new ImageIcon(a14.getImage().getScaledInstance(car12.getWidth(), car12.getHeight(), Image.SCALE_DEFAULT));
         car12.setIcon(fondocara14);
-        
-        cars[0]=car1;
-        cars[1]=car2;
-        cars[2]=car3;
-        cars[3]=car4;
-        cars[4]=car5;
-        cars[5]=car6;
-        cars[6]=car7;
-        cars[7]=car8;
-        cars[8]=car9;
-        cars[9]=car10;
-        cars[10]=car11;
-        cars[11]=car12;
+
+        cars[0] = car1;
+        cars[1] = car2;
+        cars[2] = car3;
+        cars[3] = car4;
+        cars[4] = car5;
+        cars[5] = car6;
+        cars[6] = car7;
+        cars[7] = car8;
+        cars[8] = car9;
+        cars[9] = car10;
+        cars[10] = car11;
+        cars[11] = car12;
     }
 
     public void Fram() {
@@ -407,7 +405,7 @@ public class Frame {
         Fram.setUndecorated(true);
         Fram.getContentPane().setBackground(Color.lightGray);
         //carros
-        
+
         Fram.add(car1);
         Fram.add(car2);
         Fram.add(car3);
@@ -458,7 +456,7 @@ public class Frame {
         ol = false;
     }
 
-    public Frame(int t, int t1) {
+    public Frame(int t, int t1) throws InterruptedException {
         Tv = t;
         ta = t1;
         Components();

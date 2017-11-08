@@ -5,6 +5,7 @@
  */
 package MotorLogico.Hilos;
 
+import java.awt.HeadlessException;
 import java.awt.Point;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,68 +36,54 @@ public class HiloMovimiento extends Thread {
 
     @Override
     public void run() {
-
-        aux.setVisible(true);
-        try {
-            switch (estado) {
-                //of x1--->x2 
-                case 1:
-                    for (int i = posInicial.x; i <= posFinal.x; i=i+2) {
-                        try {
-                            aux.setLocation(i, posFinal.y);
-                            FrmAux.repaint();
-                            System.out.println("Estado 1");
-                            sleep(tiempo);
-                        } catch (InterruptedException ex) {
-                            Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                    break;
-                //of x1<---x2
-                case 2:
-                    for (int i = posFinal.x; i > posInicial.x; i=-2) {
-                        try {
-                            aux.setLocation(i, posFinal.y);
-                            FrmAux.repaint();
-                            System.out.println("Estado 2");
-                            sleep(tiempo);
-                        } catch (InterruptedException ex) {
-                            Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                    break;
-                // of y1--->y2
-                case 3:
-                    for (int i = posInicial.y; i <= posFinal.y; i++) {
-                        try {
-                            aux.setLocation(posFinal.x, i);
-                            FrmAux.repaint();
-                            System.out.println("Estado 3");
-                            sleep(tiempo);
-                        } catch (InterruptedException ex) {
-                            Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                    break;
-                //of y1<---y2
-                case 4:
-                    for (int i = posInicial.y; i >= posFinal.y; i=i-2) {
-                        try {
-                            aux.setLocation(posFinal.x, i);
-                            FrmAux.repaint();
-                            System.out.println("Estado 4");
-                            sleep(tiempo);
-                        } catch (InterruptedException ex) {
-                            Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                    break;
-                default:
-                    JOptionPane.showMessageDialog(null, "Erro de indice- HiloMovimiento", "Error", JOptionPane.WARNING_MESSAGE);
-                    break;
+        System.err.println("estado " + estado + " entrada");
+        //of x1--->x2 
+        if (estado == 1) {
+            for (int i = posInicial.x; i <= posFinal.x; i = i + 2) {
+                try {
+                    aux.setLocation(i, posFinal.y);
+                    FrmAux.repaint();
+                    sleep(tiempo);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro de indice- HiloMovimiento " + e.getMessage(), "Error", JOptionPane.WARNING_MESSAGE);
+        }
+        //of x1<---x2
+        if (estado == 2) {
+            for (int i = posInicial.x; i >= posFinal.x; i = i - 2) {
+                try {
+                    aux.setLocation(i, posFinal.y);
+                    FrmAux.repaint();
+                    sleep(tiempo);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        // of y1--->y2
+        if (estado == 3) {
+            for (int i = posInicial.y; i <= posFinal.y; i=i+2) {
+                try {
+                    aux.setLocation(posFinal.x, i);
+                    FrmAux.repaint();
+                    sleep(tiempo);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        //of y1<---y2
+        if (estado == 4) {
+            for (int i = posInicial.y; i >= posFinal.y; i = i - 2) {
+                try {
+                    aux.setLocation(posFinal.x, i);
+                    FrmAux.repaint();
+                    sleep(tiempo);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
         aux.setLocation(posInicial);
         aux.setVisible(true);

@@ -13,6 +13,8 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -68,7 +70,11 @@ public class FrameP {
             public void actionPerformed(ActionEvent e) {
                 if (!(Tv.getText().isEmpty() || Ta.getText().isEmpty())) {
                     Fram.dispose();
-                    Frame a = new Frame(Integer.parseInt(Tv.getText()), Integer.parseInt(Ta.getText()));
+                    try {
+                        Frame a = new Frame(Integer.parseInt(Tv.getText()), Integer.parseInt(Ta.getText()));
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(FrameP.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Lo sentimos, no se han completado todos los campos", "Error", JOptionPane.WARNING_MESSAGE);
                 }
