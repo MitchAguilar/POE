@@ -32,26 +32,27 @@ public class SpiderDeHilos extends Thread {
 
     @Override
     public void run() {
-//        int Al = (int) (Math.random()*(Spider.size()+0));
-        while (Estado) {
-            try {
-                if(Estado)
+        try {
+            if (Estado) {
                 hm.start();
-                sleep(TiempoCarro);
-                if(Estado)
-                hm2.start();
-                sleep(TiempoCarro);
-                if(Estado)
-                hm3.start();
-                sleep(TiempoCarro);
-                sleep(2000);//tiempo hilos
-                hm = new HiloMovimiento(hm.aux, hm.FrmAux, hm.tiempo, hm.posInicial, hm.posFinal, hm.estado);
-                hm2 = new HiloMovimiento(hm2.aux, hm2.FrmAux, hm2.tiempo, hm2.posInicial, hm2.posFinal, hm2.estado);
-                hm3 = new HiloMovimiento(hm3.aux, hm3.FrmAux, hm3.tiempo, hm3.posInicial, hm3.posFinal, hm3.estado);
-                System.err.println("pase");
-            } catch (InterruptedException ex) {
-                Logger.getLogger(SpiderDeHilos.class.getName()).log(Level.SEVERE, null, ex);
             }
+            sleep(TiempoCarro);
+            if (Estado) {
+                hm2.start();
+            }
+            sleep(TiempoCarro);
+            if (Estado) {
+                hm3.start();
+            }
+            sleep(TiempoCarro);
+            sleep(2000);//tiempo hilos
+            hm = new HiloMovimiento(hm.aux, hm.FrmAux, hm.tiempo, hm.posInicial, hm.posFinal, hm.estado);
+            hm2 = new HiloMovimiento(hm2.aux, hm2.FrmAux, hm2.tiempo, hm2.posInicial, hm2.posFinal, hm2.estado);
+            hm3 = new HiloMovimiento(hm3.aux, hm3.FrmAux, hm3.tiempo, hm3.posInicial, hm3.posFinal, hm3.estado);
+            System.err.println("pase");
+        } catch (InterruptedException ex) {
+            Logger.getLogger(SpiderDeHilos.class.getName()).log(Level.SEVERE, null, ex);
         }
+        run();
     }
 }
