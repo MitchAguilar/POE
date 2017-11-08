@@ -6,7 +6,6 @@
 package semaforos;
 
 import MotorVisual.Frame;
-import MotorVisual.FrameP;
 import javax.swing.JOptionPane;
 
 /**

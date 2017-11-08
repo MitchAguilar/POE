@@ -18,8 +18,6 @@ public class SpiderDeHilos extends Thread {
 
     public boolean Estado;
     int TiempoCarro;
-//    ArrayList<HiloMovimiento> Spider = new ArrayList<>();
-//    ArrayList<HiloMovimiento> AuxSpider = new ArrayList<>();
     HiloMovimiento hm, hm2, hm3;
 
     public SpiderDeHilos(boolean Estado, int TiempoCarro, HiloMovimiento hm, HiloMovimiento hm2, HiloMovimiento hm3) {
