@@ -20,6 +20,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
@@ -30,10 +31,11 @@ public class FrameP {
 
     JFrame Fram;
     panel Lona;
+    JPanel imag;
     JLabel TiempoVer, TiempoAma, Aleator;
     Meives.textfieldM Tv, Ta;
     JButton enviar;
-    JCheckBox A1,A2;
+    JCheckBox A1, A2;
 
     public void Components() {
         Lona = new panel(Color.WHITE, 0.5f, "Parametros");
@@ -45,16 +47,17 @@ public class FrameP {
 
         TiempoAma = new JLabel("Tiempo Amarillo:");
         TiempoAma.setBounds(10, 80, 120, 30);
-        
-        Aleator= new JLabel("Semaforos Aleatorios:");
+
+        Aleator = new JLabel("Semaforos Aleatorios:");
         Aleator.setBounds(10, 120, 150, 30);
-        
-        A1= new JCheckBox("Si");//Para el aleatorio
+        Aleator.setEnabled(false);
+
+        A1 = new JCheckBox("Si");//Para el aleatorio
         A1.setBounds(150, 120, 50, 30);
         A1.setOpaque(false);
         A1.setEnabled(false);
-        
-        A2= new JCheckBox("No");//Para el aleatorio
+
+        A2 = new JCheckBox("No");//Para el aleatorio
         A2.setBounds(230, 120, 50, 30);
         A2.setOpaque(false);
         A2.setEnabled(false);
@@ -69,18 +72,29 @@ public class FrameP {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!(Tv.getText().isEmpty() || Ta.getText().isEmpty())) {
-                    Fram.dispose();
-                    try {
-                        Frame a = new Frame(Integer.parseInt(Tv.getText()), Integer.parseInt(Ta.getText()));
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(FrameP.class.getName()).log(Level.SEVERE, null, ex);
+                    if (Integer.parseInt(Tv.getText()) < Integer.parseInt(Ta.getText())) {
+                        JOptionPane.showMessageDialog(null, "Lo sentimos, el tiempo de el amarillo no puede ser mayor al del verde", "Error", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        Fram.dispose();
+                        try {
+                            Frame a = new Frame(Integer.parseInt(Tv.getText()), Integer.parseInt(Ta.getText()));
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(FrameP.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Lo sentimos, no se han completado todos los campos", "Error", JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
-
+        
+        imag= new JPanel();
+        imag.setBounds(50, 150, 100, 100);
+        imag.setLayout(null);
+        Imagen img2= new Imagen("/Complements/transparente.png", imag.getWidth(), imag.getHeight());
+        imag.add(img2);
+        
+        Lona.add(imag);
         Lona.add(TiempoVer);
         Lona.add(Tv);
         Lona.add(Ta);

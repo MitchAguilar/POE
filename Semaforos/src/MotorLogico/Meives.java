@@ -94,7 +94,6 @@ public class Meives {
                 e.consume();
                 JOptionPane.showMessageDialog(null, "Lo sentimos, ése campo no puede recibir un valor tan grande ", "Error", JOptionPane.WARNING_MESSAGE);
             }
-
         }
 
         private void dec(KeyEvent e) {

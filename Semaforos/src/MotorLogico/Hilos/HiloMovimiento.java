@@ -36,54 +36,59 @@ public class HiloMovimiento extends Thread {
 
     @Override
     public void run() {
-        System.err.println("estado " + estado + " entrada");
-        //of x1--->x2 
-        if (estado == 1) {
-            for (int i = posInicial.x; i <= posFinal.x; i = i + 2) {
-                try {
-                    aux.setLocation(i, posFinal.y);
-                    FrmAux.repaint();
-                    sleep(tiempo);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
+        switch (estado) {
+            case 1:
+                //of x1--->x2
+                for (int i = posInicial.x; i <= posFinal.x; i = i + 2) {
+                    try {
+                        aux.setLocation(i, posFinal.y);
+                        FrmAux.repaint();
+                        sleep(tiempo);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-            }
-        }
-        //of x1<---x2
-        if (estado == 2) {
-            for (int i = posInicial.x; i >= posFinal.x; i = i - 2) {
-                try {
-                    aux.setLocation(i, posFinal.y);
-                    FrmAux.repaint();
-                    sleep(tiempo);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
+                break;
+            case 2:
+                //of x1<---x2
+                for (int i = posInicial.x; i >= posFinal.x; i = i - 2) {
+                    try {
+                        aux.setLocation(i, posFinal.y);
+                        FrmAux.repaint();
+                        sleep(tiempo);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
                 }
-            }
-        }
-        // of y1--->y2
-        if (estado == 3) {
-            for (int i = posInicial.y; i <= posFinal.y; i=i+2) {
-                try {
-                    aux.setLocation(posFinal.x, i);
-                    FrmAux.repaint();
-                    sleep(tiempo);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
+                break;
+
+            case 3:
+                // of y1--->y2
+                for (int i = posInicial.y; i <= posFinal.y; i = i + 2) {
+                    try {
+                        aux.setLocation(posFinal.x, i);
+                        FrmAux.repaint();
+                        sleep(tiempo);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-            }
-        }
-        //of y1<---y2
-        if (estado == 4) {
-            for (int i = posInicial.y; i >= posFinal.y; i = i - 2) {
-                try {
-                    aux.setLocation(posFinal.x, i);
-                    FrmAux.repaint();
-                    sleep(tiempo);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
+                break;
+
+            case 4:
+                //of y1<---y2
+                for (int i = posInicial.y; i >= posFinal.y; i = i - 2) {
+                    try {
+                        aux.setLocation(posFinal.x, i);
+                        FrmAux.repaint();
+                        sleep(tiempo);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
                 }
-            }
+                break;
         }
         aux.setLocation(posInicial);
         aux.setVisible(true);

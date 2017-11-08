@@ -6,6 +6,7 @@
 package semaforos;
 
 import MotorVisual.Frame;
+import MotorVisual.FrameP;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,8 +20,8 @@ public class Semaforos {
      */
     public static void main(String[] args) throws InterruptedException {
         try {
-            Frame fr = new Frame(2, 2);
-//            FrameP a = new FrameP();
+//            Frame fr = new Frame(2, 2);
+            FrameP a = new FrameP();
         } catch (StackOverflowError io) {
             JOptionPane.showMessageDialog(null, "Error por memoria", "Error", JOptionPane.WARNING_MESSAGE);
         }
