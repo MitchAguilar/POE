@@ -5,8 +5,6 @@
  */
 package MotorLogico.Hilos;
 
-import java.awt.Point;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -47,7 +45,6 @@ public class SpiderDeHilos extends Thread {
             hm = new HiloMovimiento(hm.aux, hm.FrmAux, hm.tiempo, hm.posInicial, hm.posFinal, hm.estado);
             hm2 = new HiloMovimiento(hm2.aux, hm2.FrmAux, hm2.tiempo, hm2.posInicial, hm2.posFinal, hm2.estado);
             hm3 = new HiloMovimiento(hm3.aux, hm3.FrmAux, hm3.tiempo, hm3.posInicial, hm3.posFinal, hm3.estado);
-            System.err.println("pase");
         } catch (InterruptedException ex) {
             Logger.getLogger(SpiderDeHilos.class.getName()).log(Level.SEVERE, null, ex);
         }

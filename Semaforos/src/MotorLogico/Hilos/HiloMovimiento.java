@@ -45,18 +45,20 @@ public class HiloMovimiento extends Thread {
                         try {
                             aux.setLocation(i, posFinal.y);
                             FrmAux.repaint();
+                            System.out.println("Estado 1");
                             sleep(tiempo);
                         } catch (InterruptedException ex) {
                             Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                     break;
-                //of x1--->x2
+                //of x1<---x2
                 case 2:
-                    for (int i = posFinal.x; i >= posInicial.x; i--) {
+                    for (int i = posFinal.x; i > posInicial.x; i=-2) {
                         try {
                             aux.setLocation(i, posFinal.y);
                             FrmAux.repaint();
+                            System.out.println("Estado 2");
                             sleep(tiempo);
                         } catch (InterruptedException ex) {
                             Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
@@ -69,6 +71,7 @@ public class HiloMovimiento extends Thread {
                         try {
                             aux.setLocation(posFinal.x, i);
                             FrmAux.repaint();
+                            System.out.println("Estado 3");
                             sleep(tiempo);
                         } catch (InterruptedException ex) {
                             Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);
@@ -77,10 +80,11 @@ public class HiloMovimiento extends Thread {
                     break;
                 //of y1<---y2
                 case 4:
-                    for (int i = posFinal.y; i >= posInicial.y; i--) {
+                    for (int i = posInicial.y; i >= posFinal.y; i=i-2) {
                         try {
                             aux.setLocation(posFinal.x, i);
                             FrmAux.repaint();
+                            System.out.println("Estado 4");
                             sleep(tiempo);
                         } catch (InterruptedException ex) {
                             Logger.getLogger(HiloMovimiento.class.getName()).log(Level.SEVERE, null, ex);

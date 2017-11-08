@@ -32,6 +32,7 @@ public class Frame {
     JFrame Fram;
     JPanel Lona, Lona2;
     JLabel Fuente, car1,car2,car3,car4,car5,car6,car7,car8,car9,car10,car11,car12;
+    JLabel[] cars=new JLabel[12];
     JButton start, stop;
     Circulo DeBaAm;
     Circulo DeBaRo, DeBaVe;
@@ -242,7 +243,7 @@ public class Frame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Init(ol);
-                HiloSemaforos hs = new HiloSemaforos(Fram, DeBaAm, DeBaRo, DeBaVe, DeAlAm, DeAlRo, DeAlVe, IzAlAm, IzAlRo, IzAlVe, IzBaAm, IzBaRo, IzBaVe, car1,car2,car3);
+                HiloSemaforos hs = new HiloSemaforos(Fram, DeBaAm, DeBaRo, DeBaVe, DeAlAm, DeAlRo, DeAlVe, IzAlAm, IzAlRo, IzAlVe, IzBaAm, IzBaRo, IzBaVe, cars);
                 hs.tiempo(Tv, ta);
                 hs.start();
                 start.setEnabled(false);
@@ -383,6 +384,19 @@ public class Frame {
         ImageIcon a14 = new ImageIcon(getClass().getResource("/Complements/carro3y1y2.png"));
         Icon fondocara14 = new ImageIcon(a14.getImage().getScaledInstance(car12.getWidth(), car12.getHeight(), Image.SCALE_DEFAULT));
         car12.setIcon(fondocara14);
+        
+        cars[0]=car1;
+        cars[1]=car2;
+        cars[2]=car3;
+        cars[3]=car4;
+        cars[4]=car5;
+        cars[5]=car6;
+        cars[6]=car7;
+        cars[7]=car8;
+        cars[8]=car9;
+        cars[9]=car10;
+        cars[10]=car11;
+        cars[11]=car12;
     }
 
     public void Fram() {

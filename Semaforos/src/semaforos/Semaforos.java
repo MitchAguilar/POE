@@ -19,7 +19,7 @@ public class Semaforos {
      */
     public static void main(String[] args) {
         try {
-            Frame fr = new Frame(20, 2);
+            Frame fr = new Frame(2, 2);
 //            FrameP a = new FrameP();
         } catch (StackOverflowError io) {
             JOptionPane.showMessageDialog(null, "Error por memoria", "Error", JOptionPane.WARNING_MESSAGE);
