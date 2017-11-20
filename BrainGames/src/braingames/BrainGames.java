@@ -5,6 +5,9 @@
  */
 package braingames;
 
+import MotorVisual.GameView;
+import MotorVisual.InitialView;
+
 /**
  *
  * @author Usuario
@@ -16,6 +19,8 @@ public class BrainGames {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+//        InitialView in= new InitialView();
+        GameView in = new GameView();
     }
-    
+
 }

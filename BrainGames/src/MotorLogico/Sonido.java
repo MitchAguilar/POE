@@ -5,12 +5,11 @@
  */
 package MotorLogico;
 
-import javax.swing.JFrame;
+import java.applet.Applet;
+import java.applet.AudioClip;
 
-/**
- *
- * @author Usuario
- */
-public class InitialView {
-    JFrame fr;
+public class Sonido {
+
+    public static final AudioClip Camion = Applet.newAudioClip(Sonido.class.getResource("/Complements/pito.wav"));
+
 }
