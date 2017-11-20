@@ -25,7 +25,7 @@ public class GameView {
         fr.setSize(800, 500);
         fr.setLayout(null);
 
-        Meives.Imagen img = new Meives.Imagen("/Complements/1.jpg", fr.getWidth(), fr.getHeight());
+        Meives.Imagen img = new Meives.Imagen("/Complements/Img/1.jpg", fr.getWidth(), fr.getHeight());
         fr.add(img);
         fr.repaint();
 

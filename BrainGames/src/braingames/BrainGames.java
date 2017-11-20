@@ -19,8 +19,8 @@ public class BrainGames {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-//        InitialView in= new InitialView();
-        GameView in = new GameView();
+        InitialView in= new InitialView();
+//        GameView in = new GameView();
     }
 
 }
