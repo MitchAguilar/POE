@@ -10,6 +10,6 @@ import java.applet.AudioClip;
 
 public class Sound {
 
-    public static final AudioClip Init = Applet.newAudioClip(Sound.class.getResource("/Complements/Audio/1.mp3"));
+    public static final AudioClip Init = Applet.newAudioClip(Sound.class.getResource("/Complements/Audio/1.wav"));
 
 }
