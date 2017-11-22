@@ -5,13 +5,19 @@
  */
 package MotorVisual;
 
+import MotorLogico.Hilos.Pelotas20;
 import MotorLogico.Meives;
+import MotorLogico.PaintBalls;
 import MotorLogico.Sound;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -97,6 +103,9 @@ public class InitialView {
 
         Sound.Init.play();
 
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/Img/icon.png"));
+        fr.setIconImage(icon);
+
         fr.setLocationRelativeTo(null);
         fr.setResizable(false);
         fr.setVisible(true);
@@ -106,5 +115,19 @@ public class InitialView {
     public InitialView() {
         Comp();
         Frm();
+        Balls();
+    }
+
+    public void Balls() {
+        for (int i = 0; i < 40; i++) {
+            Graphics g = fr.getGraphics();
+            PaintBalls b = new PaintBalls(g,fr);
+            b.start();
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(InitialView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }
