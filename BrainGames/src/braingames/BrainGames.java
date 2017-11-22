@@ -5,6 +5,7 @@
  */
 package braingames;
 
+import MotorLogico.frmMain;
 import MotorVisual.GameView;
 import MotorVisual.InitialView;
 
@@ -19,7 +20,9 @@ public class BrainGames {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        InitialView in= new InitialView();
+//        InitialView in= new InitialView();
+        frmMain m = new frmMain();
+        m.setVisible(true);
 //        GameView in = new GameView();
     }
 

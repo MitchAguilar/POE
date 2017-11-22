@@ -73,6 +73,7 @@ public class PaintBalls extends Thread {
             }
             fr.repaint();
             circulo.fillOval(x, y, (int) (diametro), (int) (diametro));
+            
         }
     }
 }

@@ -5,7 +5,6 @@
  */
 package MotorVisual;
 
-import MotorLogico.Hilos.Pelotas20;
 import MotorLogico.Meives;
 import MotorLogico.PaintBalls;
 import MotorLogico.Sound;
@@ -15,7 +14,6 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -24,7 +22,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-import javax.swing.border.LineBorder;
 
 /**
  *
@@ -45,10 +42,12 @@ public class InitialView {
         ImageIcon a2 = new ImageIcon(getClass().getResource("/Complements/Img/3.gif"));
         Icon fnd = new ImageIcon(a2.getImage().getScaledInstance(Init.getWidth(), Init.getHeight(), Image.SCALE_DEFAULT));
         Init.setIcon(fnd);
+        Init.setDoubleBuffered(true);
         Init.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 fr.dispose();
+                Sound.Init.stop();
                 GameView gv = new GameView();
             }
         });
@@ -62,6 +61,7 @@ public class InitialView {
         ImageIcon a3 = new ImageIcon(getClass().getResource("/Complements/Img/4.gif"));
         Icon fnd2 = new ImageIcon(a3.getImage().getScaledInstance(Stadistics.getWidth(), Stadistics.getHeight(), Image.SCALE_DEFAULT));
         Stadistics.setIcon(fnd2);
+        Stadistics.setDoubleBuffered(true);
         Stadistics.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -78,6 +78,7 @@ public class InitialView {
         ImageIcon a4 = new ImageIcon(getClass().getResource("/Complements/Img/5.gif"));
         Icon fnd3 = new ImageIcon(a4.getImage().getScaledInstance(Exit.getWidth(), Exit.getHeight(), Image.SCALE_DEFAULT));
         Exit.setIcon(fnd3);
+        Exit.setDoubleBuffered(true);
         Exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -110,18 +111,21 @@ public class InitialView {
         fr.setResizable(false);
         fr.setVisible(true);
         fr.setDefaultCloseOperation(3);
+
+        Meives.PanelM pn = new Meives.PanelM(Color.white, 0, 0, 0, 600, 500);
+        fr.add(pn);
     }
 
     public InitialView() {
         Comp();
         Frm();
-        Balls();
+//        Balls();
     }
 
     public void Balls() {
         for (int i = 0; i < 40; i++) {
             Graphics g = fr.getGraphics();
-            PaintBalls b = new PaintBalls(g,fr);
+            PaintBalls b = new PaintBalls(g, fr);
             b.start();
             try {
                 Thread.sleep(10);

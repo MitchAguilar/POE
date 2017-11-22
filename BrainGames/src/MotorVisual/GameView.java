@@ -6,6 +6,8 @@
 package MotorVisual;
 
 import MotorLogico.Meives;
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 /**
@@ -24,9 +26,12 @@ public class GameView {
         fr = new JFrame();
         fr.setSize(800, 500);
         fr.setLayout(null);
+        fr.setUndecorated(true);
 
         Meives.Imagen img = new Meives.Imagen("/Complements/Img/1.jpg", fr.getWidth(), fr.getHeight());
         fr.add(img);
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/Img/icon.png"));
+        fr.setIconImage(icon);
         fr.repaint();
 
         fr.setLocationRelativeTo(null);
