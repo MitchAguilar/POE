@@ -6,16 +6,16 @@
 package MotorVisual;
 
 import MotorLogico.Meives;
-import MotorLogico.PaintBalls;
 import MotorLogico.Sound;
+import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.image.BufferedImage;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -35,7 +35,7 @@ public class InitialView {
     public void Comp() {
         Init = new JButton("Start Game");
         Init.setOpaque(false);
-        Init.setBounds(580, 50, 210, 90);
+        Init.setBounds(560, 50, 210, 90);
         Init.setBorder(null);
         Color c = UIManager.getLookAndFeel().getDefaults().getColor("Panel.background");
         Init.setBackground(new Color(c.getRed(), c.getGreen(), c.getBlue()));
@@ -54,7 +54,7 @@ public class InitialView {
 
         Stadistics = new JButton("Stadistics");
         Stadistics.setOpaque(false);
-        Stadistics.setBounds(560, 130, 253, 80);
+        Stadistics.setBounds(540, 130, 253, 80);
         Stadistics.setBorder(null);
         Color c2 = UIManager.getLookAndFeel().getDefaults().getColor("Panel.background");
         Stadistics.setBackground(new Color(c2.getRed(), c2.getGreen(), c2.getBlue()));
@@ -71,7 +71,7 @@ public class InitialView {
 
         Exit = new JButton("Exit");
         Exit.setOpaque(false);
-        Exit.setBounds(620, 200, 130, 80);
+        Exit.setBounds(600, 200, 130, 80);
         Exit.setBorder(null);
         Color c3 = UIManager.getLookAndFeel().getDefaults().getColor("Panel.background");
         Exit.setBackground(new Color(c3.getRed(), c3.getGreen(), c3.getBlue()));
@@ -119,19 +119,35 @@ public class InitialView {
     public InitialView() {
         Comp();
         Frm();
+        MiCanvas md= new MiCanvas(fr.getWidth(), fr.getHeight(),fr);
 //        Balls();
     }
 
-    public void Balls() {
-        for (int i = 0; i < 40; i++) {
-            Graphics g = fr.getGraphics();
-            PaintBalls b = new PaintBalls(g, fr);
-            b.start();
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(InitialView.class.getName()).log(Level.SEVERE, null, ex);
-            }
+    public static class MiCanvas extends Canvas {
+
+        public int WIDTH;
+        public int HEIGHT;
+        private BufferedImage imagenBuffer;
+        private Graphics g_imagenBuffer;
+        private JFrame jf;
+
+        public MiCanvas(int qid,int hei, JFrame fr) {
+            WIDTH=qid;
+            HEIGHT=hei;
+            jf=fr;
+            this.setSize(WIDTH, HEIGHT);
+            //creamos la imagen en memoria
+            imagenBuffer = new BufferedImage(WIDTH,
+                    HEIGHT,
+                    BufferedImage.TYPE_INT_RGB
+            );
+            //obtenemos los graficos
+            g_imagenBuffer = imagenBuffer.getGraphics();
+        }
+
+        @Override
+        public void update(Graphics g) {
+            g.drawImage(imagenBuffer, 0, 0, jf);
         }
     }
 }
