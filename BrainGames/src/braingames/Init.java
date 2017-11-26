@@ -19,8 +19,8 @@ public class Init {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-//        trigger tr= new trigger();
-//        tr.start();
-            InitialView i= new InitialView();
+        trigger tr = new trigger();
+        tr.start();
+//            InitialView i= new InitialView();
     }
 }

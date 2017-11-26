@@ -6,6 +6,7 @@
 package MotorVisual;
 
 import MotorLogico.Meives;
+import MotorLogico.Parpadeo;
 import MotorLogico.Sound;
 import java.awt.Canvas;
 import java.awt.Color;
@@ -119,35 +120,7 @@ public class InitialView {
     public InitialView() {
         Comp();
         Frm();
-        MiCanvas md= new MiCanvas(fr.getWidth(), fr.getHeight(),fr);
+        Parpadeo md = new Parpadeo(fr.getWidth(), fr.getHeight(), fr);
 //        Balls();
-    }
-
-    public static class MiCanvas extends Canvas {
-
-        public int WIDTH;
-        public int HEIGHT;
-        private BufferedImage imagenBuffer;
-        private Graphics g_imagenBuffer;
-        private JFrame jf;
-
-        public MiCanvas(int qid,int hei, JFrame fr) {
-            WIDTH=qid;
-            HEIGHT=hei;
-            jf=fr;
-            this.setSize(WIDTH, HEIGHT);
-            //creamos la imagen en memoria
-            imagenBuffer = new BufferedImage(WIDTH,
-                    HEIGHT,
-                    BufferedImage.TYPE_INT_RGB
-            );
-            //obtenemos los graficos
-            g_imagenBuffer = imagenBuffer.getGraphics();
-        }
-
-        @Override
-        public void update(Graphics g) {
-            g.drawImage(imagenBuffer, 0, 0, jf);
-        }
     }
 }
