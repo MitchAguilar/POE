@@ -331,6 +331,8 @@ public class Meives {
     public static class frameM extends JFrame {
 
         public frameM(Dimension sz, String title) {
+            
+            setUndecorated(true);
             setLayout(null);
             setSize(sz);
             setTitle(title);

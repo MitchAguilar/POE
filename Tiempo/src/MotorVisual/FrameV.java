@@ -5,6 +5,7 @@
  */
 package MotorVisual;
 
+import MotorLogico.ClassCount;
 import MotorLogico.*;
 import MotorLogico.Hilos.HiloCronometro;
 import MotorLogico.Hilos.HiloMovimiento;

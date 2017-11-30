@@ -6,6 +6,9 @@
 package braingames;
 
 import MotorLogico.trigger;
+import MotorVisual.GameOver;
+import MotorVisual.GameViewOneLevel;
+import MotorVisual.GameViewTwoLevel;
 import MotorVisual.InitialView;
 
 /**
@@ -21,6 +24,6 @@ public class Init {
         // TODO code application logic here
         trigger tr = new trigger();
         tr.start();
-//            InitialView i= new InitialView();
+
     }
 }

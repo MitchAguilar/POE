@@ -8,15 +8,13 @@ package MotorVisual;
 import MotorLogico.Meives;
 import MotorLogico.Parpadeo;
 import MotorLogico.Sound;
-import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.Cursor;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -32,6 +30,7 @@ public class InitialView {
 
     JFrame fr;
     JButton Init, Stadistics, Exit;
+    Cursor c;
 
     public void Comp() {
         Init = new JButton("Start Game");
@@ -49,7 +48,7 @@ public class InitialView {
             public void actionPerformed(ActionEvent e) {
                 fr.dispose();
                 Sound.Init.stop();
-                GameView gv = new GameView();
+                GameViewOneLevel gv = new GameViewOneLevel();
             }
         });
 
@@ -83,7 +82,7 @@ public class InitialView {
         Exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Gracias Por Jugar", "Salir", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Gracias Por Jugar", "Salir", JOptionPane.INFORMATION_MESSAGE);
                 System.exit(0);
             }
         });
@@ -107,6 +106,11 @@ public class InitialView {
 
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Complements/Img/icon.png"));
         fr.setIconImage(icon);
+        
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        Image iconoMaus = new ImageIcon(getClass().getResource("/Complements/Img/7.png")).getImage(); //Icono
+        c = tk.createCustomCursor(iconoMaus, new Point(1, 1), "String");
+        fr.setCursor(c);
 
         fr.setLocationRelativeTo(null);
         fr.setResizable(false);

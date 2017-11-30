@@ -5,6 +5,7 @@
  */
 package MotorLogico;
 
+import MotorVisual.SierpinskiCarpet;
 import MotorVisual.InitialView;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,17 +14,18 @@ import java.util.logging.Logger;
  *
  * @author Usuario
  */
-public class trigger extends Thread{
-    public void run(){
+public class trigger extends Thread {
+
+    public void run() {
         try {
-            SierpinskiCarpet spr= new SierpinskiCarpet();
+            SierpinskiCarpet spr = new SierpinskiCarpet();
             spr.main();
             sleep(4700);
             spr.Exit();
-            InitialView mn= new InitialView();
+            InitialView mn = new InitialView();
         } catch (InterruptedException ex) {
             Logger.getLogger(trigger.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 }

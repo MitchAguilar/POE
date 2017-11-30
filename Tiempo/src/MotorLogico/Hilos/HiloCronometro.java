@@ -32,7 +32,7 @@ public class HiloCronometro extends Thread {
             pan1.UpdateProgres(i);
             for (int j = 0; j <= 60; j++) {
                 pan2.UpdateProgres(j);
-                for (int k = 0; k <=100; k++) {
+                for (int k = 0; k <=60; k++) {
                     pan3.UpdateProgres(k);
                     try {
                         sleep(10);
